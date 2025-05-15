@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>malmequer bem me quer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fffaf5;
+      color: #333;
+    }
+    header {
+      background: url('mmqbmq.png') center/contain no-repeat, #fcddec;
+      background-size: 60%;
+      background-position: center;
+      background-repeat: no-repeat;
+      text-align: center;
+      padding: 180px 20px;
+      position: relative;
+    }
+    header::before {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    header h1, header p, header a {
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #cc3366;
+    }
+    header p {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+    .btn {
+      background-color: #ffcccb;
+      border: none;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      border: 1px solid #f0d5d5;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .product img {
+      width: 100%;
+      display: block;
+    }
+    .product-details {
+      padding: 15px;
+    }
+    .product-details h3 {
+      margin: 0;
+      font-size: 1.1em;
+      color: #cc3366;
+    }
+    .filters label, .filters select {
+      margin: 10px;
+    }
+    footer {
+      background-color: #fce4ec;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>malmequer bem me quer</h1>
+    <p>Conforto que floresce no teu corpo.</p>
+    <a href="#catalogo" class="btn">Ver o Catálogo</a>
+  </header>
+
+  <section id="destaques">
+    <h2>Destaques da Coleção</h2>
+    <div class="products">
+      <div class="product">
+        <img src="img/01.png" alt="Cueca Rosa de Algodão">
+        <div class="product-details">
+          <h3>Rosa de Algodão</h3>
+          <a href="#" class="btn">Ver detalhes</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="img/02_modelo.png" alt="Cueca Encanto de Renda em modelo">
+        <div class="product-details">
+          <h3>Encanto de Renda</h3>
+          <a href="#" class="btn">Ver detalhes</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="img/03.png" alt="Cueca Toque Suave">
+        <div class="product-details">
+          <h3>Toque Suave</h3>
+          <a href="#" class="btn">Ver detalhes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogo">
+    <h2>Catálogo Completo</h2>
+    <div class="filters">
+      <label>Tipo:
+        <select>
+          <option>Cueca Alta</option>
+          <option>Biquíni</option>
+          <option>Fio Dental</option>
+        </select>
+      </label>
+      <label>Material:
+        <select>
+          <option>Algodão</option>
+          <option>Renda</option>
+          <option>Microfibra</option>
+        </select>
+      </label>
+      <label>Cor:
+        <select>
+          <option>Rosa</option>
+          <option>Branco</option>
+          <option>Bege</option>
+        </select>
+      </label>
+      <label>Tamanho:
+        <select>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+        </select>
+      </label>
+    </div>
+    <div class="products">
+      <!-- Repetir blocos de produtos aqui -->
+    </div>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre a Marca</h2>
+    <p>“malmequer bem me quer” é uma marca portuguesa criada para mulheres reais — feita com amor, conforto e autoestima em mente. Acreditamos que a roupa íntima deve ser mais do que bonita: deve fazer-te sentir bem, por dentro e por fora.</p>
+  </section>
+
+  <footer>
+    <p>Segue-nos nas redes sociais · Contacto via WhatsApp · <br>Feito com ❤️ em Portugal – malmequer bem me quer</p>
+  <a href="https://wa.me/351935521564?text=Olá%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%A3o%20das%20cuecas" class="btn" style="display:inline-block; margin: 20px auto; background-color:#25D366; color:white;">Falar pelo WhatsApp</a>
+  </footer>
+</body>
+</html>
