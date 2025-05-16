@@ -24,29 +24,44 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: wrap;
     }
 
     .logo {
-  height: 60px;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
-  object-fit: contain;
-}
+      height: 60px;
+      filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.15));
+      object-fit: contain;
+      margin-bottom: 10px;
     }
 
     .header-text {
       text-align: right;
+      flex: 1;
     }
 
     .header-text h1 {
       font-family: 'Playfair Display', serif;
       font-size: 24px;
       margin: 0;
+      word-break: break-word;
     }
 
     .header-text p {
       font-size: 14px;
       color: #777;
       margin: 4px 0 0;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .header-text {
+        text-align: center;
+      }
     }
 
     .hero {
