@@ -16,24 +16,34 @@
 
     header {
       background-color: #f8f8f8;
-      padding: 40px 20px;
-      text-align: center;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       border-bottom: 1px solid #eee;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
+    .logo {
+      height: 60px;
     }
 
-    header p {
-      font-size: 16px;
+    .header-text {
+      text-align: right;
+    }
+
+    .header-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .header-text p {
+      font-size: 14px;
       color: #777;
+      margin: 4px 0 0;
     }
 
     .hero {
@@ -43,6 +53,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
     }
 
     .hero h2 {
@@ -52,6 +63,17 @@
       font-family: 'Playfair Display', serif;
       font-size: 32px;
       animation: fadeIn 2s ease-in;
+      text-align: center;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #fff;
+      background-color: rgba(255, 182, 193, 0.8);
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-style: italic;
     }
 
     @keyframes fadeIn {
@@ -143,12 +165,16 @@
 </head>
 <body>
   <header>
-    <h1>malmequer bem me quer</h1>
-    <p>Moda íntima consciente e feita com amor</p>
+    <img src="mmqbmq.png" alt="Logotipo" class="logo">
+    <div class="header-text">
+      <h1>malmequer bem me quer</h1>
+      <p>Moda íntima consciente e feita com amor</p>
+    </div>
   </header>
 
   <div class="hero">
     <h2>Descobre a tua nova peça favorita</h2>
+    <p>Porque a beleza começa com o que sentimos por dentro.</p>
   </div>
 
   <div class="container">
