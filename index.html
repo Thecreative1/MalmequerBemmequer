@@ -7,141 +7,282 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #fff;
+      background: #fff;
       color: #333;
       font-family: 'Open Sans', sans-serif;
       margin: 0;
       padding: 0;
     }
+    html { scroll-behavior: smooth; }
+
+    .topbar-lang {
+      position: absolute;
+      top: 14px; right: 22px;
+      z-index: 9999;
+      display: flex;
+      gap: 6px;
+    }
+    .lang-btn {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 2px;
+      border-radius: 5px;
+      transition: box-shadow 0.2s, border 0.2s;
+      outline: none;
+    }
+    .lang-btn.active,
+    .lang-btn:hover {
+      box-shadow: 0 0 0 2px #fcb8d2;
+      border: 1.5px solid #872657;
+    }
+    .lang-btn img {
+      width: 26px;
+      vertical-align: middle;
+      border-radius: 4px;
+      box-shadow: 0 1px 4px #fff9;
+      filter: grayscale(0%);
+      transition: filter 0.2s;
+    }
+    .lang-btn:not(.active) img {
+      filter: grayscale(70%);
+      opacity: 0.6;
+    }
+    @media (max-width: 600px) {
+      .topbar-lang { top: 9px; right: 12px; }
+      .lang-btn img { width: 22px; }
+    }
 
     header {
-      min-height: 80px;
       background-color: #fcb8d2;
-      padding: 20px;
+      padding: 16px 10vw 8px 10vw;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid #eee;
+      flex-wrap: wrap;
       position: sticky;
       top: 0;
       z-index: 1000;
-      flex-wrap: wrap;
     }
-
     .logo {
-      height: 80px;
+      height: 65px;
       object-fit: contain;
-      margin-bottom: 0;
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.85);
       border-radius: 50%;
-      padding: 10px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      padding: 10px;
+      margin-right: 14px;
+      box-shadow: 0 0 18px rgba(255,255,255,0.7);
     }
-
-    .header-text {
-      text-align: right;
+    .header-center {
       flex: 1;
+      text-align: center;
+      min-width: 180px;
     }
-
-    .header-text h1 {
+    .header-center h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 24px;
+      font-size: 2em;
+      margin: 0 0 4px 0;
+      font-weight: bold;
+    }
+    .header-center p {
+      font-size: 1em;
       margin: 0;
-      word-break: break-word;
+      color: #872657;
     }
-
-    .header-text p {
-      font-size: 14px;
-      color: #777;
-      margin: 4px 0 0;
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
     }
-
+    nav a {
+      text-decoration: none;
+      color: #872657;
+      font-weight: bold;
+      font-size: 1.08em;
+      padding: 7px 16px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a.active, nav a:hover {
+      background: #fff;
+      color: #f35e8c;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      margin-left: 18px;
+    }
+    .menu-bar {
+      height: 4px;
+      width: 28px;
+      background: #872657;
+      border-radius: 3px;
+      margin: 4px 0;
+      transition: .3s;
+    }
+    @media (max-width: 900px) {
+      header { flex-direction: column; padding: 12px 5vw 8px 5vw; }
+      .header-center { order: 1; }
+      .logo { order: 0; margin-bottom: 10px; }
+      nav { margin-top: 8px; }
+    }
     @media (max-width: 600px) {
       header {
+        flex-direction: row;
+        padding: 10px 12px 6px 12px;
+      }
+      .logo { height: 46px; margin-bottom: 0; }
+      .header-center { min-width: 0; }
+      .menu-toggle { display: flex; }
+      nav {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-end;
+        background: #fcb8d2;
+        position: absolute;
+        right: 6px; top: 65px;
+        min-width: 150px;
+        box-shadow: 0 3px 15px #ffd6e94a;
+        display: none;
       }
-
-      .header-text {
-        text-align: center;
-      }
+      nav.open { display: flex; }
     }
-
     .hero {
       width: 100%;
-      height: 70vh;
-      background: url('img/01.png') no-repeat center center/cover;
+      height: 42vh;
+      min-height: 270px;
+      background: url('img/01.jpeg') no-repeat center center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      margin-bottom: 30px;
     }
-
     .hero h2 {
-      background-color: rgba(255,255,255,0.8);
-      padding: 20px 40px;
-      border-radius: 10px;
+      background-color: rgba(255,255,255,0.85);
+      padding: 18px 32px;
+      border-radius: 12px;
       font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      animation: fadeIn 2s ease-in;
+      font-size: 2em;
+      animation: fadeIn 1.4s;
       text-align: center;
+      margin: 0;
     }
-
     .hero p {
-      margin-top: 20px;
-      font-size: 18px;
+      margin-top: 14px;
+      font-size: 1.15em;
       color: #fff;
-      background-color: rgba(255, 182, 193, 0.8);
-      padding: 10px 20px;
-      border-radius: 20px;
+      background-color: rgba(255, 182, 193, 0.88);
+      padding: 10px 22px;
+      border-radius: 16px;
       font-style: italic;
+      text-shadow: 0 2px 5px #b4789a44;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* BOTÃO VER CATÁLOGO */
+    .catalogo-btn-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 24px 0 18px 0;
     }
-
+    .catalogo-btn {
+      display: inline-block;
+      background: linear-gradient(90deg,#fcb8d2 70%, #fff8fb 100%);
+      color: #872657;
+      font-weight: bold;
+      font-size: 2rem;
+      padding: 20px 60px;
+      border-radius: 22px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px #ffd6e992, 0 1.5px 0px #fff;
+      letter-spacing: 2px;
+      transition: all 0.2s;
+      border: 2.5px solid #fcb8d2;
+      margin-top: -6px;
+    }
+    .catalogo-btn:hover {
+      background: linear-gradient(90deg,#fff8fb 10%, #fcb8d2 100%);
+      color: #f35e8c;
+      border-color: #f35e8c;
+      transform: scale(1.04) translateY(-2px);
+      box-shadow: 0 8px 32px #ffd6e9cc, 0 3px 0 #fff;
+    }
+    @media (max-width:600px) {
+      .catalogo-btn {
+        font-size: 1.25rem;
+        padding: 13px 18vw;
+        border-radius: 14px;
+      }
+    }
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 60px 20px;
+      padding: 36px 20px;
       text-align: center;
     }
-
+    /* Novidades */
+    .novidades-section h2 {
+      font-size: 2em;
+      color: #872657;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+    }
     .product-preview {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 40px;
+      gap: 40px 36px;
     }
-
     .product {
-      flex: 1 1 300px;
-      max-width: 300px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
+      flex: 1 1 240px;
+      max-width: 270px;
+      min-width: 170px;
+      background: #fff8fb;
+      border-radius: 14px;
+      box-shadow: 0 2px 14px #ffd6e9a9;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border: 1px solid #fff8fb;
+      transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
     }
-
-    .product.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .product:hover {
+      box-shadow: 0 6px 26px #ffd6e9ea;
+      border: 1.5px solid #fcb8d2;
+      transform: scale(1.03);
     }
-
     .product img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 10px 10px 0 0;
+      margin-bottom: 8px;
+      margin-top: 0;
     }
-
     .product p {
-      margin-top: 10px;
-      font-size: 16px;
+      margin: 0 12px 0 12px;
+      font-size: 15px;
+      text-align: left;
     }
-
+    @media (max-width: 800px) {
+      .product-preview { flex-direction: column; align-items: center; }
+      .product { min-width: 0; max-width: 98vw; width: 100%; }
+    }
+    .about {
+      background-color: #fff8f8;
+      padding: 48px 20px 32px 20px;
+      text-align: center;
+    }
+    .about h2 {
+      font-size: 1.8em;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 14px;
+    }
+    .about p {
+      font-size: 16px;
+      max-width: 740px;
+      margin: 0 auto 16px;
+      text-align: justify;
+    }
     .whatsapp-button {
       position: fixed;
       bottom: 20px;
@@ -149,101 +290,186 @@
       background-color: #25d366;
       color: white;
       border: none;
-      padding: 12px 20px;
+      padding: 15px 28px;
       border-radius: 50px;
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.19);
       text-decoration: none;
       z-index: 999;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
-
-    .about {
-      background-color: #fff8f8;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .about h2 {
-      font-size: 28px;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 20px;
-    }
-
-    .about p {
-      font-size: 16px;
-      max-width: 800px;
-      margin: 0 auto 20px;
-      text-align: justify;
-    }
-
     footer {
       background-color: #f8f8f8;
-      padding: 30px 20px;
+      padding: 24px 12px;
       text-align: center;
-      font-size: 14px;
+      font-size: 15px;
       color: #999;
       border-top: 1px solid #eee;
+    }
+    footer a {
+      color: #fcb8d2;
+      font-weight: bold;
+      text-decoration: none;
+      margin-left: 8px;
+    }
+    footer a:hover { color: #872657; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(18px);}
+      to   { opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
 <body>
+  <div class="topbar-lang">
+    <button class="lang-btn active" id="pt-btn" onclick="setLang('pt')" title="Português">
+      <img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/pt.svg" alt="PT">
+    </button>
+    <button class="lang-btn" id="es-btn" onclick="setLang('es')" title="Español">
+      <img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/es.svg" alt="ES">
+    </button>
+  </div>
   <header>
     <img src="mmqbmq.png" alt="Logotipo" class="logo">
-    <div class="header-text">
-      <h1>Malmequer bem me Quer</h1>
-      <p>Moda íntima consciente e feita com amor</p>
+    <div class="header-center">
+      <h1 id="site-title">Malmequer bem me Quer</h1>
+      <p id="site-desc">Moda íntima consciente e feita com amor</p>
     </div>
+    <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
+      <div class="menu-bar"></div>
+      <div class="menu-bar"></div>
+      <div class="menu-bar"></div>
+    </div>
+    <nav id="main-nav">
+      <a href="#" class="active" id="nav-home">Home</a>
+      <a href="catalogo.html" id="nav-catalogo">Catálogo</a>
+      <a href="#about" id="nav-about">Sobre</a>
+    </nav>
   </header>
-
   <div class="hero">
-    <h2>Descobre a tua nova peça favorita</h2>
-    <p>Porque a beleza começa com o que sentimos por dentro.</p>
+    <h2 id="hero-title">Descobre a tua nova peça favorita</h2>
+    <p id="hero-desc">Porque a beleza começa com o que sentimos por dentro.</p>
   </div>
 
-  <div class="container">
-    <h2>Novidades</h2>
+  <!-- BOTÃO VER CATÁLOGO CENTRAL -->
+  <div class="catalogo-btn-section">
+    <a href="catalogo.html" class="catalogo-btn" id="btn-catalogo">
+      Ver Catálogo
+    </a>
+  </div>
+
+  <div class="container novidades-section">
+    <h2 id="nov-title">Novidades</h2>
     <div class="product-preview">
       <div class="product">
-        <img src="img/01.png" alt="Produto 1">
-        <p>Conjunto floral delicado</p>
+        <img src="img/01.jpeg" alt="Cueca com detalhe floral">
+        <p id="nov1-desc"><strong>Cueca floral delicada</strong><br>
+        Algodão macio e padrão floral minimalista.<br>
+        <em>Conforto e frescura para o dia-a-dia.</em></p>
       </div>
       <div class="product">
-        <img src="img/02.png" alt="Produto 2">
-        <p>Top em algodão orgânico</p>
+        <img src="img/02.jpeg" alt="Cueca branca com renda">
+        <p id="nov2-desc"><strong>Cueca branca com renda</strong><br>
+        Detalhe romântico e elegante.<br>
+        <em>Para quem adora um toque especial.</em></p>
       </div>
       <div class="product">
-        <img src="img/03.png" alt="Produto 3">
-        <p>Conjunto sensual em renda</p>
+        <img src="img/03.jpeg" alt="Cueca bege clássica">
+        <p id="nov3-desc"><strong>Cueca clássica bege</strong><br>
+        Algodão orgânico, corte confortável.<br>
+        <em>Simples e intemporal.</em></p>
       </div>
     </div>
   </div>
-
-  <div class="about">
-    <h2>Sobre Nós</h2>
-    <p>A marca “malmequer bem me quer” nasceu da vontade de criar algo que refletisse a delicadeza, a sensualidade e a força das mulheres.</p>
-    <p>Inspirada na beleza natural e na autenticidade, cada peça foi pensada para fazer-te sentir confortável e confiante.</p>
-    <p>Acreditamos numa moda íntima consciente, feita com amor e com respeito pelo corpo e pelo ambiente. Cada detalhe, cada costura, carrega um pedaço da nossa paixão.</p>
+  <div class="about" id="about">
+    <h2 id="about-title">Sobre Nós</h2>
+    <p id="about-1">A marca “malmequer bem me quer” nasceu da vontade de criar algo que refletisse a delicadeza, a sensualidade e a força das mulheres.</p>
+    <p id="about-2">Inspirada na beleza natural e na autenticidade, cada peça foi pensada para fazer-te sentir confortável e confiante.</p>
+    <p id="about-3">Acreditamos numa moda íntima consciente, feita com amor e com respeito pelo corpo e pelo ambiente. Cada detalhe, cada costura, carrega um pedaço da nossa paixão.</p>
   </div>
-
   <a class="whatsapp-button" href="https://wa.me/351935521564?text=Olá%2C%20gostaria%20de%20mais%20informações%20sobre%20as%20cuecas." target="_blank">
     WhatsApp
   </a>
-
   <footer>
-    Feito com amor em Portugal – 2025
+    Feito com amor em Portugal – 2025 &nbsp; | &nbsp;
+    <a href="https://instagram.com/teulink" target="_blank">Instagram</a>
   </footer>
-
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+    // Menu mobile toggle
+    function toggleMenu() {
+      var nav = document.getElementById('main-nav');
+      nav.classList.toggle('open');
+    }
 
-    document.querySelectorAll('.product').forEach(el => observer.observe(el));
+    // Textos PT/ES
+    const texts = {
+      pt: {
+        title: "Malmequer bem me Quer",
+        desc: "Moda íntima consciente e feita com amor",
+        home: "Home",
+        catalogo: "Catálogo",
+        sobre: "Sobre",
+        heroTitle: "Descobre a tua nova peça favorita",
+        heroDesc: "Porque a beleza começa com o que sentimos por dentro.",
+        btnCatalogo: "Ver Catálogo",
+        novidades: "Novidades",
+        nov1: "<strong>Cueca floral delicada</strong><br>Algodão macio e padrão floral minimalista.<br><em>Conforto e frescura para o dia-a-dia.</em>",
+        nov2: "<strong>Cueca branca com renda</strong><br>Detalhe romântico e elegante.<br><em>Para quem adora um toque especial.</em>",
+        nov3: "<strong>Cueca clássica bege</strong><br>Algodão orgânico, corte confortável.<br><em>Simples e intemporal.</em>",
+        aboutTitle: "Sobre Nós",
+        about1: "A marca “malmequer bem me quer” nasceu da vontade de criar algo que refletisse a delicadeza, a sensualidade e a força das mulheres.",
+        about2: "Inspirada na beleza natural e na autenticidade, cada peça foi pensada para fazer-te sentir confortável e confiante.",
+        about3: "Acreditamos numa moda íntima consciente, feita com amor e com respeito pelo corpo e pelo ambiente. Cada detalhe, cada costura, carrega um pedaço da nossa paixão."
+      },
+      es: {
+        title: "Malmequer bien me Quiere",
+        desc: "Moda íntima consciente y hecha con amor",
+        home: "Inicio",
+        catalogo: "Catálogo",
+        sobre: "Sobre nosotros",
+        heroTitle: "Descubre tu nueva prenda favorita",
+        heroDesc: "Porque la belleza empieza por lo que sentimos por dentro.",
+        btnCatalogo: "Ver Catálogo",
+        novidades: "Novedades",
+        nov1: "<strong>Braga floral delicada</strong><br>Algodón suave y estampado floral minimalista.<br><em>Comodidad y frescura para el día a día.</em>",
+        nov2: "<strong>Braga blanca con encaje</strong><br>Detalle romántico y elegante.<br><em>Para quienes adoran un toque especial.</em>",
+        nov3: "<strong>Braga clásica beige</strong><br>Algodón orgánico, corte cómodo.<br><em>Sencilla y atemporal.</em>",
+        aboutTitle: "Sobre nosotros",
+        about1: "La marca “malmequer bien me quiere” nació del deseo de crear algo que reflejara la delicadeza, la sensualidad y la fuerza de las mujeres.",
+        about2: "Inspirada en la belleza natural y en la autenticidad, cada prenda está pensada para que te sientas cómoda y segura.",
+        about3: "Creemos en una moda íntima consciente, hecha con amor y respeto por el cuerpo y el medio ambiente. Cada detalle, cada costura, lleva un pedacito de nuestra pasión."
+      }
+    };
+
+    function setLang(lang) {
+      document.getElementById('pt-btn').classList.toggle('active', lang === 'pt');
+      document.getElementById('es-btn').classList.toggle('active', lang === 'es');
+      document.getElementById('site-title').innerText = texts[lang].title;
+      document.getElementById('site-desc').innerText = texts[lang].desc;
+      document.getElementById('nav-home').innerText = texts[lang].home;
+      document.getElementById('nav-catalogo').innerText = texts[lang].catalogo;
+      document.getElementById('nav-about').innerText = texts[lang].sobre;
+      document.getElementById('hero-title').innerText = texts[lang].heroTitle;
+      document.getElementById('hero-desc').innerText = texts[lang].heroDesc;
+      document.getElementById('btn-catalogo').innerText = texts[lang].btnCatalogo;
+      document.getElementById('nov-title').innerText = texts[lang].novidades;
+      document.getElementById('nov1-desc').innerHTML = texts[lang].nov1;
+      document.getElementById('nov2-desc').innerHTML = texts[lang].nov2;
+      document.getElementById('nov3-desc').innerHTML = texts[lang].nov3;
+      document.getElementById('about-title').innerText = texts[lang].aboutTitle;
+      document.getElementById('about-1').innerText = texts[lang].about1;
+      document.getElementById('about-2').innerText = texts[lang].about2;
+      document.getElementById('about-3').innerText = texts[lang].about3;
+    }
+    // Default: Português
+    setLang('pt');
+    // Fecha menu mobile ao clicar em link (melhora UX)
+    document.querySelectorAll('#main-nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
   </script>
 </body>
 </html>
