@@ -100,7 +100,7 @@
     WhatsApp
   </a>
   <footer>
-    Feito com amor em Portugal – 2025 &nbsp; | &nbsp;
+    Feito com amor em Portugal – <span id="year"></span> &nbsp; | &nbsp;
     <a href="https://instagram.com/teulink" target="_blank">Instagram</a>
   </footer>
   <script>
@@ -254,6 +254,8 @@
     }
     // Inicialização
     renderProdutos('pt');
+    // Atualiza ano automaticamente
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
