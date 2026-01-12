@@ -225,7 +225,7 @@
     .hero::after{
       content:"";
       position:absolute; inset:0;
-      background: linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.15), rgba(0,0,0,.55));
+      background: linear-gradient(180deg, rgba(135,38,87,.18), rgba(0,0,0,.06));
     }
     .hero-content{
       position: relative;
@@ -242,7 +242,7 @@
       font-family: "Playfair Display", serif;
       font-size: 2.15rem;
       color: #fff;
-      text-shadow: 0 10px 22px rgba(0,0,0,.35);
+      text-shadow: 0 10px 22px rgba(0,0,0,.25);
       max-width: 18ch;
     }
     .hero p{
@@ -332,13 +332,22 @@
       transform: translateY(-3px);
       box-shadow: 0 16px 40px rgba(0,0,0,.08);
     }
+
+    /* IMPORTANT: font-size:0 evita o texto do alt aparecer quando a imagem falha */
     .card img{
       width: 100%;
       height: 260px;
       object-fit: cover;
       display: block;
       background: #eee;
+      font-size: 0;
     }
+    .card img.broken{
+      object-fit: contain;
+      padding: 26px;
+      background: linear-gradient(135deg, rgba(252,184,210,.22), rgba(255,248,251,1));
+    }
+
     .card .content{
       padding: 14px 14px 16px;
     }
@@ -540,21 +549,21 @@
       <p class="sub" id="nov-sub">Três peças recentes para veres o estilo e o conforto.</p>
 
       <div class="grid">
-        <!-- Card 1 (ref a confirmar) -->
+        <!-- Card 1 -->
         <article class="card">
-          <img src="img/01.jpeg" alt="Cueca com detalhe floral" loading="lazy" width="1200" height="800">
+          <img src="img/01.jpeg" alt="Cueca com detalhe floral" loading="lazy" width="1200" height="800" onerror="imgFallback(this)">
           <div class="content">
             <p class="ref" id="nov1-ref">Ref: <strong>a confirmar</strong></p>
             <p class="title" id="nov1-title"><strong>Cueca floral delicada</strong></p>
-            <p class="desc" id="nov1-desc">Algodão macio e padrão floral minimalista.</p>
+            <p class="desc" id="nov1-desc">Tecido macio e padrão floral minimalista.</p>
             <p class="meta" id="nov1-meta"></p>
             <a class="card-cta" href="catalogo.html" id="nov1-cta">Ver no catálogo</a>
           </div>
         </article>
 
-        <!-- Card 2 (ref a confirmar) -->
+        <!-- Card 2 -->
         <article class="card">
-          <img src="img/02.jpeg" alt="Cueca branca com renda" loading="lazy" width="1200" height="800">
+          <img src="img/02.jpeg" alt="Cueca branca com renda" loading="lazy" width="1200" height="800" onerror="imgFallback(this)">
           <div class="content">
             <p class="ref" id="nov2-ref">Ref: <strong>a confirmar</strong></p>
             <p class="title" id="nov2-title"><strong>Cueca branca com renda</strong></p>
@@ -566,8 +575,8 @@
 
         <!-- Card 3 (Ref-150) -->
         <article class="card">
-          <!-- Troca o ficheiro se necessário: img/ref-150.jpg -->
-          <img src="img/ref-150.jpg" alt="Bikini elástico invisível — Ref-150" loading="lazy" width="1200" height="800">
+          <!-- ATENÇÃO: confirma o nome do ficheiro (GitHub Pages distingue maiúsculas/minúsculas) -->
+          <img src="img/ref-150.jpg" alt="Bikini elástico invisível — Ref-150" loading="lazy" width="1200" height="800" onerror="imgFallback(this)">
           <div class="content">
             <p class="ref" id="nov3-ref">Ref: <strong>Ref-150</strong></p>
             <p class="title" id="nov3-title"><strong>Bikini elástico invisível</strong></p>
@@ -583,7 +592,7 @@
       <h3 id="about-title" style="margin:0 0 12px; font-family:'Playfair Display',serif; color:var(--brand); font-size:1.6rem;">Sobre Nós</h3>
       <p id="about-1">A marca “malmequer bem me quer” nasceu da vontade de criar algo que refletisse a delicadeza, a sensualidade e a força das mulheres.</p>
       <p id="about-2">Inspirada na beleza natural e na autenticidade, cada peça foi pensada para fazer-te sentir confortável e confiante.</p>
-      <p id="about-3">Acreditamos numa moda íntima consciente, feita com amor e com respeito pelo corpo e pelo ambiente. Cada detalhe, cada costura, carrega um pedaço da nossa paixão.</p>
+      <p id="about-3">Acreditamos numa moda íntima consciente, feita com amor e com respeito pelo corpo e pelo ambiente.</p>
     </section>
 
     <footer>
@@ -597,6 +606,28 @@
   </a>
 
   <script>
+    // Fallback de imagem (evita layout partido e evita o alt aparecer na "caixa")
+    function imgFallback(img){
+      if (img.dataset.fallbackApplied) return;
+      img.dataset.fallbackApplied = "1";
+      img.classList.add("broken");
+
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
+          <rect width="100%" height="100%" fill="#fff8fb"/>
+          <text x="50%" y="46%" text-anchor="middle" dominant-baseline="middle"
+                font-family="Open Sans, Arial, sans-serif" font-size="46" fill="#872657">
+            Imagem em falta
+          </text>
+          <text x="50%" y="56%" text-anchor="middle" dominant-baseline="middle"
+                font-family="Open Sans, Arial, sans-serif" font-size="28" fill="#6b6b6b">
+            Confirma o nome do ficheiro em /img
+          </text>
+        </svg>
+      `;
+      img.src = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+    }
+
     const nav = document.getElementById("main-nav");
     const menuBtn = document.getElementById("menu-btn");
 
@@ -638,29 +669,37 @@
         novSub: "Três peças recentes para veres o estilo e o conforto.",
         cta: "Ver no catálogo",
 
-        nov1: {
-          ref: "Ref: a confirmar",
-          title: "Cueca floral delicada",
-          desc: "Algodão macio e padrão floral minimalista.",
-          meta: ""
-        },
-        nov2: {
-          ref: "Ref: a confirmar",
-          title: "Cueca branca com renda",
-          desc: "Detalhe romântico e elegante.",
-          meta: ""
-        },
-        nov3: {
-          ref: "Ref: Ref-150",
-          title: "Bikini elástico invisível",
-          desc: "Discreto e confortável. Tamanhos M–XXL.",
-          meta: "Cores: Branco · Preto · Camel · Pérola"
+        cards: {
+          nov1: {
+            refLabel: "Ref:",
+            refValue: "a confirmar",
+            title: "Cueca floral delicada",
+            desc: "Tecido macio e padrão floral minimalista.",
+            metaLabel: "",
+            metaValue: ""
+          },
+          nov2: {
+            refLabel: "Ref:",
+            refValue: "a confirmar",
+            title: "Cueca branca com renda",
+            desc: "Detalhe romântico e elegante.",
+            metaLabel: "",
+            metaValue: ""
+          },
+          nov3: {
+            refLabel: "Ref:",
+            refValue: "Ref-150",
+            title: "Bikini elástico invisível",
+            desc: "Discreto e confortável. Tamanhos M–XXL.",
+            metaLabel: "Cores:",
+            metaValue: "Branco · Preto · Camel · Pérola"
+          }
         },
 
         aboutTitle: "Sobre Nós",
         about1: "A marca “malmequer bem me quer” nasceu da vontade de criar algo que refletisse a delicadeza, a sensualidade e a força das mulheres.",
         about2: "Inspirada na beleza natural e na autenticidade, cada peça foi pensada para fazer-te sentir confortável e confiante.",
-        about3: "Acreditamos numa moda íntima consciente, feita com amor e com respeito pelo corpo e pelo ambiente. Cada detalhe, cada costura, carrega um pedaço da nossa paixão.",
+        about3: "Acreditamos numa moda íntima consciente, feita com amor e com respeito pelo corpo e pelo ambiente.",
         waText: "Olá, gostaria de mais informações sobre as peças."
       },
       es: {
@@ -678,74 +717,63 @@
         novSub: "Tres piezas recientes para ver el estilo y la comodidad.",
         cta: "Ver en el catálogo",
 
-        nov1: {
-          ref: "Ref: por confirmar",
-          title: "Braga floral delicada",
-          desc: "Algodón suave y estampado floral minimalista.",
-          meta: ""
-        },
-        nov2: {
-          ref: "Ref: por confirmar",
-          title: "Braga blanca con encaje",
-          desc: "Detalle romántico y elegante.",
-          meta: ""
-        },
-        nov3: {
-          ref: "Ref: Ref-150",
-          title: "Bikini elástico invisible",
-          desc: "Discreto y cómodo. Tallas M–XXL.",
-          meta: "Colores: Blanco · Negro · Camel · Perla"
+        cards: {
+          nov1: {
+            refLabel: "Ref:",
+            refValue: "por confirmar",
+            title: "Braga floral delicada",
+            desc: "Tejido suave y estampado floral minimalista.",
+            metaLabel: "",
+            metaValue: ""
+          },
+          nov2: {
+            refLabel: "Ref:",
+            refValue: "por confirmar",
+            title: "Braga blanca con encaje",
+            desc: "Detalle romántico y elegante.",
+            metaLabel: "",
+            metaValue: ""
+          },
+          nov3: {
+            refLabel: "Ref:",
+            refValue: "Ref-150",
+            title: "Bikini elástico invisible",
+            desc: "Discreto y cómodo. Tallas M–XXL.",
+            metaLabel: "Colores:",
+            metaValue: "Blanco · Negro · Camel · Perla"
+          }
         },
 
         aboutTitle: "Sobre nosotros",
         about1: "La marca “malmequer bien me quiere” nació del deseo de crear algo que reflejara la delicadeza, la sensualidad y la fuerza de las mujeres.",
         about2: "Inspirada en la belleza natural y en la autenticidad, cada prenda está pensada para que te sientas cómoda y segura.",
-        about3: "Creemos en una moda íntima consciente, hecha con amor y respeto por el cuerpo y el medio ambiente. Cada detalle, cada costura, lleva un pedacito de nuestra pasión.",
+        about3: "Creemos en una moda íntima consciente, hecha con amor y respeto por el cuerpo y el medio ambiente.",
         waText: "Hola, me gustaría más información sobre las prendas."
       }
     };
 
-    function setCard(card, key){
-      // Ref (mantém o <strong> se existir)
+    function setCard(key, card, lang){
       const refEl = document.getElementById(`${key}-ref`);
       const titleEl = document.getElementById(`${key}-title`);
       const descEl = document.getElementById(`${key}-desc`);
       const metaEl = document.getElementById(`${key}-meta`);
       const ctaEl = document.getElementById(`${key}-cta`);
 
-      // ref com <strong> (format simples)
-      if (refEl) {
-        const parts = card.ref.split(":");
-        if (parts.length >= 2) {
-          const label = parts[0].trim() + ":";
-          const value = parts.slice(1).join(":").trim();
-          refEl.innerHTML = `${label} <strong>${value}</strong>`;
-        } else {
-          refEl.textContent = card.ref;
-        }
-      }
-
+      if (refEl) refEl.innerHTML = `${card.refLabel} <strong>${card.refValue}</strong>`;
       if (titleEl) titleEl.innerHTML = `<strong>${card.title}</strong>`;
       if (descEl) descEl.textContent = card.desc;
+
       if (metaEl) {
-        // meta com label em negrito (span) se tiver "Cores:"/"Colores:" etc
-        if (card.meta && card.meta.includes(":")) {
-          const m = card.meta.split(":");
-          const mLabel = m[0].trim() + ":";
-          const mValue = m.slice(1).join(":").trim();
-          metaEl.innerHTML = `<span>${mLabel}</span> ${mValue}`;
+        if (card.metaLabel && card.metaValue) {
+          metaEl.innerHTML = `<span>${card.metaLabel}</span> ${card.metaValue}`;
         } else {
-          metaEl.textContent = card.meta || "";
+          metaEl.textContent = "";
         }
       }
-      if (ctaEl) ctaEl.textContent = texts[currentLang].cta;
+      if (ctaEl) ctaEl.textContent = texts[lang].cta;
     }
 
-    let currentLang = "pt";
-
     function setLang(lang){
-      currentLang = lang;
-
       // Persistência
       localStorage.setItem("mmq_lang", lang);
 
@@ -772,9 +800,9 @@
       document.getElementById("nov-sub").innerText = texts[lang].novSub;
 
       // Cards
-      setCard(texts[lang].nov1, "nov1");
-      setCard(texts[lang].nov2, "nov2");
-      setCard(texts[lang].nov3, "nov3");
+      setCard("nov1", texts[lang].cards.nov1, lang);
+      setCard("nov2", texts[lang].cards.nov2, lang);
+      setCard("nov3", texts[lang].cards.nov3, lang);
 
       // About
       document.getElementById("about-title").innerText = texts[lang].aboutTitle;
