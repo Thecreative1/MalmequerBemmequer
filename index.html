@@ -1,475 +1,190 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malmequer bem me Quer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background: #fff;
-      color: #333;
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    html { scroll-behavior: smooth; }
-
-    .topbar-lang {
-      position: absolute;
-      top: 14px; right: 22px;
-      z-index: 9999;
-      display: flex;
-      gap: 6px;
-    }
-    .lang-btn {
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      padding: 2px;
-      border-radius: 5px;
-      transition: box-shadow 0.2s, border 0.2s;
-      outline: none;
-    }
-    .lang-btn.active,
-    .lang-btn:hover {
-      box-shadow: 0 0 0 2px #fcb8d2;
-      border: 1.5px solid #872657;
-    }
-    .lang-btn img {
-      width: 26px;
-      vertical-align: middle;
-      border-radius: 4px;
-      box-shadow: 0 1px 4px #fff9;
-      filter: grayscale(0%);
-      transition: filter 0.2s;
-    }
-    .lang-btn:not(.active) img {
-      filter: grayscale(70%);
-      opacity: 0.6;
-    }
-    @media (max-width: 600px) {
-      .topbar-lang { top: 9px; right: 12px; }
-      .lang-btn img { width: 22px; }
-    }
-
-    header {
-      background-color: #fcb8d2;
-      padding: 16px 10vw 8px 10vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #eee;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo {
-      height: 65px;
-      object-fit: contain;
-      border-radius: 50%;
-      margin-right: 14px;
-      box-shadow: 0 0 18px rgba(255,255,255,0.7);
-    }
-    .header-center {
-      flex: 1;
-      text-align: center;
-      min-width: 180px;
-    }
-    .header-center h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2em;
-      margin: 0 0 4px 0;
-      font-weight: bold;
-    }
-    .header-center p {
-      font-size: 1em;
-      margin: 0;
-      color: #872657;
-    }
-    nav {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-    nav a {
-      text-decoration: none;
-      color: #872657;
-      font-weight: bold;
-      font-size: 1.08em;
-      padding: 7px 16px;
-      border-radius: 6px;
-      transition: background 0.2s, color 0.2s;
-    }
-    nav a.active, nav a:hover {
-      background: #fff;
-      color: #f35e8c;
-    }
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      cursor: pointer;
-      margin-left: 18px;
-    }
-    .menu-bar {
-      height: 4px;
-      width: 28px;
-      background: #872657;
-      border-radius: 3px;
-      margin: 4px 0;
-      transition: .3s;
-    }
-    @media (max-width: 900px) {
-      header { flex-direction: column; padding: 12px 5vw 8px 5vw; }
-      .header-center { order: 1; }
-      .logo { order: 0; margin-bottom: 10px; }
-      nav { margin-top: 8px; }
-    }
-    @media (max-width: 600px) {
-      header {
-        flex-direction: row;
-        padding: 10px 12px 6px 12px;
-      }
-      .logo { height: 46px; margin-bottom: 0; }
-      .header-center { min-width: 0; }
-      .menu-toggle { display: flex; }
-      nav {
-        flex-direction: column;
-        align-items: flex-end;
-        background: #fcb8d2;
-        position: absolute;
-        right: 6px; top: 65px;
-        min-width: 150px;
-        box-shadow: 0 3px 15px #ffd6e94a;
-        display: none;
-      }
-      nav.open { display: flex; }
-    }
-    .hero {
-      width: 100%;
-      height: 42vh;
-      min-height: 270px;
-      background: url('img/01.jpeg') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      margin-bottom: 30px;
-    }
-    .hero h2 {
-      background-color: rgba(255,255,255,0.85);
-      padding: 18px 32px;
-      border-radius: 12px;
-      font-family: 'Playfair Display', serif;
-      font-size: 2em;
-      animation: fadeIn 1.4s;
-      text-align: center;
-      margin: 0;
-    }
-    .hero p {
-      margin-top: 14px;
-      font-size: 1.15em;
-      color: #fff;
-      background-color: rgba(255, 182, 193, 0.88);
-      padding: 10px 22px;
-      border-radius: 16px;
-      font-style: italic;
-      text-shadow: 0 2px 5px #b4789a44;
-    }
-    /* BOTÃO VER CATÁLOGO */
-    .catalogo-btn-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 24px 0 18px 0;
-    }
-    .catalogo-btn {
-      display: inline-block;
-      background: linear-gradient(90deg,#fcb8d2 70%, #fff8fb 100%);
-      color: #872657;
-      font-weight: bold;
-      font-size: 2rem;
-      padding: 20px 60px;
-      border-radius: 22px;
-      text-decoration: none;
-      box-shadow: 0 4px 16px #ffd6e992, 0 1.5px 0px #fff;
-      letter-spacing: 2px;
-      transition: all 0.2s;
-      border: 2.5px solid #fcb8d2;
-      margin-top: -6px;
-    }
-    .catalogo-btn:hover {
-      background: linear-gradient(90deg,#fff8fb 10%, #fcb8d2 100%);
-      color: #f35e8c;
-      border-color: #f35e8c;
-      transform: scale(1.04) translateY(-2px);
-      box-shadow: 0 8px 32px #ffd6e9cc, 0 3px 0 #fff;
-    }
-    @media (max-width:600px) {
-      .catalogo-btn {
-        font-size: 1.25rem;
-        padding: 13px 18vw;
-        border-radius: 14px;
-      }
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 36px 20px;
-      text-align: center;
-    }
-    /* Novidades */
-    .novidades-section h2 {
-      font-size: 2em;
-      color: #872657;
-      margin-bottom: 20px;
-      font-family: 'Playfair Display', serif;
-    }
-    .product-preview {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px 36px;
-    }
-    .product {
-      flex: 1 1 240px;
-      max-width: 270px;
-      min-width: 170px;
-      background: #fff8fb;
-      border-radius: 14px;
-      box-shadow: 0 2px 14px #ffd6e9a9;
-      margin-bottom: 8px;
-      padding-bottom: 8px;
-      border: 1px solid #fff8fb;
-      transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
-    }
-    .product:hover {
-      box-shadow: 0 6px 26px #ffd6e9ea;
-      border: 1.5px solid #fcb8d2;
-      transform: scale(1.03);
-    }
-    .product img {
-      width: 100%;
-      border-radius: 10px 10px 0 0;
-      margin-bottom: 8px;
-      margin-top: 0;
-    }
-    .product p {
-      margin: 0 12px 0 12px;
-      font-size: 15px;
-      text-align: left;
-    }
-    @media (max-width: 800px) {
-      .product-preview { flex-direction: column; align-items: center; }
-      .product { min-width: 0; max-width: 98vw; width: 100%; }
-    }
-    .about {
-      background-color: #fff8f8;
-      padding: 48px 20px 32px 20px;
-      text-align: center;
-    }
-    .about h2 {
-      font-size: 1.8em;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 14px;
-    }
-    .about p {
-      font-size: 16px;
-      max-width: 740px;
-      margin: 0 auto 16px;
-      text-align: justify;
-    }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: white;
-      border: none;
-      padding: 15px 28px;
-      border-radius: 50px;
-      font-size: 18px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.19);
-      text-decoration: none;
-      z-index: 999;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    footer {
-      background-color: #f8f8f8;
-      padding: 24px 12px;
-      text-align: center;
-      font-size: 15px;
-      color: #999;
-      border-top: 1px solid #eee;
-    }
-    footer a {
-      color: #fcb8d2;
-      font-weight: bold;
-      text-decoration: none;
-      margin-left: 8px;
-    }
-    footer a:hover { color: #872657; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(18px);}
-      to   { opacity: 1; transform: translateY(0);}
-    }
-  </style>
+  <title>Malmequer bem me Quer | Catálogo digital</title>
+  <meta name="description" content="Catálogo digital da Malmequer bem me Quer com modelos de moda íntima, apresentação comercial e atendimento direto por WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="topbar-lang">
-    <button class="lang-btn active" id="pt-btn" onclick="setLang('pt')" title="Português">
-      <img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/pt.svg" alt="PT">
-    </button>
-    <button class="lang-btn" id="es-btn" onclick="setLang('es')" title="Español">
-      <img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/es.svg" alt="ES">
-    </button>
-  </div>
-  <header>
-    <img src="mmqbmq.png" alt="Logotipo" class="logo">
-    <div class="header-center">
-      <h1 id="site-title">Malmequer bem me Quer</h1>
-      <p id="site-desc">Moda íntima consciente e feita com amor</p>
+<body data-page="home">
+  <a class="skip-link" href="#main-content" data-i18n="skipContent">Saltar para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Malmequer bem me Quer">
+        <img class="brand-logo" src="mmqbmq.png" alt="Logótipo da Malmequer bem me Quer">
+        <div class="brand-copy">
+          <strong class="brand-name" data-i18n="siteTitle">Malmequer bem me Quer</strong>
+          <span class="brand-tag" data-i18n="siteTagline">Catálogo digital de cuecas e moda íntima confortável</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="nav-panel" aria-expanded="false" data-i18n-aria="menuLabel">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="visually-hidden" data-i18n="menuLabel">Abrir menu</span>
+      </button>
+
+      <div class="nav-panel" id="nav-panel">
+        <nav class="nav-links" aria-label="Principal">
+          <a class="nav-link is-active" href="index.html" data-i18n="navHome">Início</a>
+          <a class="nav-link" href="catalogo.html" data-i18n="navCatalog">Catálogo</a>
+        </nav>
+
+        <div class="lang-switch" aria-label="Seletor de idioma" data-i18n-aria="languageLabel">
+          <button class="lang-btn is-active" type="button" data-lang="pt" aria-pressed="true">PT</button>
+          <button class="lang-btn" type="button" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+
+        <a class="button secondary small header-cta js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="navCta">Pedir atendimento</a>
+      </div>
     </div>
-    <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
-      <div class="menu-bar"></div>
-      <div class="menu-bar"></div>
-      <div class="menu-bar"></div>
-    </div>
-    <nav id="main-nav">
-      <a href="#" class="active" id="nav-home">Home</a>
-      <a href="catalogo.html" id="nav-catalogo">Catálogo</a>
-      <a href="#about" id="nav-about">Sobre</a>
-    </nav>
   </header>
-  <div class="hero">
-    <h2 id="hero-title">Descobre a tua nova peça favorita</h2>
-    <p id="hero-desc">Porque a beleza começa com o que sentimos por dentro.</p>
-  </div>
 
-  <!-- BOTÃO VER CATÁLOGO CENTRAL -->
-  <div class="catalogo-btn-section">
-    <a href="catalogo.html" class="catalogo-btn" id="btn-catalogo">
-      Ver Catálogo
-    </a>
-  </div>
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-copy surface-panel">
+        <span class="eyebrow" data-i18n="heroEyebrow">Coleção essencial</span>
+        <h1 data-i18n="homeHeroTitle">Moda íntima pensada para o conforto diário, com um toque delicado.</h1>
+        <p class="hero-lead" data-i18n="homeHeroDesc">Um catálogo simples de explorar, com modelos femininos, linhas clássicas e atendimento direto por WhatsApp para transformar interesse em encomenda.</p>
+        <div class="hero-actions">
+          <a class="button" href="catalogo.html" data-i18n="ctaCatalog">Ver catálogo</a>
+          <a class="button secondary js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="ctaWhatsApp">Falar no WhatsApp</a>
+        </div>
+      </div>
 
-  <div class="container novidades-section">
-    <h2 id="nov-title">Novidades</h2>
-    <div class="product-preview">
-      <div class="product">
-        <img src="img/01.jpeg" alt="Cueca com detalhe floral">
-        <p id="nov1-desc"><strong>Cueca floral delicada</strong><br>
-        Algodão macio e padrão floral minimalista.<br>
-        <em>Conforto e frescura para o dia-a-dia.</em></p>
+      <div class="hero-visual">
+        <div class="image-stack">
+          <img class="hero-image" src="img/02.jpeg" alt="Modelo de cueca da coleção Malmequer" fetchpriority="high">
+          <div class="floating-note">
+            <strong data-i18n="heroPanelTitle">O que vais encontrar</strong>
+            <p data-i18n="heroPanelBody">Modelos básicos, versões com renda, estampados suaves e opções maxi para quem prioriza conforto.</p>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <article class="stat-card">
+            <strong data-model-count>10</strong>
+            <span data-i18n="heroStatModelsLabel">Modelos</span>
+          </article>
+          <article class="stat-card">
+            <strong data-category-count>04</strong>
+            <span data-i18n="heroStatCategoriesLabel">Categorias</span>
+          </article>
+        </div>
       </div>
-      <div class="product">
-        <img src="img/02.jpeg" alt="Cueca branca com renda">
-        <p id="nov2-desc"><strong>Cueca branca com renda</strong><br>
-        Detalhe romântico e elegante.<br>
-        <em>Para quem adora um toque especial.</em></p>
+    </section>
+
+    <noscript class="noscript-note" data-i18n="noScript">Ativa o JavaScript para navegar pelo catálogo completo e utilizar os filtros desta página.</noscript>
+
+    <section class="section">
+      <div class="section-intro">
+        <span class="eyebrow" data-i18n="benefitsEyebrow">Por que escolher</span>
+        <h2 class="section-title" data-i18n="benefitsTitle">Uma vitrine mais preparada para vender</h2>
       </div>
-      <div class="product">
-        <img src="img/03.jpeg" alt="Cueca bege clássica">
-        <p id="nov3-desc"><strong>Cueca clássica bege</strong><br>
-        Algodão orgânico, corte confortável.<br>
-        <em>Simples e intemporal.</em></p>
+
+      <div class="benefit-grid">
+        <article class="benefit-card">
+          <span class="card-kicker" data-i18n="benefit1Kicker">Estrutura</span>
+          <h3 class="card-title" data-i18n="benefit1Title">Catálogo organizado</h3>
+          <p class="card-text" data-i18n="benefit1Desc">Os modelos estão agrupados por estilo, com uma navegação mais clara e pronta para atendimento comercial.</p>
+        </article>
+        <article class="benefit-card">
+          <span class="card-kicker" data-i18n="benefit2Kicker">Atendimento</span>
+          <h3 class="card-title" data-i18n="benefit2Title">Pedido imediato</h3>
+          <p class="card-text" data-i18n="benefit2Desc">Cada peça tem ligação direta para o WhatsApp, para reduzir passos e acelerar a resposta ao cliente.</p>
+        </article>
+        <article class="benefit-card">
+          <span class="card-kicker" data-i18n="benefit3Kicker">Marca</span>
+          <h3 class="card-title" data-i18n="benefit3Title">Visual profissional</h3>
+          <p class="card-text" data-i18n="benefit3Desc">A nova apresentação reforça identidade, confiança e melhora a experiência em telemóvel e computador.</p>
+        </article>
       </div>
+    </section>
+
+    <section class="section">
+      <div class="section-intro">
+        <span class="eyebrow" data-i18n="collectionsEyebrow">Coleções</span>
+        <h2 class="section-title" data-i18n="collectionsTitle">Explora por estilo</h2>
+      </div>
+      <div class="collection-grid" id="home-collections" aria-live="polite"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-intro">
+        <span class="eyebrow" data-i18n="previewEyebrow">Destaques</span>
+        <h2 class="section-title" data-i18n="previewTitle">Peças em evidência</h2>
+      </div>
+      <div class="preview-grid" id="home-preview" aria-live="polite"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-intro">
+        <span class="eyebrow" data-i18n="processEyebrow">Como encomendar</span>
+        <h2 class="section-title" data-i18n="processTitle">Compra simples, sem complicação</h2>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-card">
+          <span class="card-kicker" data-i18n="process1Kicker">1</span>
+          <h3 class="card-title" data-i18n="process1Title">Escolhe os modelos</h3>
+          <p class="card-text" data-i18n="process1Desc">Explora o catálogo e identifica as peças que mais combinam com o estilo ou a necessidade da cliente.</p>
+        </article>
+        <article class="process-card">
+          <span class="card-kicker" data-i18n="process2Kicker">2</span>
+          <h3 class="card-title" data-i18n="process2Title">Envia uma mensagem</h3>
+          <p class="card-text" data-i18n="process2Desc">Clica no WhatsApp geral ou no botão do produto para pedir mais detalhes sobre a peça desejada.</p>
+        </article>
+        <article class="process-card">
+          <span class="card-kicker" data-i18n="process3Kicker">3</span>
+          <h3 class="card-title" data-i18n="process3Title">Fecha a encomenda</h3>
+          <p class="card-text" data-i18n="process3Desc">Confirma disponibilidade, tamanhos e entrega diretamente no atendimento, sem passos desnecessários.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section about-section">
+      <div class="about-copy surface-panel">
+        <span class="eyebrow" data-i18n="aboutEyebrow">A marca</span>
+        <h2 class="section-title" data-i18n="aboutTitle">Delicadeza, conforto e proximidade</h2>
+        <p data-i18n="aboutBody1">A identidade da Malmequer bem me Quer transmite suavidade, cuidado e um atendimento mais humano. O catálogo passa a mostrar isso com mais clareza desde a primeira dobra da página.</p>
+        <p data-i18n="aboutBody2">A proposta foi transformada numa montra digital mais comercial: organizada, elegante e prática para partilha por mensagem, redes sociais ou atendimento direto.</p>
+      </div>
+
+      <aside class="about-quote surface-panel">
+        <span class="quote-mark">"</span>
+        <p class="quote-text" data-i18n="aboutQuote">Quando o catálogo é bonito e fácil de usar, a marca ganha confiança antes mesmo da primeira conversa.</p>
+      </aside>
+    </section>
+
+    <section class="section contact-strip">
+      <div class="contact-copy">
+        <span class="eyebrow" data-i18n="contactEyebrow">Atendimento</span>
+        <h2 class="section-title" data-i18n="contactTitle">Queres montar a tua encomenda?</h2>
+        <p data-i18n="contactDesc">Envia uma mensagem com os modelos de interesse e recebe ajuda rápida para avançar com o pedido.</p>
+      </div>
+
+      <div class="contact-actions">
+        <a class="button js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="contactPrimary">Pedir no WhatsApp</a>
+        <a class="button ghost" href="catalogo.html" data-i18n="contactSecondary">Abrir catálogo</a>
+      </div>
+    </section>
+  </main>
+
+  <a class="floating-whatsapp button js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="floatingWhatsApp">WhatsApp</a>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong data-i18n="siteTitle">Malmequer bem me Quer</strong></div>
+      <div><span id="current-year">2026</span> · <span data-i18n="footerNote">Catálogo digital pensado para um negócio de moda íntima.</span></div>
     </div>
-  </div>
-  <div class="about" id="about">
-    <h2 id="about-title">Sobre Nós</h2>
-    <p id="about-1">A marca “malmequer bem me quer” nasceu da vontade de criar algo que refletisse a delicadeza, a sensualidade e a força das mulheres.</p>
-    <p id="about-2">Inspirada na beleza natural e na autenticidade, cada peça foi pensada para fazer-te sentir confortável e confiante.</p>
-    <p id="about-3">Acreditamos numa moda íntima consciente, feita com amor e com respeito pelo corpo e pelo ambiente. Cada detalhe, cada costura, carrega um pedaço da nossa paixão.</p>
-  </div>
-  <a class="whatsapp-button" href="https://wa.me/351935521564?text=Olá%2C%20gostaria%20de%20mais%20informações%20sobre%20as%20cuecas." target="_blank">
-    WhatsApp
-  </a>
-  <footer>
-    Feito com amor em Portugal – 2025 &nbsp; | &nbsp;
-    <a href="https://instagram.com/teulink" target="_blank">Instagram</a>
   </footer>
-  <script>
-    // Menu mobile toggle
-    function toggleMenu() {
-      var nav = document.getElementById('main-nav');
-      nav.classList.toggle('open');
-    }
 
-    // Textos PT/ES
-    const texts = {
-      pt: {
-        title: "Malmequer bem me Quer",
-        desc: "Moda íntima consciente e feita com amor",
-        home: "Home",
-        catalogo: "Catálogo",
-        sobre: "Sobre",
-        heroTitle: "Descobre a tua nova peça favorita",
-        heroDesc: "Porque a beleza começa com o que sentimos por dentro.",
-        btnCatalogo: "Ver Catálogo",
-        novidades: "Novidades",
-        nov1: "<strong>Cueca floral delicada</strong><br>Algodão macio e padrão floral minimalista.<br><em>Conforto e frescura para o dia-a-dia.</em>",
-        nov2: "<strong>Cueca branca com renda</strong><br>Detalhe romântico e elegante.<br><em>Para quem adora um toque especial.</em>",
-        nov3: "<strong>Cueca clássica bege</strong><br>Algodão orgânico, corte confortável.<br><em>Simples e intemporal.</em>",
-        aboutTitle: "Sobre Nós",
-        about1: "A marca “malmequer bem me quer” nasceu da vontade de criar algo que refletisse a delicadeza, a sensualidade e a força das mulheres.",
-        about2: "Inspirada na beleza natural e na autenticidade, cada peça foi pensada para fazer-te sentir confortável e confiante.",
-        about3: "Acreditamos numa moda íntima consciente, feita com amor e com respeito pelo corpo e pelo ambiente. Cada detalhe, cada costura, carrega um pedaço da nossa paixão."
-      },
-      es: {
-        title: "Malmequer bien me Quiere",
-        desc: "Moda íntima consciente y hecha con amor",
-        home: "Inicio",
-        catalogo: "Catálogo",
-        sobre: "Sobre nosotros",
-        heroTitle: "Descubre tu nueva prenda favorita",
-        heroDesc: "Porque la belleza empieza por lo que sentimos por dentro.",
-        btnCatalogo: "Ver Catálogo",
-        novidades: "Novedades",
-        nov1: "<strong>Braga floral delicada</strong><br>Algodón suave y estampado floral minimalista.<br><em>Comodidad y frescura para el día a día.</em>",
-        nov2: "<strong>Braga blanca con encaje</strong><br>Detalle romántico y elegante.<br><em>Para quienes adoran un toque especial.</em>",
-        nov3: "<strong>Braga clásica beige</strong><br>Algodón orgánico, corte cómodo.<br><em>Sencilla y atemporal.</em>",
-        aboutTitle: "Sobre nosotros",
-        about1: "La marca “malmequer bien me quiere” nació del deseo de crear algo que reflejara la delicadeza, la sensualidad y la fuerza de las mujeres.",
-        about2: "Inspirada en la belleza natural y en la autenticidad, cada prenda está pensada para que te sientas cómoda y segura.",
-        about3: "Creemos en una moda íntima consciente, hecha con amor y respeto por el cuerpo y el medio ambiente. Cada detalle, cada costura, lleva un pedacito de nuestra pasión."
-      }
-    };
-
-    function setLang(lang) {
-      document.getElementById('pt-btn').classList.toggle('active', lang === 'pt');
-      document.getElementById('es-btn').classList.toggle('active', lang === 'es');
-      document.getElementById('site-title').innerText = texts[lang].title;
-      document.getElementById('site-desc').innerText = texts[lang].desc;
-      document.getElementById('nav-home').innerText = texts[lang].home;
-      document.getElementById('nav-catalogo').innerText = texts[lang].catalogo;
-      document.getElementById('nav-about').innerText = texts[lang].sobre;
-      document.getElementById('hero-title').innerText = texts[lang].heroTitle;
-      document.getElementById('hero-desc').innerText = texts[lang].heroDesc;
-      document.getElementById('btn-catalogo').innerText = texts[lang].btnCatalogo;
-      document.getElementById('nov-title').innerText = texts[lang].novidades;
-      document.getElementById('nov1-desc').innerHTML = texts[lang].nov1;
-      document.getElementById('nov2-desc').innerHTML = texts[lang].nov2;
-      document.getElementById('nov3-desc').innerHTML = texts[lang].nov3;
-      document.getElementById('about-title').innerText = texts[lang].aboutTitle;
-      document.getElementById('about-1').innerText = texts[lang].about1;
-      document.getElementById('about-2').innerText = texts[lang].about2;
-      document.getElementById('about-3').innerText = texts[lang].about3;
-    }
-    // Default: Português
-    setLang('pt');
-    // Fecha menu mobile ao clicar em link (melhora UX)
-    document.querySelectorAll('#main-nav a').forEach(a => {
-      a.addEventListener('click', () => {
-        document.getElementById('main-nav').classList.remove('open');
-      });
-    });
-  </script>
+  <script src="site.js" defer></script>
 </body>
 </html>
