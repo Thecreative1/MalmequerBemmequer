@@ -1054,3 +1054,86 @@ main {
     width: calc(100% - 32px);
   }
 }
+
+/* ── Entrance & scroll-reveal animations ──────────────────────── */
+
+@keyframes fade-slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-enter {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes wa-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(125, 49, 72, 0.32); }
+  70%  { box-shadow: 0 0 0 18px rgba(125, 49, 72, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(125, 49, 72, 0); }
+}
+
+[data-page="home"] .hero-copy .eyebrow {
+  animation: fade-slide-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+[data-page="home"] .hero-copy h1 {
+  animation: fade-slide-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+}
+
+[data-page="home"] .hero-lead {
+  animation: fade-slide-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+[data-page="home"] .hero-actions {
+  animation: fade-slide-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.42s both;
+}
+
+[data-page="home"] .hero-image {
+  animation: scale-enter 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.floating-whatsapp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  pointer-events: none;
+  animation: wa-ring 2.6s ease-out 2s infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity  0.52s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-grid .reveal:nth-child(2) { transition-delay: 0.1s; }
+.process-grid .reveal:nth-child(3) { transition-delay: 0.2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-page="home"] .hero-copy .eyebrow,
+  [data-page="home"] .hero-copy h1,
+  [data-page="home"] .hero-lead,
+  [data-page="home"] .hero-actions,
+  [data-page="home"] .hero-image {
+    animation: none;
+  }
+
+  .floating-whatsapp::after {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

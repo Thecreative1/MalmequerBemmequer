@@ -446,6 +446,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeCatalogState();
   refreshPage();
   setupCatalogControls();
+  setupStaticReveal();
 });
 
 function getInitialLanguage() {
@@ -693,8 +694,9 @@ function renderHomePreview() {
   const featuredProducts = PRODUCTS.filter((product) => product.featured);
 
   container.innerHTML = featuredProducts
-    .map((product) => buildProductCard(product, state.lang, "home"))
+    .map((product, i) => buildProductCard(product, state.lang, "home", i))
     .join("");
+  observeRevealElements(container);
 }
 
 function renderCatalogFilters() {
@@ -756,11 +758,12 @@ function renderCatalogProducts() {
 
   resultsNode.textContent = `${total} ${label}`;
   grid.innerHTML = filteredProducts
-    .map((product) => buildProductCard(product, state.lang, "catalog"))
+    .map((product, i) => buildProductCard(product, state.lang, "catalog", i))
     .join("");
 
   grid.hidden = total === 0;
   emptyState.hidden = total !== 0;
+  observeRevealElements(grid);
 
   if (resetButton) {
     const hasFilters = state.category !== "all" || state.search.trim() !== "";
@@ -797,7 +800,7 @@ function getFilteredProducts() {
   });
 }
 
-function buildProductCard(product, lang, context) {
+function buildProductCard(product, lang, context, index = 0) {
   const translated = product[lang];
   const category = CATEGORY_META[product.category][lang];
   const buttonLabel = context === "catalog"
@@ -805,7 +808,7 @@ function buildProductCard(product, lang, context) {
     : SITE_TEXT[lang].previewCta;
 
   return `
-    <article class="product-card">
+    <article class="product-card reveal" style="transition-delay: ${(index * 0.07).toFixed(2)}s">
       <div class="product-media">
         <img src="${escapeHtml(product.image)}" alt="${escapeHtml(translated.name)}" loading="lazy" decoding="async">
       </div>
@@ -886,4 +889,41 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+let _revealObserver = null;
+
+function getRevealObserver() {
+  if (_revealObserver) return _revealObserver;
+  if (!("IntersectionObserver" in window)) return null;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return null;
+
+  _revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          _revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  return _revealObserver;
+}
+
+function observeRevealElements(container) {
+  const observer = getRevealObserver();
+  const scope = container || document;
+  if (!observer) {
+    scope.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+  scope.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => observer.observe(el));
+}
+
+function setupStaticReveal() {
+  document.querySelectorAll(".process-card").forEach((el) => el.classList.add("reveal"));
+  observeRevealElements(document.querySelector(".process-grid"));
 }
