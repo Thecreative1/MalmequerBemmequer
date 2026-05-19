@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx skills *)"
+      "Bash(npx skills *)",
+      "Bash(ls \"E:\\\\Git Projects\\\\GIT_HUB\" 2>&1)",
+      "Bash(ls \"E:\\\\Git Projects\" 2>&1)"
     ]
   }
 }
