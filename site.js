@@ -504,6 +504,16 @@ function setupMenu() {
       closeMenu();
     }
   });
+
+  document.addEventListener("click", (event) => {
+    if (
+      navPanel.classList.contains("is-open") &&
+      !navPanel.contains(event.target) &&
+      !menuButton.contains(event.target)
+    ) {
+      closeMenu();
+    }
+  });
 }
 
 function setupLanguageButtons() {
@@ -589,7 +599,6 @@ function refreshPage() {
   applyTextContent();
   updateGenericWhatsappLinks();
   updateLanguageButtons();
-  updateMetrics();
 
   if (getCurrentPage() === "home") {
     renderHomeCollections();
@@ -639,15 +648,6 @@ function updateLanguageButtons() {
   });
 }
 
-function updateMetrics() {
-  document.querySelectorAll("[data-model-count]").forEach((node) => {
-    node.textContent = String(PRODUCTS.length).padStart(2, "0");
-  });
-
-  document.querySelectorAll("[data-category-count]").forEach((node) => {
-    node.textContent = String(Object.keys(CATEGORY_META).length).padStart(2, "0");
-  });
-}
 
 function updateGenericWhatsappLinks() {
   document.querySelectorAll(".js-whatsapp-generic").forEach((link) => {
@@ -722,7 +722,7 @@ function renderCatalogFilters() {
     .map((entry) => {
       const isActive = entry.key === state.category;
       return `
-        <button class="filter-chip${isActive ? " is-active" : ""}" type="button" data-filter="${escapeHtml(entry.key)}">
+        <button class="filter-chip${isActive ? " is-active" : ""}" type="button" data-filter="${escapeHtml(entry.key)}" aria-pressed="${isActive}">
           ${escapeHtml(entry.label)} (${entry.count})
         </button>
       `;
