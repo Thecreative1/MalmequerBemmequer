@@ -65,6 +65,20 @@ const SITE_TEXT = {
       "Do básico de algodão à renda romântica, o portefólio foi construído para lojas que procuram peças com identidade própria e fáceis de recomendar — em Portugal e em Espanha, sempre com atendimento próximo.",
     aboutQuote:
       "Conforto que se recomenda sozinho — peça a peça, pétala a pétala.",
+    faqEyebrow: "Antes de encomendar",
+    faqTitle: "Perguntas frequentes",
+    faq1Q: "Qual é a quantidade mínima de encomenda?",
+    faq1A:
+      "As condições de revenda e as quantidades mínimas são definidas caso a caso, conforme o perfil da loja. Fale connosco no WhatsApp e receba uma proposta à medida.",
+    faq2Q: "Que tamanhos estão disponíveis?",
+    faq2A:
+      "Os modelos cobrem os tamanhos habituais de senhora, incluindo linhas maxi de cintura alta. A disponibilidade por modelo e tamanho é confirmada no atendimento.",
+    faq3Q: "Quanto tempo demora a entrega?",
+    faq3A:
+      "Enviamos para Portugal e Espanha. O prazo depende do destino e da quantidade, e é confirmado no momento da encomenda.",
+    faq4Q: "Como funciona o pagamento?",
+    faq4A:
+      "As condições de pagamento são combinadas diretamente com a marca no fecho da encomenda, sem intermediários.",
     contactEyebrow: "Contactos & envios",
     contactTitle: "Vamos levar a margarida à sua montra?",
     contactDesc:
@@ -173,6 +187,20 @@ const SITE_TEXT = {
       "Del básico de algodón al encaje romántico, el portafolio está construido para tiendas que buscan piezas con identidad propia y fáciles de recomendar — en Portugal y en España, siempre con atención cercana.",
     aboutQuote:
       "Comodidad que se recomienda sola — pieza a pieza, pétalo a pétalo.",
+    faqEyebrow: "Antes de pedir",
+    faqTitle: "Preguntas frecuentes",
+    faq1Q: "¿Cuál es la cantidad mínima de pedido?",
+    faq1A:
+      "Las condiciones de reventa y las cantidades mínimas se definen caso a caso, según el perfil de la tienda. Habla con nosotros por WhatsApp y recibe una propuesta a medida.",
+    faq2Q: "¿Qué tallas están disponibles?",
+    faq2A:
+      "Los modelos cubren las tallas habituales de señora, incluyendo líneas maxi de cintura alta. La disponibilidad por modelo y talla se confirma en la atención.",
+    faq3Q: "¿Cuánto tarda la entrega?",
+    faq3A:
+      "Enviamos a Portugal y España. El plazo depende del destino y de la cantidad, y se confirma en el momento del pedido.",
+    faq4Q: "¿Cómo funciona el pago?",
+    faq4A:
+      "Las condiciones de pago se acuerdan directamente con la marca al cerrar el pedido, sin intermediarios.",
     contactEyebrow: "Contactos & envíos",
     contactTitle: "¿Llevamos la margarita a tu escaparate?",
     contactDesc:

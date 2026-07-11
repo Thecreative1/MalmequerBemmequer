@@ -8,7 +8,9 @@
       "Skill(impeccable)",
       "Skill(impeccable:*)",
       "Bash(ls .github)",
-      "Bash(cat CNAME)"
+      "Bash(cat CNAME)",
+      "Bash(magick identify *)",
+      "Bash(git rm *)"
     ]
   }
 }

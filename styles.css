@@ -936,6 +936,70 @@ main {
   color: var(--ink);
 }
 
+/* ── Perguntas frequentes ──────────────────────────────────── */
+
+.faq-list {
+  display: grid;
+  gap: 14px;
+  max-width: 840px;
+}
+
+.faq-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-weight: 630;
+  font-size: 1.25rem;
+  color: var(--brand-deep);
+  transition: background 0.2s ease;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "✿";
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--brand);
+  font-size: 1rem;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease;
+}
+
+.faq-item summary:hover {
+  background: var(--petal-soft);
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(135deg);
+  background: var(--sun);
+  color: var(--ink);
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 24px 22px;
+  max-width: 62ch;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
 /* ── Faixa de contactos / envios ───────────────────────────── */
 
 .contact-strip {
