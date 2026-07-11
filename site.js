@@ -98,7 +98,7 @@ const SITE_TEXT = {
     catalogResultsPlural: "modelos encontrados",
     catalogAllFilter: "Todos",
     catalogHelpEyebrow: "Ajuda rápida",
-    catalogHelpTitle: "Precisa de ajuda a montar a encomenda?",
+    catalogHelpTitle: "Precisa de ajuda a preparar a encomenda?",
     catalogHelpDesc:
       "Fale connosco no WhatsApp e receba sugestões conforme o perfil das suas clientes. Envios para Portugal e Espanha.",
     catalogHelpButton: "Falar com a marca",
@@ -206,7 +206,7 @@ const SITE_TEXT = {
     catalogResultsPlural: "modelos encontrados",
     catalogAllFilter: "Todos",
     catalogHelpEyebrow: "Ayuda rápida",
-    catalogHelpTitle: "¿Necesitas ayuda para montar el pedido?",
+    catalogHelpTitle: "¿Necesitas ayuda para preparar el pedido?",
     catalogHelpDesc:
       "Habla con nosotros por WhatsApp y recibe sugerencias según el perfil de tus clientas. Envíos a Portugal y España.",
     catalogHelpButton: "Hablar con la marca",
