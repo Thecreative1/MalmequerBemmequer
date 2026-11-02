@@ -48,7 +48,8 @@ O visual é o de um fabricante: **o rosa vem do logotipo e funde-se com ele; o r
 
 - Cores: rosa `--pink #f4bdda` (cor exata do fundo de `mmqbmq.png`, para o logótipo não mostrar recorte), tinta `--ink #3f1229`, papel `--paper #fdfbfc`, fundo das fotos `--photo #f3f2f4`. O amarelo fica só no logótipo. Botão WhatsApp flutuante é verde (`#1eaa53`) por convenção da plataforma.
 - Letra (Google Fonts): **Schibsted Grotesk** em tudo.
-- Convenções: filetes em vez de cartões, referências `MMQ-NN` visíveis, sem rotações, margaridas decorativas, emojis ou animações de entrada. Sem travessões (—) nos textos.
+- Assinatura ("o cós", aprovada em novembro de 2026): vem da própria peça. Recorte em picô do elástico nas orlas rosa, faixa `.waistband` com "malmequer / bem me quer" como no cós real (só o nome da marca, por isso não se traduz), referências `MMQ-NN` como etiqueta cosida e costura tracejada (`--stitch`) a abrir as secções.
+- Convenções: filetes em vez de cartões, sem rotações, margaridas decorativas, emojis ou animações de entrada. Movimento só ao passar o rato. Sem travessões (—) nos textos.
 - Fotos: uma foto de catálogo é a peça real, recortada e endireitada em fundo uniforme. As peças vestidas são fotos com mulher (`img/modelo-*.jpg`), sem etiquetas grandes nem marcas de água: o dono do projeto prefere-as a manequim. Não usar simulações de tecido sobre o corpo: testadas, notava-se que eram falsas.
 - Acessibilidade já implementada e a preservar: skip-link, `aria-expanded`/`aria-pressed`, `prefers-reduced-motion` desativa as transições, fallbacks para JS desligado (`<noscript>`, FAQ em `<details>` nativo).
 

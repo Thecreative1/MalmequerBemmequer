@@ -385,6 +385,7 @@ const state = {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupYear();
+  setupWaistbands();
   setupMenu();
   setupLanguageButtons();
   initializeCatalogState();
@@ -433,6 +434,16 @@ function setupYear() {
   if (yearNode) {
     yearNode.textContent = String(new Date().getFullYear());
   }
+}
+
+// A faixa repete o nome da marca, que nunca se traduz; é decorativa.
+function setupWaistbands() {
+  const flower = '<span class="waistband-flower"></span>';
+  const pair = `<span>malmequer</span>${flower}<span>bem me quer</span>${flower}`;
+
+  document.querySelectorAll(".waistband").forEach((band) => {
+    band.innerHTML = pair.repeat(14);
+  });
 }
 
 function setupMenu() {

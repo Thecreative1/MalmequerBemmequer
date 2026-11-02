@@ -2,6 +2,8 @@
    Malmequer bem me quer
    O rosa vem do logotipo e funde-se com ele; o resto da página é
    branco, tinta e grelha, para ler como um fabricante.
+   A assinatura vem da própria peça: o recorte em picô do elástico,
+   a faixa do cós e a etiqueta cosida.
    Letra: Schibsted Grotesk
    ══════════════════════════════════════════════════════════════ */
 
@@ -20,6 +22,8 @@
   --gutter: clamp(16px, 4vw, 48px);
   --content-max: 1360px;
   --space-section: clamp(64px, 9vw, 128px);
+  --stitch: 2px dashed var(--ink);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 *,
@@ -184,6 +188,31 @@ ol {
   background: var(--pink);
 }
 
+/* Picô: o mesmo recorte do elástico das peças. */
+.site-header::after,
+.hero::after,
+.catalog-head::after,
+.contact::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14px;
+  pointer-events: none;
+  background: radial-gradient(circle at 12px 0, var(--pink) 11.5px, transparent 12px) 0 0 / 24px 14px repeat-x;
+}
+
+.site-header::after,
+.hero::after,
+.catalog-head::after {
+  top: calc(100% - 1px);
+}
+
+.contact::before {
+  bottom: calc(100% - 1px);
+  background-image: radial-gradient(circle at 12px 14px, var(--pink) 11.5px, transparent 12px);
+}
+
 .header-inner {
   position: relative;
   display: grid;
@@ -292,6 +321,7 @@ ol {
 /* Topo */
 
 .hero {
+  position: relative;
   background: var(--pink);
 }
 
@@ -365,20 +395,51 @@ ol {
   line-height: 1.35;
 }
 
+/* Faixa do cós: repete o nome e a flor, como no elástico das peças. */
+
+.waistband {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  min-height: 46px;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--pink);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+}
+
+.waistband-flower {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='5.5' r='4'/%3E%3Ccircle cx='18.2' cy='10' r='4'/%3E%3Ccircle cx='15.8' cy='17.3' r='4'/%3E%3Ccircle cx='8.2' cy='17.3' r='4'/%3E%3Ccircle cx='5.8' cy='10' r='4'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='5.5' r='4'/%3E%3Ccircle cx='18.2' cy='10' r='4'/%3E%3Ccircle cx='15.8' cy='17.3' r='4'/%3E%3Ccircle cx='8.2' cy='17.3' r='4'/%3E%3Ccircle cx='5.8' cy='10' r='4'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
 /* Parede de peças vestidas */
 
 .wall {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
+  margin-top: 2px;
   background: var(--paper);
 }
 
-.wall img {
+.wall-item {
+  overflow: hidden;
+  background: var(--photo);
+}
+
+.wall-item img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  background: var(--photo);
 }
 
 /* Porquê trabalhar connosco */
@@ -435,7 +496,7 @@ ol {
 }
 
 .lines {
-  border-top: 2px solid var(--line-strong);
+  border-top: var(--stitch);
 }
 
 .line-row {
@@ -481,7 +542,7 @@ ol {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border-top: 2px solid var(--line-strong);
+  border-top: var(--stitch);
   border-left: 1px solid var(--line);
 }
 
@@ -495,6 +556,7 @@ ol {
 
 .product-meta {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 12px;
@@ -502,9 +564,21 @@ ol {
   color: var(--muted);
 }
 
+/* Etiqueta cosida: a referência lê-se como uma etiqueta de peça. */
 .product-code {
+  margin: 3px;
+  padding: 1px 8px;
+  border: 1px dashed var(--ink);
+  background: var(--pink-soft);
+  box-shadow: 0 0 0 3px var(--pink-soft);
   font-weight: 600;
   color: var(--ink);
+  white-space: nowrap;
+}
+
+.product-media {
+  overflow: hidden;
+  background: var(--photo);
 }
 
 .product-media img {
@@ -550,7 +624,7 @@ ol {
 
 .step {
   padding-top: 16px;
-  border-top: 2px solid var(--line-strong);
+  border-top: var(--stitch);
 }
 
 .step-number {
@@ -599,7 +673,7 @@ ol {
 .about-copy .about-note {
   margin-top: 28px;
   padding-top: 18px;
-  border-top: 1px solid rgba(253, 241, 247, 0.28);
+  border-top: 2px dashed rgba(253, 241, 247, 0.4);
   font-size: 15px;
   opacity: 0.85;
 }
@@ -664,6 +738,7 @@ ol {
 /* Contacto */
 
 .contact {
+  position: relative;
   background: var(--pink);
 }
 
@@ -730,7 +805,8 @@ ol {
   gap: 8px 32px;
   max-width: var(--content-max);
   margin-inline: auto;
-  padding: 24px var(--gutter);
+  /* Espaço para o botão flutuante não tapar o texto do rodapé. */
+  padding: 24px 96px 24px var(--gutter);
   font-size: 15px;
 }
 
@@ -760,6 +836,7 @@ ol {
 /* Catálogo */
 
 .catalog-head {
+  position: relative;
   background: var(--pink);
 }
 
@@ -890,7 +967,7 @@ ol {
 
 .empty-state {
   padding-block: 48px;
-  border-top: 2px solid var(--line-strong);
+  border-top: var(--stitch);
 }
 
 .empty-state h2 {
@@ -909,6 +986,40 @@ ol {
   padding: 14px var(--gutter);
   background: var(--pink-soft);
   text-align: center;
+}
+
+/* Movimento: só ao passar o rato, nunca ao ler. */
+
+.wall-item img,
+.product-media img,
+.line-row img,
+.line-row h3,
+.floating-whatsapp {
+  transition: transform 0.5s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .wall-item:hover img,
+  .product-card:hover .product-media img {
+    transform: scale(1.04);
+  }
+
+  .line-row:hover img {
+    transform: scale(1.08);
+  }
+
+  .line-row:hover h3 {
+    transform: translateX(6px);
+  }
+
+  .floating-whatsapp:hover {
+    transform: scale(1.08);
+  }
+
+  .product-request:hover,
+  .text-link:hover {
+    text-decoration-thickness: 2px;
+  }
 }
 
 /* Responsivo */
@@ -1023,6 +1134,7 @@ ol {
     background: var(--pink);
     border-top: 1px solid rgba(63, 18, 41, 0.2);
     box-shadow: 0 14px 22px rgba(63, 18, 41, 0.16);
+    z-index: 1;
   }
 
   .nav-panel.is-open {
@@ -1053,13 +1165,8 @@ ol {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .wall img:first-child {
+  .wall-item:first-child {
     grid-column: 1 / -1;
-  }
-
-  /* Espaço para o botão flutuante não tapar o texto do rodapé. */
-  .footer-inner {
-    padding-right: 88px;
   }
 
   .hero-inner {
@@ -1090,7 +1197,8 @@ ol {
 
   .product-meta {
     flex-direction: column;
-    gap: 0;
+    align-items: flex-start;
+    gap: 6px;
   }
 
   .line-count {
@@ -1132,5 +1240,13 @@ ol {
   *::after {
     transition: none !important;
     animation: none !important;
+  }
+
+  .wall-item:hover img,
+  .product-card:hover .product-media img,
+  .line-row:hover img,
+  .line-row:hover h3,
+  .floating-whatsapp:hover {
+    transform: none;
   }
 }
