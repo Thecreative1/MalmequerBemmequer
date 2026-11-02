@@ -365,11 +365,11 @@ ol {
   line-height: 1.35;
 }
 
-/* Parede de peças no manequim */
+/* Parede de peças vestidas */
 
 .wall {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   background: var(--paper);
 }
@@ -932,7 +932,6 @@ ol {
     border-bottom: 1px solid var(--line);
   }
 
-  .wall,
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1048,6 +1047,14 @@ ol {
   .brand-logo {
     width: 52px;
     height: 52px;
+  }
+
+  .wall {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wall img:first-child {
+    grid-column: 1 / -1;
   }
 
   /* Espaço para o botão flutuante não tapar o texto do rodapé. */

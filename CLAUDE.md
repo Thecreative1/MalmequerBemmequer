@@ -33,7 +33,7 @@ Deploy = commit + push para `main` (GitHub Pages serve a raiz do repositório).
 
 Três ficheiros fazem tudo; as duas páginas partilham o mesmo `site.js` e `styles.css`.
 
-- **`index.html`** (`<body data-page="home">`) — página de apresentação: topo rosa com o logótipo, ficha da empresa, peças em manequim, vantagens B2B, linhas de produto, destaques, processo de encomenda, "A empresa", FAQ, contactos.
+- **`index.html`** (`<body data-page="home">`) — página de apresentação: topo rosa com o logótipo, ficha da empresa, peças vestidas, vantagens B2B, linhas de produto, destaques, processo de encomenda, "A empresa", FAQ, contactos.
 - **`catalogo.html`** (`<body data-page="catalog">`) — portefólio completo com pesquisa e filtros por coleção (estado refletido nos parâmetros de URL `categoria` e `busca`; `lang=pt|es|en` força o idioma nas duas páginas).
 - **`site.js`** — todos os dados e lógica:
   - `SITE_TEXT` — **todas as strings do site**, em `pt`, `es` e `en`. O HTML tem textos PT estáticos como fallback, marcados com `data-i18n="chave"` (e variantes `data-i18n-placeholder`, `data-i18n-aria`, `data-i18n-alt`); `applyTextContent()` substitui-os conforme o idioma ativo (persistido em `localStorage` como `mbmq-lang`; na primeira visita segue o browser: pt, es, en, e inglês para o resto). **Ao editar um texto, mudar sempre 4 sítios**: `SITE_TEXT.pt`, `SITE_TEXT.es`, `SITE_TEXT.en` e o fallback estático no HTML.
@@ -49,11 +49,11 @@ O visual é o de um fabricante: **o rosa vem do logotipo e funde-se com ele; o r
 - Cores: rosa `--pink #f4bdda` (cor exata do fundo de `mmqbmq.png`, para o logótipo não mostrar recorte), tinta `--ink #3f1229`, papel `--paper #fdfbfc`, fundo das fotos `--photo #f3f2f4`. O amarelo fica só no logótipo. Botão WhatsApp flutuante é verde (`#1eaa53`) por convenção da plataforma.
 - Letra (Google Fonts): **Schibsted Grotesk** em tudo.
 - Convenções: filetes em vez de cartões, referências `MMQ-NN` visíveis, sem rotações, margaridas decorativas, emojis ou animações de entrada. Sem travessões (—) nos textos.
-- Fotos: uma foto de catálogo é a peça real, recortada e endireitada em fundo uniforme. Sem etiquetas grandes, sem pele: as fotos com corpo foram convertidas em manequim mate (`img/manequim-*.jpg`). `manequim-cinza`, `-preta` e `-bege` são simulações com o tecido real aplicado sobre a forma da peça branca, por isso a forma é ilustrativa.
+- Fotos: uma foto de catálogo é a peça real, recortada e endireitada em fundo uniforme. As peças vestidas são fotos com mulher (`img/modelo-*.jpg`), sem etiquetas grandes nem marcas de água: o dono do projeto prefere-as a manequim. Não usar simulações de tecido sobre o corpo: testadas, notava-se que eram falsas.
 - Acessibilidade já implementada e a preservar: skip-link, `aria-expanded`/`aria-pressed`, `prefers-reduced-motion` desativa as transições, fallbacks para JS desligado (`<noscript>`, FAQ em `<details>` nativo).
 
 ## Armadilhas conhecidas
 
-- `catalogo/25/cueca*.jpeg` e `img/01.jpeg`, `02.jpeg`, `03.jpeg`, `ref-150.jpg` são os originais, já não usados pelas páginas. As imagens publicadas são `catalogo/25/tratadas/` e `img/manequim-*.jpg`, com menos de 160 KB cada; não adicionar imagens sem otimizar.
+- `catalogo/25/cueca*.jpeg` e `img/01.jpeg`, `02.jpeg`, `03.jpeg`, `ref-150.jpg` são os originais, já não usados pelas páginas. As imagens publicadas são `catalogo/25/tratadas/` e `img/modelo-*.jpg`, com menos de 160 KB cada; não adicionar imagens sem otimizar.
 - Os metadados nos dois HTML (Open Graph, `canonical`, `hreflang`, JSON-LD) usam URLs absolutos do GitHub Pages: se o site ganhar domínio próprio, atualizá-los em ambas as páginas.
 - O menu móvel (`.nav-panel`) é `position: absolute` dentro de uma grid — precisa do `justify-self: stretch` no breakpoint ≤860px para não encolher (bug já corrigido; não remover).
