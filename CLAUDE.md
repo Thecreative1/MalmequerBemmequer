@@ -57,4 +57,5 @@ O visual é o de um fabricante: **o rosa vem do logotipo e funde-se com ele; o r
 
 - `catalogo/25/cueca*.jpeg` e `img/01.jpeg`, `02.jpeg`, `03.jpeg`, `ref-150.jpg` são os originais, já não usados pelas páginas. As imagens publicadas são `catalogo/25/tratadas/` e `img/modelo-*.jpg`, com menos de 160 KB cada; não adicionar imagens sem otimizar.
 - Os metadados nos dois HTML (Open Graph, `canonical`, `hreflang`, JSON-LD) usam URLs absolutos do GitHub Pages: se o site ganhar domínio próprio, atualizá-los em ambas as páginas.
+- Telemóvel: alvos de toque com pelo menos 44 px, efeitos de `:hover` só dentro de `@media (hover: hover)` (no toque ficam presos) e o WhatsApp flutuante recolhe quando `.hero-actions` ou `.contact-actions` estão à vista. Testar de 320 px a desktop, com o telemóvel deitado, nos três idiomas (o espanhol tem os textos mais longos).
 - O menu móvel (`.nav-panel`) é `position: absolute` dentro de uma grid — precisa do `justify-self: stretch` no breakpoint ≤860px para não encolher (bug já corrigido; não remover).

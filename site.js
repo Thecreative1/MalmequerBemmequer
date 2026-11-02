@@ -401,6 +401,7 @@ const state = {
 document.addEventListener("DOMContentLoaded", () => {
   setupYear();
   setupWaistbands();
+  setupFloatingWhatsapp();
   setupMenu();
   setupLanguageButtons();
   initializeCatalogState();
@@ -459,6 +460,33 @@ function setupWaistbands() {
   document.querySelectorAll(".waistband").forEach((band) => {
     band.innerHTML = pair.repeat(14);
   });
+}
+
+// O botão flutuante recolhe quando os botões principais estão à vista.
+function setupFloatingWhatsapp() {
+  const button = document.querySelector(".floating-whatsapp");
+  const targets = document.querySelectorAll(".hero-actions, .contact-actions");
+
+  if (!button || !targets.length || !("IntersectionObserver" in window)) {
+    return;
+  }
+
+  // Começa recolhido para não piscar por cima dos botões ao abrir a página.
+  button.classList.add("is-hidden");
+
+  const visible = new Set();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        visible.add(entry.target);
+      } else {
+        visible.delete(entry.target);
+      }
+    });
+    button.classList.toggle("is-hidden", visible.size > 0);
+  });
+
+  targets.forEach((target) => observer.observe(target));
 }
 
 function setupMenu() {
