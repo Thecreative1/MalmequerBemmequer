@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## O que é este projeto
 
-Site-portfólio da **"Malmequer bem me quer"** (marca portuguesa de moda íntima feminina — "senhora íntimo"), feito para um cliente. A marca é de um fabricante com **confeção própria em Portugal** (confirmado pelo dono do projeto). O objetivo é mostrar a **lojas e revendedores**, com Espanha como mercado prioritário, o que a marca faz e encaminhar pedidos de revenda para o WhatsApp. Envios: Portugal e Espanha; outros países sob consulta. **Não é uma loja online** — não há carrinho, preços nem checkout; o canal de venda é exclusivamente o WhatsApp (+351 935 521 564).
+Site-portfólio da **"Malmequer bem me quer"** (marca portuguesa de moda íntima feminina — "senhora íntimo"), feito para um cliente. A marca é de um fabricante **de Guimarães, com confeção própria e fabrico em Portugal** (confirmado pelo dono do projeto). Não está confirmado que a confeção seja em Guimarães: escrever "empresa de Guimarães" e "fabricado em Portugal". O objetivo é mostrar a **lojas e revendedores**, com Espanha como mercado prioritário, o que a marca faz e encaminhar pedidos de revenda para o WhatsApp. Envios: Portugal e Espanha; outros países sob consulta. **Não é uma loja online** — não há carrinho, preços nem checkout; o canal de venda é exclusivamente o WhatsApp (+351 935 521 564).
 
 Site estático puro (HTML + CSS + JS vanilla), sem build, sem dependências, sem framework. Publicação presumida em GitHub Pages (`https://thecreative1.github.io/MalmequerBemmequer/`).
 
