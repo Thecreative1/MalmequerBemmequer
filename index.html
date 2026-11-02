@@ -3,23 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malmequer bem me quer | Moda íntima portuguesa para a sua loja</title>
-  <meta name="description" content="Portefólio da Malmequer bem me quer — moda íntima feminina confortável e delicada. Condições de revenda por WhatsApp para lojas em Portugal e Espanha.">
-  <meta name="theme-color" content="#f6cce1">
+  <title>Malmequer bem me quer | Roupa interior feminina fabricada em Portugal para revenda</title>
+  <meta name="description" content="Fabricante portuguesa de roupa interior feminina com confeção própria. Catálogo para lojas e revendedores, com condições de revenda diretas por WhatsApp.">
+  <meta name="theme-color" content="#f4bdda">
   <link rel="icon" type="image/png" href="mmqbmq.png">
   <link rel="apple-touch-icon" href="mmqbmq.png">
+  <link rel="canonical" href="https://thecreative1.github.io/MalmequerBemmequer/">
+  <link rel="alternate" hreflang="pt" href="https://thecreative1.github.io/MalmequerBemmequer/?lang=pt">
+  <link rel="alternate" hreflang="es" href="https://thecreative1.github.io/MalmequerBemmequer/?lang=es">
+  <link rel="alternate" hreflang="en" href="https://thecreative1.github.io/MalmequerBemmequer/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://thecreative1.github.io/MalmequerBemmequer/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Malmequer bem me quer">
-  <meta property="og:title" content="Malmequer bem me quer | Moda íntima portuguesa para a sua loja">
-  <meta property="og:description" content="Portefólio de moda íntima feminina confortável e delicada. Condições de revenda por WhatsApp — Portugal e Espanha.">
+  <meta property="og:title" content="Malmequer bem me quer | Roupa interior feminina fabricada em Portugal para revenda">
+  <meta property="og:description" content="Fabricante portuguesa de roupa interior feminina com confeção própria. Catálogo para lojas e revendedores.">
   <meta property="og:url" content="https://thecreative1.github.io/MalmequerBemmequer/">
   <meta property="og:image" content="https://thecreative1.github.io/MalmequerBemmequer/mmqbmq.png">
   <meta property="og:locale" content="pt_PT">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="en_GB">
   <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Malmequer bem me quer",
+    "url": "https://thecreative1.github.io/MalmequerBemmequer/",
+    "logo": "https://thecreative1.github.io/MalmequerBemmequer/mmqbmq.png",
+    "telephone": "+351935521564"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="home">
@@ -28,11 +44,8 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="Malmequer bem me quer">
-        <img class="brand-logo" src="mmqbmq.png" alt="Logótipo da Malmequer bem me quer — margarida sobre fundo rosa">
-        <div class="brand-copy">
-          <strong class="brand-name" data-i18n="siteTitle">Malmequer bem me quer</strong>
-          <span class="brand-tag" data-i18n="siteTagline">Moda íntima portuguesa para a sua loja</span>
-        </div>
+        <img class="brand-logo" src="mmqbmq.png" alt="" width="60" height="60">
+        <strong class="brand-name">Malmequer bem me quer</strong>
       </a>
 
       <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="nav-panel" aria-expanded="false" data-i18n-aria="menuLabel">
@@ -43,205 +56,191 @@
       </button>
 
       <div class="nav-panel" id="nav-panel">
-        <nav class="nav-links" aria-label="Principal">
-          <a class="nav-link is-active" href="index.html" data-i18n="navHome">Início</a>
-          <a class="nav-link" href="catalogo.html" data-i18n="navCatalog">Portefólio</a>
+        <nav class="nav-links" aria-label="Principal" data-i18n-aria="navLabel">
+          <a class="nav-link" href="catalogo.html" data-i18n="navCatalog">Catálogo</a>
+          <a class="nav-link" href="#encomendar" data-i18n="navOrder">Como encomendar</a>
+          <a class="nav-link" href="#empresa" data-i18n="navCompany">A empresa</a>
         </nav>
 
-        <div class="lang-switch" aria-label="Seletor de idioma" data-i18n-aria="languageLabel">
-          <button class="lang-btn is-active" type="button" data-lang="pt" aria-pressed="true">PT</button>
-          <button class="lang-btn" type="button" data-lang="es" aria-pressed="false">ES</button>
+        <div class="lang-switch" role="group" aria-label="Seletor de idioma" data-i18n-aria="languageLabel">
+          <button class="lang-btn is-active" type="button" data-lang="pt" aria-pressed="true" lang="pt">PT</button>
+          <button class="lang-btn" type="button" data-lang="es" aria-pressed="false" lang="es">ES</button>
+          <button class="lang-btn" type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
         </div>
 
-        <a class="button secondary small header-cta js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="navCta">Falar com a marca</a>
+        <a class="button small js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="ctaWhatsApp">Pedir condições</a>
       </div>
     </div>
   </header>
 
   <main id="main-content">
     <section class="hero">
-      <svg class="daisy daisy-spin" style="top: -10px; left: -60px; width: 120px; opacity: 0.75;" viewBox="0 0 100 100" aria-hidden="true">
-        <g fill="#ffffff">
-          <ellipse cx="50" cy="18" rx="10" ry="20"/>
-          <ellipse cx="50" cy="82" rx="10" ry="20"/>
-          <ellipse cx="18" cy="50" rx="20" ry="10"/>
-          <ellipse cx="82" cy="50" rx="20" ry="10"/>
-          <ellipse cx="27" cy="27" rx="10" ry="20" transform="rotate(-45 27 27)"/>
-          <ellipse cx="73" cy="73" rx="10" ry="20" transform="rotate(-45 73 73)"/>
-          <ellipse cx="73" cy="27" rx="10" ry="20" transform="rotate(45 73 27)"/>
-          <ellipse cx="27" cy="73" rx="10" ry="20" transform="rotate(45 27 73)"/>
-        </g>
-        <circle cx="50" cy="50" r="16" fill="#ffde21"/>
-      </svg>
-
-      <div class="hero-copy">
-        <span class="eyebrow" data-i18n="heroEyebrow">Portefólio · Portugal &amp; Espanha</span>
-        <h1 data-i18n="homeHeroTitle">A margarida que as suas clientes vão adorar.</h1>
-        <p class="hero-lead" data-i18n="homeHeroDesc">A Malmequer bem me quer cria moda íntima feminina confortável, delicada e fácil de recomendar. Explore o portefólio e peça condições de revenda diretamente à marca — atendemos lojas em Portugal e Espanha.</p>
-        <div class="hero-actions">
-          <a class="button" href="catalogo.html" data-i18n="ctaCatalog">Ver portefólio</a>
-          <a class="button sunny js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="ctaWhatsApp">Pedir condições de revenda</a>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="hero-kicker" data-i18n="heroKicker">Fabricado em Portugal</p>
+          <h1 data-i18n="homeHeroTitle">Roupa interior feminina, direta da confeção.</h1>
+          <p class="hero-lead" data-i18n="homeHeroDesc">Produzimos na nossa própria confeção para lojas e revendedores. Veja o catálogo e peça as condições de revenda diretamente a quem fabrica.</p>
+          <div class="hero-actions">
+            <a class="button js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="ctaWhatsApp">Pedir condições</a>
+            <a class="button ghost" href="catalogo.html" data-i18n="ctaCatalog">Ver catálogo</a>
+          </div>
         </div>
-        <div class="hero-markets">
-          <span class="market-chip">🇵🇹 <span data-i18n="marketPortugal">Envios para Portugal</span></span>
-          <span class="market-chip">🇪🇸 <span data-i18n="marketSpain">Envíos a España</span></span>
-        </div>
+        <img class="hero-logo" src="mmqbmq.png" alt="Logótipo da Malmequer bem me quer" data-i18n-alt="logoAlt" width="605" height="603" fetchpriority="high">
       </div>
+    </section>
 
-      <div class="hero-visual">
-        <div class="image-stack">
-          <img class="hero-logo-badge" src="mmqbmq.png" alt="" aria-hidden="true">
-          <img class="hero-image" src="img/02.jpeg" alt="Peça de moda íntima da coleção Malmequer bem me quer" fetchpriority="high">
-          <div class="floating-note">
-            <strong data-i18n="heroPanelTitle">Pensado para a sua montra</strong>
-            <p data-i18n="heroPanelBody">Essenciais de algodão, renda romântica, estampados suaves e linhas maxi — uma coleção coerente e pronta a revender.</p>
+    <dl class="facts">
+      <div class="fact">
+        <dt data-i18n="fact1Label">Origem</dt>
+        <dd data-i18n="fact1Value">Fabricado em Portugal</dd>
+      </div>
+      <div class="fact">
+        <dt data-i18n="fact2Label">Produção</dt>
+        <dd data-i18n="fact2Value">Confeção própria</dd>
+      </div>
+      <div class="fact">
+        <dt data-i18n="fact3Label">Envios</dt>
+        <dd data-i18n="fact3Value">Portugal e Espanha. Outros países sob consulta</dd>
+      </div>
+      <div class="fact">
+        <dt data-i18n="fact4Label">Atendimento</dt>
+        <dd>Português, español, English</dd>
+      </div>
+    </dl>
+
+    <noscript class="noscript-note" data-i18n="noScript">Ative o JavaScript para ver o catálogo completo e os filtros desta página.</noscript>
+
+    <div class="wall">
+      <img src="img/manequim-renda.jpg" alt="Modelo branco com renda lateral, em manequim" data-i18n-alt="wallAlt1" width="1000" height="1000" loading="lazy" decoding="async">
+      <img src="img/manequim-branca.jpg" alt="Modelo branco de cintura alta, em manequim" data-i18n-alt="wallAlt2" width="1000" height="1000" loading="lazy" decoding="async">
+      <img src="img/manequim-nude.jpg" alt="Modelo cor de pele de cintura alta, em manequim" data-i18n-alt="wallAlt3" width="1000" height="1000" loading="lazy" decoding="async">
+      <img src="img/manequim-preta.jpg" alt="Modelo preto com pequeno estampado floral, em manequim" data-i18n-alt="wallAlt4" width="1000" height="1000" loading="lazy" decoding="async">
+    </div>
+
+    <section class="section wrap reasons-layout">
+      <h2 class="section-title" data-i18n="benefitsTitle">Trate diretamente com quem produz.</h2>
+      <ol class="reasons">
+        <li class="reason">
+          <h3 data-i18n="benefit1Title">Sem intermediários</h3>
+          <p data-i18n="benefit1Desc">Condições, tamanhos e disponibilidade são tratados diretamente com a confeção.</p>
+        </li>
+        <li class="reason">
+          <h3 data-i18n="benefit2Title">Produção portuguesa</h3>
+          <p data-i18n="benefit2Desc">Todas as peças são confecionadas em Portugal, na nossa própria confeção.</p>
+        </li>
+        <li class="reason">
+          <h3 data-i18n="benefit3Title">Quatro linhas que se completam</h3>
+          <p data-i18n="benefit3Desc">Essenciais, renda, maxi e estampadas, para compor a oferta da sua loja ou da sua rede.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section lines-section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title" data-i18n="collectionsTitle">Linhas de produto</h2>
+        </div>
+        <div class="lines" id="home-collections"></div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head">
+        <h2 class="section-title" data-i18n="previewTitle">Do catálogo</h2>
+        <a class="text-link" href="catalogo.html" data-i18n="previewAll">Ver todas as referências</a>
+      </div>
+      <div class="product-grid" id="home-preview"></div>
+    </section>
+
+    <section class="section wrap" id="encomendar">
+      <div class="section-head">
+        <h2 class="section-title" data-i18n="processTitle">Como encomendar</h2>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-number" aria-hidden="true">1</span>
+          <h3 data-i18n="process1Title">Escolha as referências</h3>
+          <p data-i18n="process1Desc">Consulte o catálogo e anote os modelos que interessam à sua loja.</p>
+        </li>
+        <li class="step">
+          <span class="step-number" aria-hidden="true">2</span>
+          <h3 data-i18n="process2Title">Peça as condições</h3>
+          <p data-i18n="process2Desc">Envie as referências e o país de destino por WhatsApp. Indicamos condições, tamanhos e prazos.</p>
+        </li>
+        <li class="step">
+          <span class="step-number" aria-hidden="true">3</span>
+          <h3 data-i18n="process3Title">Receba a encomenda</h3>
+          <p data-i18n="process3Desc">Confirmamos quantidades e envio, com acompanhamento direto da confeção.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="about" id="empresa">
+      <div class="about-copy">
+        <h2 class="section-title" data-i18n="aboutTitle">A empresa</h2>
+        <p data-i18n="aboutBody1">A Malmequer bem me quer é uma marca portuguesa de roupa interior feminina, com confeção própria. Todas as peças são produzidas em Portugal.</p>
+        <p data-i18n="aboutBody2">Trabalhamos com lojas e revendedores. As condições são definidas caso a caso, conforme o perfil e o volume de cada cliente.</p>
+        <p class="about-note" data-i18n="aboutNote">O nome vem do jogo das pétalas do malmequer: bem me quer, mal me quer.</p>
+      </div>
+      <div class="about-visual">
+        <img src="img/manequim-cinza.jpg" alt="Modelo cinza com pequeno estampado floral, em manequim" data-i18n-alt="aboutAlt" width="1000" height="1000" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <section class="section wrap faq-layout">
+      <h2 class="section-title" data-i18n="faqTitle">Perguntas frequentes</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="faq1Q">Qual é a quantidade mínima de encomenda?</summary>
+          <p data-i18n="faq1A">As condições de revenda e as quantidades mínimas são definidas caso a caso, conforme o perfil da loja. Fale connosco no WhatsApp para receber uma proposta.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq2Q">Que tamanhos estão disponíveis?</summary>
+          <p data-i18n="faq2A">A disponibilidade por modelo e tamanho é confirmada no atendimento. Indique as referências que lhe interessam.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq3Q">Quanto tempo demora a entrega?</summary>
+          <p data-i18n="faq3A">O prazo depende do destino e da quantidade, e é confirmado no momento da encomenda.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq5Q">Enviam para fora de Portugal e Espanha?</summary>
+          <p data-i18n="faq5A">Outros países são analisados sob consulta. Indique-nos o destino e confirmamos as opções de envio.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq4Q">Como funciona o pagamento?</summary>
+          <p data-i18n="faq4A">As condições de pagamento são combinadas diretamente connosco no fecho da encomenda.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="wrap contact-inner">
+        <div>
+          <h2 data-i18n="contactTitle">Peça as condições de revenda.</h2>
+          <p class="contact-desc" data-i18n="contactDesc">Indique os modelos que lhe interessam e o país da sua loja. Respondemos em português, espanhol e inglês.</p>
+        </div>
+        <div>
+          <a class="contact-phone" href="tel:+351935521564">+351 935 521 564</a>
+          <ul class="contact-details">
+            <li data-i18n="contactShipping">Envios: Portugal e Espanha. Outros países sob consulta</li>
+          </ul>
+          <div class="contact-actions">
+            <a class="button js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="contactPrimary">Falar no WhatsApp</a>
+            <a class="button ghost" href="catalogo.html" data-i18n="ctaCatalog">Ver catálogo</a>
           </div>
         </div>
       </div>
     </section>
-
-    <div class="petal-marquee" aria-hidden="true">
-      <div class="petal-marquee-track">
-        <span>bem-me-quer</span><span>mal-me-quer</span><span>me quiere</span><span>no me quiere</span><span>bem-me-quer</span><span>mal-me-quer</span><span>me quiere</span><span>no me quiere</span>
-        <span>bem-me-quer</span><span>mal-me-quer</span><span>me quiere</span><span>no me quiere</span><span>bem-me-quer</span><span>mal-me-quer</span><span>me quiere</span><span>no me quiere</span>
-      </div>
-    </div>
-
-    <noscript class="noscript-note" data-i18n="noScript">Ativa o JavaScript para navegar pelo portefólio completo e utilizar os filtros desta página.</noscript>
-
-    <section class="section">
-      <div class="section-intro">
-        <span class="eyebrow" data-i18n="benefitsEyebrow">Porquê trabalhar connosco</span>
-        <h2 class="section-title" data-i18n="benefitsTitle">Uma marca pronta para a sua montra</h2>
-      </div>
-
-      <div class="benefit-grid">
-        <article class="benefit-card">
-          <span class="card-kicker" data-i18n="benefit1Kicker">Coleção</span>
-          <h3 class="card-title" data-i18n="benefit1Title">Portefólio coerente</h3>
-          <p class="card-text" data-i18n="benefit1Desc">Essenciais, renda, maxi e estampados que combinam entre si — linhas fáceis de expor e de recomendar às suas clientes.</p>
-        </article>
-        <article class="benefit-card">
-          <span class="card-kicker" data-i18n="benefit2Kicker">Atendimento</span>
-          <h3 class="card-title" data-i18n="benefit2Title">Resposta direta da marca</h3>
-          <p class="card-text" data-i18n="benefit2Desc">Fale connosco por WhatsApp: condições, tamanhos e disponibilidade sem intermediários e sem demoras.</p>
-        </article>
-        <article class="benefit-card">
-          <span class="card-kicker" data-i18n="benefit3Kicker">Mercados</span>
-          <h3 class="card-title" data-i18n="benefit3Title">Portugal e Espanha</h3>
-          <p class="card-text" data-i18n="benefit3Desc">Atendimento em português e espanhol, com envios para os dois países e apoio próximo à sua loja.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-intro">
-        <span class="eyebrow" data-i18n="collectionsEyebrow">Coleções</span>
-        <h2 class="section-title" data-i18n="collectionsTitle">O que a marca faz</h2>
-      </div>
-      <div class="collection-grid" id="home-collections" aria-live="polite"></div>
-    </section>
-
-    <section class="section">
-      <div class="section-intro">
-        <span class="eyebrow" data-i18n="previewEyebrow">Destaques</span>
-        <h2 class="section-title" data-i18n="previewTitle">Peças em evidência</h2>
-      </div>
-      <div class="preview-grid" id="home-preview" aria-live="polite"></div>
-    </section>
-
-    <section class="section">
-      <div class="section-intro">
-        <span class="eyebrow" data-i18n="processEyebrow">Como encomendar</span>
-        <h2 class="section-title" data-i18n="processTitle">Da montra digital à sua loja</h2>
-      </div>
-
-      <div class="process-grid">
-        <article class="process-card">
-          <span class="card-kicker" data-i18n="process1Kicker">1</span>
-          <h3 class="card-title" data-i18n="process1Title">Explore o portefólio</h3>
-          <p class="card-text" data-i18n="process1Desc">Percorra as coleções e identifique os modelos com mais potencial para as suas clientes.</p>
-        </article>
-        <article class="process-card">
-          <span class="card-kicker" data-i18n="process2Kicker">2</span>
-          <h3 class="card-title" data-i18n="process2Title">Peça condições</h3>
-          <p class="card-text" data-i18n="process2Desc">Envie mensagem por WhatsApp com os modelos de interesse e receba condições de revenda, tamanhos e prazos.</p>
-        </article>
-        <article class="process-card">
-          <span class="card-kicker" data-i18n="process3Kicker">3</span>
-          <h3 class="card-title" data-i18n="process3Title">Receba na sua loja</h3>
-          <p class="card-text" data-i18n="process3Desc">Confirmamos quantidades e envio para Portugal ou Espanha, com acompanhamento direto da marca.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section about-section">
-      <div class="about-copy surface-panel">
-        <span class="eyebrow" data-i18n="aboutEyebrow">A marca</span>
-        <h2 class="section-title" data-i18n="aboutTitle">Bem-me-quer, mal-me-quer…</h2>
-        <p data-i18n="aboutBody1">O nome vem do jogo das pétalas do malmequer — a flor que se desfolha a perguntar se é amor. É essa delicadeza que colocamos em cada peça: moda íntima feminina, confortável e pensada para o dia a dia real.</p>
-        <p data-i18n="aboutBody2">Do básico de algodão à renda romântica, o portefólio foi construído para lojas que procuram peças com identidade própria e fáceis de recomendar — em Portugal e em Espanha, sempre com atendimento próximo.</p>
-      </div>
-
-      <div class="about-visual">
-        <img class="about-photo" src="img/ref-150.jpg" alt="Peça Malmequer bem me quer com etiqueta da marca" loading="lazy" decoding="async">
-        <div class="about-quote-card">
-          <p class="quote-text" data-i18n="aboutQuote">Conforto que se recomenda sozinho — peça a peça, pétala a pétala.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section faq-section">
-      <div class="section-intro">
-        <span class="eyebrow" data-i18n="faqEyebrow">Antes de encomendar</span>
-        <h2 class="section-title" data-i18n="faqTitle">Perguntas frequentes</h2>
-      </div>
-
-      <div class="faq-list">
-        <details class="faq-item surface-panel">
-          <summary data-i18n="faq1Q">Qual é a quantidade mínima de encomenda?</summary>
-          <p data-i18n="faq1A">As condições de revenda e as quantidades mínimas são definidas caso a caso, conforme o perfil da loja. Fale connosco no WhatsApp e receba uma proposta à medida.</p>
-        </details>
-        <details class="faq-item surface-panel">
-          <summary data-i18n="faq2Q">Que tamanhos estão disponíveis?</summary>
-          <p data-i18n="faq2A">Os modelos cobrem os tamanhos habituais de senhora, incluindo linhas maxi de cintura alta. A disponibilidade por modelo e tamanho é confirmada no atendimento.</p>
-        </details>
-        <details class="faq-item surface-panel">
-          <summary data-i18n="faq3Q">Quanto tempo demora a entrega?</summary>
-          <p data-i18n="faq3A">Enviamos para Portugal e Espanha. O prazo depende do destino e da quantidade, e é confirmado no momento da encomenda.</p>
-        </details>
-        <details class="faq-item surface-panel">
-          <summary data-i18n="faq4Q">Como funciona o pagamento?</summary>
-          <p data-i18n="faq4A">As condições de pagamento são combinadas diretamente com a marca no fecho da encomenda, sem intermediários.</p>
-        </details>
-      </div>
-    </section>
-
-    <section class="section contact-strip">
-      <div class="contact-copy">
-        <span class="eyebrow" data-i18n="contactEyebrow">Contactos &amp; envios</span>
-        <h2 class="section-title" data-i18n="contactTitle">Vamos levar a margarida à sua montra?</h2>
-        <p data-i18n="contactDesc">Envie mensagem com os modelos de interesse e receba condições de revenda, tamanhos e prazos de entrega. Respondemos em português e espanhol.</p>
-        <div class="contact-details">
-          <span class="contact-chip">📱 +351 935 521 564</span>
-          <span class="contact-chip">🚚 <span data-i18n="contactShipping">Envios: Portugal · Espanha</span></span>
-          <span class="contact-chip">💬 <span data-i18n="contactLanguages">Atendimento: PT · ES</span></span>
-        </div>
-      </div>
-
-      <div class="contact-actions">
-        <a class="button sunny js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="contactPrimary">Falar no WhatsApp</a>
-        <a class="button ghost" href="catalogo.html" data-i18n="contactSecondary">Abrir portefólio</a>
-      </div>
-    </section>
   </main>
 
-  <a class="floating-whatsapp button js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" data-i18n="floatingWhatsApp">WhatsApp</a>
+  <a class="floating-whatsapp js-whatsapp-generic" href="https://wa.me/351935521564" target="_blank" rel="noopener" data-whatsapp-context="general" aria-label="Falar no WhatsApp" data-i18n-aria="contactPrimary">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <footer class="footer">
     <div class="footer-inner">
-      <div><strong data-i18n="siteTitle">Malmequer bem me quer</strong></div>
-      <div><span id="current-year">2026</span> · <span data-i18n="footerNote">Moda íntima portuguesa · Envios para Portugal e Espanha</span></div>
+      <strong>Malmequer bem me quer</strong>
+      <div><span id="current-year">2026</span> · <span data-i18n="footerNote">Roupa interior feminina fabricada em Portugal</span></div>
     </div>
   </footer>
 

@@ -1,304 +1,289 @@
 const WHATSAPP_NUMBER = "351935521564";
+const SITE_LANGUAGES = ["pt", "es", "en"];
+const HTML_LANG = { pt: "pt-PT", es: "es", en: "en" };
 
 const SITE_TEXT = {
   pt: {
-    pageTitleHome: "Malmequer bem me quer | Moda íntima portuguesa para a sua loja",
-    pageTitleCatalog: "Portefólio | Malmequer bem me quer",
-    siteTitle: "Malmequer bem me quer",
-    siteTagline: "Moda íntima portuguesa para a sua loja",
+    pageTitleHome: "Malmequer bem me quer | Roupa interior feminina fabricada em Portugal para revenda",
+    pageTitleCatalog: "Catálogo | Malmequer bem me quer",
+    pageDescHome: "Fabricante portuguesa de roupa interior feminina com confeção própria. Catálogo para lojas e revendedores, com condições de revenda diretas por WhatsApp.",
+    pageDescCatalog: "Catálogo da Malmequer bem me quer para lojas e revendedores: roupa interior feminina fabricada em Portugal. Filtre por linha e peça condições de revenda.",
     skipContent: "Saltar para o conteúdo",
     languageLabel: "Seletor de idioma",
-    navHome: "Início",
-    navCatalog: "Portefólio",
-    navCta: "Falar com a marca",
+    navLabel: "Principal",
+    navCatalog: "Catálogo",
+    navOrder: "Como encomendar",
+    navCompany: "A empresa",
     menuLabel: "Abrir menu",
-    heroEyebrow: "Portefólio · Portugal & Espanha",
-    homeHeroTitle: "A margarida que as suas clientes vão adorar.",
-    homeHeroDesc:
-      "A Malmequer bem me quer cria moda íntima feminina confortável, delicada e fácil de recomendar. Explore o portefólio e peça condições de revenda diretamente à marca — atendemos lojas em Portugal e Espanha.",
-    ctaCatalog: "Ver portefólio",
-    ctaWhatsApp: "Pedir condições de revenda",
-    heroPanelTitle: "Pensado para a sua montra",
-    heroPanelBody:
-      "Essenciais de algodão, renda romântica, estampados suaves e linhas maxi — uma coleção coerente e pronta a revender.",
-    marketPortugal: "Envios para Portugal",
-    marketSpain: "Envios para Espanha",
-    benefitsEyebrow: "Porquê trabalhar connosco",
-    benefitsTitle: "Uma marca pronta para a sua montra",
-    benefit1Kicker: "Coleção",
-    benefit1Title: "Portefólio coerente",
-    benefit1Desc:
-      "Essenciais, renda, maxi e estampados que combinam entre si — linhas fáceis de expor e de recomendar às suas clientes.",
-    benefit2Kicker: "Atendimento",
-    benefit2Title: "Resposta direta da marca",
-    benefit2Desc:
-      "Fale connosco por WhatsApp: condições, tamanhos e disponibilidade sem intermediários e sem demoras.",
-    benefit3Kicker: "Mercados",
-    benefit3Title: "Portugal e Espanha",
-    benefit3Desc:
-      "Atendimento em português e espanhol, com envios para os dois países e apoio próximo à sua loja.",
-    collectionsEyebrow: "Coleções",
-    collectionsTitle: "O que a marca faz",
-    collectionCta: "Ver modelos",
-    previewEyebrow: "Destaques",
-    previewTitle: "Peças em evidência",
-    previewCta: "Pedir condições",
-    processEyebrow: "Como encomendar",
-    processTitle: "Da montra digital à sua loja",
-    process1Kicker: "1",
-    process1Title: "Explore o portefólio",
-    process1Desc:
-      "Percorra as coleções e identifique os modelos com mais potencial para as suas clientes.",
-    process2Kicker: "2",
-    process2Title: "Peça condições",
-    process2Desc:
-      "Envie mensagem por WhatsApp com os modelos de interesse e receba condições de revenda, tamanhos e prazos.",
-    process3Kicker: "3",
-    process3Title: "Receba na sua loja",
-    process3Desc:
-      "Confirmamos quantidades e envio para Portugal ou Espanha, com acompanhamento direto da marca.",
-    aboutEyebrow: "A marca",
-    aboutTitle: "Bem-me-quer, mal-me-quer…",
-    aboutBody1:
-      "O nome vem do jogo das pétalas do malmequer — a flor que se desfolha a perguntar se é amor. É essa delicadeza que colocamos em cada peça: moda íntima feminina, confortável e pensada para o dia a dia real.",
-    aboutBody2:
-      "Do básico de algodão à renda romântica, o portefólio foi construído para lojas que procuram peças com identidade própria e fáceis de recomendar — em Portugal e em Espanha, sempre com atendimento próximo.",
-    aboutQuote:
-      "Conforto que se recomenda sozinho — peça a peça, pétala a pétala.",
-    faqEyebrow: "Antes de encomendar",
+    logoAlt: "Logótipo da Malmequer bem me quer",
+    heroKicker: "Fabricado em Portugal",
+    homeHeroTitle: "Roupa interior feminina, direta da confeção.",
+    homeHeroDesc: "Produzimos na nossa própria confeção para lojas e revendedores. Veja o catálogo e peça as condições de revenda diretamente a quem fabrica.",
+    ctaCatalog: "Ver catálogo",
+    ctaWhatsApp: "Pedir condições",
+    fact1Label: "Origem",
+    fact1Value: "Fabricado em Portugal",
+    fact2Label: "Produção",
+    fact2Value: "Confeção própria",
+    fact3Label: "Envios",
+    fact3Value: "Portugal e Espanha. Outros países sob consulta",
+    fact4Label: "Atendimento",
+    wallAlt1: "Modelo branco com renda lateral, em manequim",
+    wallAlt2: "Modelo branco de cintura alta, em manequim",
+    wallAlt3: "Modelo cor de pele de cintura alta, em manequim",
+    wallAlt4: "Modelo preto com pequeno estampado floral, em manequim",
+    benefitsTitle: "Trate diretamente com quem produz.",
+    benefit1Title: "Sem intermediários",
+    benefit1Desc: "Condições, tamanhos e disponibilidade são tratados diretamente com a confeção.",
+    benefit2Title: "Produção portuguesa",
+    benefit2Desc: "Todas as peças são confecionadas em Portugal, na nossa própria confeção.",
+    benefit3Title: "Quatro linhas que se completam",
+    benefit3Desc: "Essenciais, renda, maxi e estampadas, para compor a oferta da sua loja ou da sua rede.",
+    collectionsTitle: "Linhas de produto",
+    previewTitle: "Do catálogo",
+    previewAll: "Ver todas as referências",
+    processTitle: "Como encomendar",
+    process1Title: "Escolha as referências",
+    process1Desc: "Consulte o catálogo e anote os modelos que interessam à sua loja.",
+    process2Title: "Peça as condições",
+    process2Desc: "Envie as referências e o país de destino por WhatsApp. Indicamos condições, tamanhos e prazos.",
+    process3Title: "Receba a encomenda",
+    process3Desc: "Confirmamos quantidades e envio, com acompanhamento direto da confeção.",
+    aboutTitle: "A empresa",
+    aboutBody1: "A Malmequer bem me quer é uma marca portuguesa de roupa interior feminina, com confeção própria. Todas as peças são produzidas em Portugal.",
+    aboutBody2: "Trabalhamos com lojas e revendedores. As condições são definidas caso a caso, conforme o perfil e o volume de cada cliente.",
+    aboutNote: "O nome vem do jogo das pétalas do malmequer: bem me quer, mal me quer.",
+    aboutAlt: "Modelo cinza com pequeno estampado floral, em manequim",
     faqTitle: "Perguntas frequentes",
     faq1Q: "Qual é a quantidade mínima de encomenda?",
-    faq1A:
-      "As condições de revenda e as quantidades mínimas são definidas caso a caso, conforme o perfil da loja. Fale connosco no WhatsApp e receba uma proposta à medida.",
+    faq1A: "As condições de revenda e as quantidades mínimas são definidas caso a caso, conforme o perfil da loja. Fale connosco no WhatsApp para receber uma proposta.",
     faq2Q: "Que tamanhos estão disponíveis?",
-    faq2A:
-      "Os modelos cobrem os tamanhos habituais de senhora, incluindo linhas maxi de cintura alta. A disponibilidade por modelo e tamanho é confirmada no atendimento.",
+    faq2A: "A disponibilidade por modelo e tamanho é confirmada no atendimento. Indique as referências que lhe interessam.",
     faq3Q: "Quanto tempo demora a entrega?",
-    faq3A:
-      "Enviamos para Portugal e Espanha. O prazo depende do destino e da quantidade, e é confirmado no momento da encomenda.",
+    faq3A: "O prazo depende do destino e da quantidade, e é confirmado no momento da encomenda.",
     faq4Q: "Como funciona o pagamento?",
-    faq4A:
-      "As condições de pagamento são combinadas diretamente com a marca no fecho da encomenda, sem intermediários.",
-    contactEyebrow: "Contactos & envios",
-    contactTitle: "Vamos levar a margarida à sua montra?",
-    contactDesc:
-      "Envie mensagem com os modelos de interesse e receba condições de revenda, tamanhos e prazos de entrega. Respondemos em português e espanhol.",
-    contactShipping: "Envios: Portugal · Espanha",
-    contactLanguages: "Atendimento: PT · ES",
+    faq4A: "As condições de pagamento são combinadas diretamente connosco no fecho da encomenda.",
+    faq5Q: "Enviam para fora de Portugal e Espanha?",
+    faq5A: "Outros países são analisados sob consulta. Indique-nos o destino e confirmamos as opções de envio.",
+    contactTitle: "Peça as condições de revenda.",
+    contactDesc: "Indique os modelos que lhe interessam e o país da sua loja. Respondemos em português, espanhol e inglês.",
+    contactShipping: "Envios: Portugal e Espanha. Outros países sob consulta",
     contactPrimary: "Falar no WhatsApp",
-    contactSecondary: "Abrir portefólio",
-    floatingWhatsApp: "WhatsApp",
-    footerNote: "Moda íntima portuguesa · Envios para Portugal e Espanha",
-    noScript:
-      "Ativa o JavaScript para navegar pelo portefólio completo e utilizar os filtros desta página.",
-    catalogEyebrow: "Portefólio",
-    catalogTitle: "Todos os modelos num só lugar",
-    catalogLead:
-      "Pesquise por nome ou código, filtre por coleção e peça condições de revenda para os modelos que quer na sua loja.",
-    catalogAsideEyebrow: "Compra profissional",
-    catalogAsideTitle: "Filtre, escolha e peça condições",
-    catalogAsideDesc:
-      "Cada cartão inclui um atalho direto para o WhatsApp com uma mensagem pronta — indique os modelos e receba condições de revenda.",
-    catalogSearchLabel: "Pesquisar modelos",
-    catalogSearchPlaceholder: "Pesquisar por nome, descrição ou código",
-    catalogFilterLabel: "Filtrar por coleção",
+    footerNote: "Roupa interior feminina fabricada em Portugal",
+    noScript: "Ative o JavaScript para ver o catálogo completo e os filtros desta página.",
+    catalogTitle: "Catálogo",
+    catalogLead: "Filtre por linha ou pesquise por referência. Cada modelo tem um atalho para pedir as condições de revenda por WhatsApp.",
+    catalogSearchLabel: "Pesquisar",
+    catalogSearchPlaceholder: "Nome ou referência (ex.: MMQ-04)",
+    catalogFilterLabel: "Linha",
     catalogResetFilters: "Limpar filtros",
     catalogEmptyTitle: "Nenhum modelo encontrado",
-    catalogEmptyDesc:
-      "Tente outro termo ou limpe os filtros para voltar a ver o portefólio completo.",
+    catalogEmptyDesc: "Tente outro termo ou limpe os filtros para voltar a ver o catálogo completo.",
     catalogRequestButton: "Pedir condições",
-    catalogAvailability: "Condições de revenda sob consulta",
-    catalogResultsSingular: "modelo encontrado",
-    catalogResultsPlural: "modelos encontrados",
-    catalogAllFilter: "Todos",
-    catalogHelpEyebrow: "Ajuda rápida",
-    catalogHelpTitle: "Precisa de ajuda a preparar a encomenda?",
-    catalogHelpDesc:
-      "Fale connosco no WhatsApp e receba sugestões conforme o perfil das suas clientes. Envios para Portugal e Espanha.",
-    catalogHelpButton: "Falar com a marca",
-    modelSingular: "modelo",
-    modelPlural: "modelos",
-    genericWhatsappMessage:
-      "Olá! Tenho interesse no portefólio da Malmequer bem me quer para revenda. Podem enviar-me mais informações?",
-    catalogWhatsappMessage:
-      "Olá! Estou a ver o portefólio da Malmequer bem me quer e gostava de receber condições de revenda para alguns modelos."
+    catalogAvailability: "Tamanhos, composição e condições sob consulta",
+    catalogAllFilter: "Todas",
+    referenceSingular: "referência",
+    referencePlural: "referências",
+    genericWhatsappMessage: "Olá! Tenho interesse em revender a Malmequer bem me quer. Podem enviar-me as condições de revenda?",
+    catalogWhatsappMessage: "Olá! Estou a ver o catálogo da Malmequer bem me quer e gostava de receber as condições de revenda para alguns modelos.",
+    productWhatsappMessage: "Olá! Tenho uma loja e gostava de receber as condições de revenda para o modelo {name} ({id})."
   },
   es: {
-    pageTitleHome: "Malmequer bem me quer | Moda íntima portuguesa para tu tienda",
-    pageTitleCatalog: "Portafolio | Malmequer bem me quer",
-    siteTitle: "Malmequer bem me quer",
-    siteTagline: "Moda íntima portuguesa para tu tienda",
+    pageTitleHome: "Malmequer bem me quer | Ropa interior femenina fabricada en Portugal para reventa",
+    pageTitleCatalog: "Catálogo | Malmequer bem me quer",
+    pageDescHome: "Fabricante portuguesa de ropa interior femenina con confección propia. Catálogo para tiendas y distribuidores, con condiciones de reventa directas por WhatsApp.",
+    pageDescCatalog: "Catálogo de Malmequer bem me quer para tiendas y distribuidores: ropa interior femenina fabricada en Portugal. Filtre por línea y pida condiciones de reventa.",
     skipContent: "Saltar al contenido",
     languageLabel: "Selector de idioma",
-    navHome: "Inicio",
-    navCatalog: "Portafolio",
-    navCta: "Hablar con la marca",
+    navLabel: "Principal",
+    navCatalog: "Catálogo",
+    navOrder: "Cómo hacer un pedido",
+    navCompany: "La empresa",
     menuLabel: "Abrir menú",
-    heroEyebrow: "Portafolio · Portugal & España",
-    homeHeroTitle: "La margarita que tus clientas van a adorar.",
-    homeHeroDesc:
-      "Malmequer bem me quer crea moda íntima femenina cómoda, delicada y fácil de recomendar. Explora el portafolio y pide condiciones de reventa directamente a la marca — atendemos tiendas en Portugal y España.",
-    ctaCatalog: "Ver portafolio",
-    ctaWhatsApp: "Pedir condiciones de reventa",
-    heroPanelTitle: "Pensado para tu escaparate",
-    heroPanelBody:
-      "Esenciales de algodón, encaje romántico, estampados suaves y líneas maxi — una colección coherente y lista para revender.",
-    marketPortugal: "Envíos a Portugal",
-    marketSpain: "Envíos a España",
-    benefitsEyebrow: "Por qué trabajar con nosotros",
-    benefitsTitle: "Una marca lista para tu escaparate",
-    benefit1Kicker: "Colección",
-    benefit1Title: "Portafolio coherente",
-    benefit1Desc:
-      "Esenciales, encaje, maxi y estampados que combinan entre sí — líneas fáciles de exponer y de recomendar a tus clientas.",
-    benefit2Kicker: "Atención",
-    benefit2Title: "Respuesta directa de la marca",
-    benefit2Desc:
-      "Habla con nosotros por WhatsApp: condiciones, tallas y disponibilidad sin intermediarios y sin esperas.",
-    benefit3Kicker: "Mercados",
-    benefit3Title: "Portugal y España",
-    benefit3Desc:
-      "Atención en portugués y español, con envíos a los dos países y apoyo cercano a tu tienda.",
-    collectionsEyebrow: "Colecciones",
-    collectionsTitle: "Lo que hace la marca",
-    collectionCta: "Ver modelos",
-    previewEyebrow: "Destacados",
-    previewTitle: "Piezas en evidencia",
-    previewCta: "Pedir condiciones",
-    processEyebrow: "Cómo pedir",
-    processTitle: "Del escaparate digital a tu tienda",
-    process1Kicker: "1",
-    process1Title: "Explora el portafolio",
-    process1Desc:
-      "Recorre las colecciones e identifica los modelos con más potencial para tus clientas.",
-    process2Kicker: "2",
-    process2Title: "Pide condiciones",
-    process2Desc:
-      "Envía un mensaje por WhatsApp con los modelos que te interesan y recibe condiciones de reventa, tallas y plazos.",
-    process3Kicker: "3",
-    process3Title: "Recibe en tu tienda",
-    process3Desc:
-      "Confirmamos cantidades y envío a Portugal o España, con acompañamiento directo de la marca.",
-    aboutEyebrow: "La marca",
-    aboutTitle: "Me quiere, no me quiere…",
-    aboutBody1:
-      "El nombre viene del juego de las hojas de la margarita — «malmequer» en portugués — la flor que se deshoja preguntando si es amor. Esa delicadeza es la que ponemos en cada pieza: moda íntima femenina, cómoda y pensada para el día a día real.",
-    aboutBody2:
-      "Del básico de algodón al encaje romántico, el portafolio está construido para tiendas que buscan piezas con identidad propia y fáciles de recomendar — en Portugal y en España, siempre con atención cercana.",
-    aboutQuote:
-      "Comodidad que se recomienda sola — pieza a pieza, pétalo a pétalo.",
-    faqEyebrow: "Antes de pedir",
+    logoAlt: "Logotipo de Malmequer bem me quer",
+    heroKicker: "Fabricado en Portugal",
+    homeHeroTitle: "Ropa interior femenina, directa de fábrica.",
+    homeHeroDesc: "Producimos en nuestra propia confección para tiendas y distribuidores. Consulte el catálogo y pida las condiciones de reventa directamente a quien fabrica.",
+    ctaCatalog: "Ver catálogo",
+    ctaWhatsApp: "Pedir condiciones",
+    fact1Label: "Origen",
+    fact1Value: "Fabricado en Portugal",
+    fact2Label: "Producción",
+    fact2Value: "Confección propia",
+    fact3Label: "Envíos",
+    fact3Value: "Portugal y España. Otros países bajo consulta",
+    fact4Label: "Atención",
+    wallAlt1: "Modelo blanco con encaje lateral, en maniquí",
+    wallAlt2: "Modelo blanco de talle alto, en maniquí",
+    wallAlt3: "Modelo color carne de talle alto, en maniquí",
+    wallAlt4: "Modelo negro con pequeño estampado floral, en maniquí",
+    benefitsTitle: "Trate directamente con quien produce.",
+    benefit1Title: "Sin intermediarios",
+    benefit1Desc: "Condiciones, tallas y disponibilidad se tratan directamente con la confección.",
+    benefit2Title: "Producción portuguesa",
+    benefit2Desc: "Todas las piezas se confeccionan en Portugal, en nuestra propia confección.",
+    benefit3Title: "Cuatro líneas que se complementan",
+    benefit3Desc: "Esenciales, encaje, maxi y estampadas, para completar la oferta de su tienda o de su red.",
+    collectionsTitle: "Líneas de producto",
+    previewTitle: "Del catálogo",
+    previewAll: "Ver todas las referencias",
+    processTitle: "Cómo hacer un pedido",
+    process1Title: "Elija las referencias",
+    process1Desc: "Consulte el catálogo y anote los modelos que interesan a su tienda.",
+    process2Title: "Pida las condiciones",
+    process2Desc: "Envíe las referencias y el país de destino por WhatsApp. Le indicamos condiciones, tallas y plazos.",
+    process3Title: "Reciba el pedido",
+    process3Desc: "Confirmamos cantidades y envío, con seguimiento directo de la confección.",
+    aboutTitle: "La empresa",
+    aboutBody1: "Malmequer bem me quer es una marca portuguesa de ropa interior femenina, con confección propia. Todas las piezas se producen en Portugal.",
+    aboutBody2: "Trabajamos con tiendas y distribuidores. Las condiciones se definen caso por caso, según el perfil y el volumen de cada cliente.",
+    aboutNote: "El nombre viene del juego portugués de deshojar la margarita: me quiere, no me quiere.",
+    aboutAlt: "Modelo gris con pequeño estampado floral, en maniquí",
     faqTitle: "Preguntas frecuentes",
-    faq1Q: "¿Cuál es la cantidad mínima de pedido?",
-    faq1A:
-      "Las condiciones de reventa y las cantidades mínimas se definen caso a caso, según el perfil de la tienda. Habla con nosotros por WhatsApp y recibe una propuesta a medida.",
-    faq2Q: "¿Qué tallas están disponibles?",
-    faq2A:
-      "Los modelos cubren las tallas habituales de señora, incluyendo líneas maxi de cintura alta. La disponibilidad por modelo y talla se confirma en la atención.",
+    faq1Q: "¿Cuál es el pedido mínimo?",
+    faq1A: "Las condiciones de reventa y los pedidos mínimos se definen caso por caso, según el perfil de la tienda. Escríbanos por WhatsApp para recibir una propuesta.",
+    faq2Q: "¿Qué tallas hay disponibles?",
+    faq2A: "La disponibilidad por modelo y talla se confirma en la atención. Indíquenos las referencias que le interesan.",
     faq3Q: "¿Cuánto tarda la entrega?",
-    faq3A:
-      "Enviamos a Portugal y España. El plazo depende del destino y de la cantidad, y se confirma en el momento del pedido.",
+    faq3A: "El plazo depende del destino y de la cantidad, y se confirma en el momento del pedido.",
     faq4Q: "¿Cómo funciona el pago?",
-    faq4A:
-      "Las condiciones de pago se acuerdan directamente con la marca al cerrar el pedido, sin intermediarios.",
-    contactEyebrow: "Contactos & envíos",
-    contactTitle: "¿Llevamos la margarita a tu escaparate?",
-    contactDesc:
-      "Envía un mensaje con los modelos que te interesan y recibe condiciones de reventa, tallas y plazos de entrega. Respondemos en portugués y español.",
-    contactShipping: "Envíos: Portugal · España",
-    contactLanguages: "Atención: PT · ES",
+    faq4A: "Las condiciones de pago se acuerdan directamente con nosotros al cerrar el pedido.",
+    faq5Q: "¿Envían fuera de Portugal y España?",
+    faq5A: "Otros países se estudian bajo consulta. Indíquenos el destino y le confirmamos las opciones de envío.",
+    contactTitle: "Pida las condiciones de reventa.",
+    contactDesc: "Indique los modelos que le interesan y el país de su tienda. Respondemos en portugués, español e inglés.",
+    contactShipping: "Envíos: Portugal y España. Otros países bajo consulta",
     contactPrimary: "Hablar por WhatsApp",
-    contactSecondary: "Abrir portafolio",
-    floatingWhatsApp: "WhatsApp",
-    footerNote: "Moda íntima portuguesa · Envíos a Portugal y España",
-    noScript:
-      "Activa JavaScript para navegar por el portafolio completo y utilizar los filtros de esta página.",
-    catalogEyebrow: "Portafolio",
-    catalogTitle: "Todos los modelos en un solo lugar",
-    catalogLead:
-      "Busca por nombre o código, filtra por colección y pide condiciones de reventa para los modelos que quieres en tu tienda.",
-    catalogAsideEyebrow: "Compra profesional",
-    catalogAsideTitle: "Filtra, elige y pide condiciones",
-    catalogAsideDesc:
-      "Cada tarjeta incluye un acceso directo a WhatsApp con un mensaje listo — indica los modelos y recibe condiciones de reventa.",
-    catalogSearchLabel: "Buscar modelos",
-    catalogSearchPlaceholder: "Buscar por nombre, descripción o código",
-    catalogFilterLabel: "Filtrar por colección",
-    catalogResetFilters: "Limpiar filtros",
-    catalogEmptyTitle: "No se encontró ningún modelo",
-    catalogEmptyDesc:
-      "Prueba otro término o limpia los filtros para volver a ver el portafolio completo.",
+    footerNote: "Ropa interior femenina fabricada en Portugal",
+    noScript: "Active JavaScript para ver el catálogo completo y los filtros de esta página.",
+    catalogTitle: "Catálogo",
+    catalogLead: "Filtre por línea o busque por referencia. Cada modelo tiene un acceso directo para pedir las condiciones de reventa por WhatsApp.",
+    catalogSearchLabel: "Buscar",
+    catalogSearchPlaceholder: "Nombre o referencia (ej.: MMQ-04)",
+    catalogFilterLabel: "Línea",
+    catalogResetFilters: "Borrar filtros",
+    catalogEmptyTitle: "No se ha encontrado ningún modelo",
+    catalogEmptyDesc: "Pruebe otro término o borre los filtros para volver a ver el catálogo completo.",
     catalogRequestButton: "Pedir condiciones",
-    catalogAvailability: "Condiciones de reventa bajo consulta",
-    catalogResultsSingular: "modelo encontrado",
-    catalogResultsPlural: "modelos encontrados",
-    catalogAllFilter: "Todos",
-    catalogHelpEyebrow: "Ayuda rápida",
-    catalogHelpTitle: "¿Necesitas ayuda para preparar el pedido?",
-    catalogHelpDesc:
-      "Habla con nosotros por WhatsApp y recibe sugerencias según el perfil de tus clientas. Envíos a Portugal y España.",
-    catalogHelpButton: "Hablar con la marca",
-    modelSingular: "modelo",
-    modelPlural: "modelos",
-    genericWhatsappMessage:
-      "Hola! Me interesa el portafolio de Malmequer bem me quer para reventa. ¿Podéis enviarme más información?",
-    catalogWhatsappMessage:
-      "Hola! Estoy viendo el portafolio de Malmequer bem me quer y me gustaría recibir condiciones de reventa para algunos modelos."
+    catalogAvailability: "Tallas, composición y condiciones bajo consulta",
+    catalogAllFilter: "Todas",
+    referenceSingular: "referencia",
+    referencePlural: "referencias",
+    genericWhatsappMessage: "¡Hola! Me interesa revender Malmequer bem me quer. ¿Pueden enviarme las condiciones de reventa?",
+    catalogWhatsappMessage: "¡Hola! Estoy viendo el catálogo de Malmequer bem me quer y me gustaría recibir las condiciones de reventa de algunos modelos.",
+    productWhatsappMessage: "¡Hola! Tengo una tienda y me gustaría recibir las condiciones de reventa del modelo {name} ({id})."
+  },
+  en: {
+    pageTitleHome: "Malmequer bem me quer | Women's underwear made in Portugal, for resale",
+    pageTitleCatalog: "Catalogue | Malmequer bem me quer",
+    pageDescHome: "Portuguese manufacturer of women's underwear with its own production. Catalogue for shops and resellers, with resale terms directly over WhatsApp.",
+    pageDescCatalog: "Malmequer bem me quer catalogue for shops and resellers: women's underwear made in Portugal. Filter by line and ask for resale terms.",
+    skipContent: "Skip to content",
+    languageLabel: "Language selector",
+    navLabel: "Main",
+    navCatalog: "Catalogue",
+    navOrder: "How to order",
+    navCompany: "The company",
+    menuLabel: "Open menu",
+    logoAlt: "Malmequer bem me quer logo",
+    heroKicker: "Made in Portugal",
+    homeHeroTitle: "Women's underwear, direct from the maker.",
+    homeHeroDesc: "We manufacture in our own facility for shops and resellers. Browse the catalogue and ask for resale terms directly from the people who make it.",
+    ctaCatalog: "View catalogue",
+    ctaWhatsApp: "Ask for terms",
+    fact1Label: "Origin",
+    fact1Value: "Made in Portugal",
+    fact2Label: "Production",
+    fact2Value: "Our own facility",
+    fact3Label: "Shipping",
+    fact3Value: "Portugal and Spain. Other countries on request",
+    fact4Label: "Service",
+    wallAlt1: "White style with side lace, on a mannequin",
+    wallAlt2: "White high-waisted style, on a mannequin",
+    wallAlt3: "Nude high-waisted style, on a mannequin",
+    wallAlt4: "Black style with a small floral print, on a mannequin",
+    benefitsTitle: "Deal directly with the maker.",
+    benefit1Title: "No middlemen",
+    benefit1Desc: "Terms, sizes and availability are handled directly with the production team.",
+    benefit2Title: "Portuguese production",
+    benefit2Desc: "Every piece is sewn in Portugal, in our own facility.",
+    benefit3Title: "Four lines that work together",
+    benefit3Desc: "Essentials, lace, maxi and prints, to build the range for your shop or your chain.",
+    collectionsTitle: "Product lines",
+    previewTitle: "From the catalogue",
+    previewAll: "See all references",
+    processTitle: "How to order",
+    process1Title: "Choose your references",
+    process1Desc: "Browse the catalogue and note the styles that suit your shop.",
+    process2Title: "Ask for terms",
+    process2Desc: "Send the references and destination country over WhatsApp. We will give you terms, sizes and lead times.",
+    process3Title: "Receive your order",
+    process3Desc: "We confirm quantities and shipping, with direct follow-up from production.",
+    aboutTitle: "The company",
+    aboutBody1: "Malmequer bem me quer is a Portuguese women's underwear brand with its own production. Every piece is made in Portugal.",
+    aboutBody2: "We work with shops and resellers. Terms are set case by case, according to each customer's profile and volume.",
+    aboutNote: "The name comes from the Portuguese daisy game: loves me, loves me not.",
+    aboutAlt: "Grey style with a small floral print, on a mannequin",
+    faqTitle: "Frequently asked questions",
+    faq1Q: "What is the minimum order?",
+    faq1A: "Resale terms and minimum orders are set case by case, according to the shop's profile. Message us on WhatsApp for a proposal.",
+    faq2Q: "Which sizes are available?",
+    faq2A: "Availability by style and size is confirmed when you contact us. Tell us which references interest you.",
+    faq3Q: "How long does delivery take?",
+    faq3A: "Lead time depends on destination and quantity, and is confirmed when you order.",
+    faq4Q: "How does payment work?",
+    faq4A: "Payment terms are agreed directly with us when the order is finalised.",
+    faq5Q: "Do you ship outside Portugal and Spain?",
+    faq5A: "Other countries are considered on request. Tell us the destination and we will confirm the shipping options.",
+    contactTitle: "Ask for our resale terms.",
+    contactDesc: "Tell us which styles interest you and where your shop is. We reply in Portuguese, Spanish and English.",
+    contactShipping: "Shipping: Portugal and Spain. Other countries on request",
+    contactPrimary: "Message us on WhatsApp",
+    footerNote: "Women's underwear made in Portugal",
+    noScript: "Turn on JavaScript to see the full catalogue and the filters on this page.",
+    catalogTitle: "Catalogue",
+    catalogLead: "Filter by line or search by reference. Each style has a shortcut to ask for resale terms over WhatsApp.",
+    catalogSearchLabel: "Search",
+    catalogSearchPlaceholder: "Name or reference (e.g. MMQ-04)",
+    catalogFilterLabel: "Line",
+    catalogResetFilters: "Clear filters",
+    catalogEmptyTitle: "No styles found",
+    catalogEmptyDesc: "Try another term or clear the filters to see the full catalogue again.",
+    catalogRequestButton: "Ask for terms",
+    catalogAvailability: "Sizes, composition and terms on request",
+    catalogAllFilter: "All",
+    referenceSingular: "reference",
+    referencePlural: "references",
+    genericWhatsappMessage: "Hello! I am interested in reselling Malmequer bem me quer. Could you send me your resale terms?",
+    catalogWhatsappMessage: "Hello! I am looking at the Malmequer bem me quer catalogue and would like to receive resale terms for some styles.",
+    productWhatsappMessage: "Hello! I have a shop and would like to receive resale terms for the style {name} ({id})."
   }
 };
 
 const CATEGORY_META = {
   essentials: {
-    image: "catalogo/25/cueca1.jpeg",
-    pt: {
-      name: "Essenciais",
-      title: "Bases confortáveis",
-      description: "Modelos simples, discretos e fáceis de recomendar para o uso diário."
-    },
-    es: {
-      name: "Esenciales",
-      title: "Bases cómodas",
-      description: "Modelos simples, discretos y fáciles de recomendar para el uso diario."
-    }
+    image: "catalogo/25/tratadas/mmq-01.jpg",
+    pt: { name: "Essenciais", description: "Modelos lisos e simples, para a base da oferta." },
+    es: { name: "Esenciales", description: "Modelos lisos y sencillos, para la base de la oferta." },
+    en: { name: "Essentials", description: "Plain, simple styles to anchor your range." }
   },
   lace: {
-    image: "catalogo/25/cueca2.jpeg",
-    pt: {
-      name: "Renda",
-      title: "Detalhes delicados",
-      description: "Peças com acabamento romântico e um visual mais especial."
-    },
-    es: {
-      name: "Encaje",
-      title: "Detalles delicados",
-      description: "Piezas con acabado romántico y una imagen más especial."
-    }
+    image: "catalogo/25/tratadas/mmq-09.jpg",
+    pt: { name: "Renda", description: "Modelos com renda e acabamentos mais trabalhados." },
+    es: { name: "Encaje", description: "Modelos con encaje y acabados más elaborados." },
+    en: { name: "Lace", description: "Styles with lace and more detailed finishes." }
   },
   maxi: {
-    image: "catalogo/25/cueca4.jpeg",
-    pt: {
-      name: "Maxi",
-      title: "Cobertura e conforto",
-      description: "Opções de cintura alta e sensação de segurança ao longo do dia."
-    },
-    es: {
-      name: "Maxi",
-      title: "Cobertura y comodidad",
-      description: "Opciones de cintura alta y sensación de seguridad durante todo el día."
-    }
+    image: "catalogo/25/tratadas/mmq-04.jpg",
+    pt: { name: "Maxi", description: "Cintura alta e maior cobertura." },
+    es: { name: "Maxi", description: "Talle alto y mayor cobertura." },
+    en: { name: "Maxi", description: "High waist and fuller coverage." }
   },
   prints: {
-    image: "catalogo/25/cueca6.jpeg",
-    pt: {
-      name: "Estampadas",
-      title: "Toque leve e alegre",
-      description: "Modelos com padrões suaves para trazer mais personalidade à coleção."
-    },
-    es: {
-      name: "Estampadas",
-      title: "Toque ligero y alegre",
-      description: "Modelos con patrones suaves para dar más personalidad a la colección."
-    }
+    image: "catalogo/25/tratadas/mmq-06.jpg",
+    pt: { name: "Estampadas", description: "Pequenos estampados florais sobre fundos neutros." },
+    es: { name: "Estampadas", description: "Pequeños estampados florales sobre fondos neutros." },
+    en: { name: "Prints", description: "Small floral prints on neutral grounds." }
   }
 };
 
@@ -307,161 +292,91 @@ const PRODUCTS = [
     id: "MMQ-01",
     category: "essentials",
     featured: true,
-    image: "catalogo/25/cueca1.jpeg",
-    pt: {
-      name: "Malmequer Básica",
-      desc: "Modelo essencial em algodão ultramacio para uma rotina confortável e discreta.",
-      highlights: ["Algodão respirável", "Paleta neutra", "Ideal para uso diário"]
-    },
-    es: {
-      name: "Malmequer Básica",
-      desc: "Modelo esencial en algodón ultrasuave para una rutina cómoda y discreta.",
-      highlights: ["Algodón transpirable", "Paleta neutra", "Ideal para uso diario"]
-    }
+    image: "catalogo/25/tratadas/mmq-01.jpg",
+    pt: { name: "Malmequer Básica", desc: "Modelo liso em bege, com cós elástico da marca." },
+    es: { name: "Malmequer Básica", desc: "Modelo liso en beige, con cinturilla elástica de la marca." },
+    en: { name: "Malmequer Básica", desc: "Plain style in beige, with a branded elastic waistband." }
   },
   {
     id: "MMQ-02",
     category: "lace",
     featured: false,
-    image: "catalogo/25/cueca2.jpeg",
-    pt: {
-      name: "Clássica Renda",
-      desc: "Peça branca com detalhe em renda que combina elegância leve com conforto.",
-      highlights: ["Acabamento delicado", "Toque romântico", "Boa opção para oferta"]
-    },
-    es: {
-      name: "Clásica Encaje",
-      desc: "Pieza blanca con detalle de encaje que combina elegancia ligera con comodidad.",
-      highlights: ["Acabado delicado", "Toque romántico", "Buena opción para regalo"]
-    }
+    image: "catalogo/25/tratadas/mmq-02.jpg",
+    pt: { name: "Clássica Renda", desc: "Modelo branco, com cós elástico da marca." },
+    es: { name: "Clásica Encaje", desc: "Modelo blanco, con cinturilla elástica de la marca." },
+    en: { name: "Classic Lace", desc: "White style, with a branded elastic waistband." }
   },
   {
     id: "MMQ-03",
     category: "essentials",
     featured: false,
-    image: "catalogo/25/cueca3.jpeg",
-    pt: {
-      name: "Algodão Canelado",
-      desc: "Textura canelada e ajuste confortável para quem procura simplicidade com presença.",
-      highlights: ["Toque suave", "Textura subtil", "Linha versátil"]
-    },
-    es: {
-      name: "Algodón Canalé",
-      desc: "Textura canalé y ajuste cómodo para quien busca simplicidad con presencia.",
-      highlights: ["Tacto suave", "Textura sutil", "Línea versátil"]
-    }
+    image: "catalogo/25/tratadas/mmq-03.jpg",
+    pt: { name: "Algodão Canelado", desc: "Modelo em tom marfim, com cós elástico da marca." },
+    es: { name: "Algodón Canalé", desc: "Modelo en tono marfil, con cinturilla elástica de la marca." },
+    en: { name: "Ribbed Cotton", desc: "Ivory style, with a branded elastic waistband." }
   },
   {
     id: "MMQ-04",
     category: "maxi",
     featured: true,
-    image: "catalogo/25/cueca4.jpeg",
-    pt: {
-      name: "Malmequer Maxi",
-      desc: "Cintura alta e cobertura confortável para clientes que valorizam segurança no vestir.",
-      highlights: ["Cintura alta", "Uso diário", "Conforto contínuo"]
-    },
-    es: {
-      name: "Malmequer Maxi",
-      desc: "Cintura alta y cobertura cómoda para clientas que valoran seguridad al vestir.",
-      highlights: ["Cintura alta", "Uso diario", "Comodidad constante"]
-    }
+    image: "catalogo/25/tratadas/mmq-04.jpg",
+    pt: { name: "Malmequer Maxi", desc: "Modelo maxi em tom cru, com textura às riscas." },
+    es: { name: "Malmequer Maxi", desc: "Modelo maxi en tono crudo, con textura de rayas." },
+    en: { name: "Malmequer Maxi", desc: "Maxi style in ecru, with a striped texture." }
   },
   {
     id: "MMQ-05",
     category: "lace",
     featured: false,
-    image: "catalogo/25/cueca5.jpeg",
-    pt: {
-      name: "Maxi com Renda",
-      desc: "Modelo prático com renda lateral para unir funcionalidade e acabamento feminino.",
-      highlights: ["Renda lateral", "Boa cobertura", "Imagem delicada"]
-    },
-    es: {
-      name: "Maxi con Encaje",
-      desc: "Modelo práctico con encaje lateral para unir funcionalidad y acabado femenino.",
-      highlights: ["Encaje lateral", "Buena cobertura", "Imagen delicada"]
-    }
+    image: "catalogo/25/tratadas/mmq-05.jpg",
+    pt: { name: "Maxi com Renda", desc: "Modelo branco, com cós de pontos pretos." },
+    es: { name: "Maxi con Encaje", desc: "Modelo blanco, con cinturilla de lunares negros." },
+    en: { name: "Maxi with Lace", desc: "White style, with a black dotted waistband." }
   },
   {
     id: "MMQ-06",
     category: "prints",
     featured: true,
-    image: "catalogo/25/cueca6.jpeg",
-    pt: {
-      name: "Floral Cinza",
-      desc: "Estampado floral suave num modelo confortável pensado para o dia a dia.",
-      highlights: ["Padrão floral", "Algodão leve", "Visual descontraído"]
-    },
-    es: {
-      name: "Floral Gris",
-      desc: "Estampado floral suave en un modelo cómodo pensado para el día a día.",
-      highlights: ["Patrón floral", "Algodón ligero", "Visual relajado"]
-    }
+    image: "catalogo/25/tratadas/mmq-06.jpg",
+    pt: { name: "Floral Cinza", desc: "Cinza com pequeno estampado floral e debruns a condizer." },
+    es: { name: "Floral Gris", desc: "Gris con pequeño estampado floral y ribetes a juego." },
+    en: { name: "Grey Floral", desc: "Grey with a small floral print and matching trims." }
   },
   {
     id: "MMQ-07",
     category: "prints",
     featured: false,
-    image: "catalogo/25/cueca7.jpeg",
-    pt: {
-      name: "Floral Preta",
-      desc: "Base escura com flores pequenas para uma proposta clássica com personalidade.",
-      highlights: ["Fundo preto", "Estampa discreta", "Combina com coleção básica"]
-    },
-    es: {
-      name: "Floral Negra",
-      desc: "Base oscura con flores pequeñas para una propuesta clásica con personalidad.",
-      highlights: ["Fondo negro", "Estampa discreta", "Combina con la colección básica"]
-    }
+    image: "catalogo/25/tratadas/mmq-07.jpg",
+    pt: { name: "Floral Preta", desc: "Preto com pequeno estampado floral e debruns a condizer." },
+    es: { name: "Floral Negra", desc: "Negro con pequeño estampado floral y ribetes a juego." },
+    en: { name: "Black Floral", desc: "Black with a small floral print and matching trims." }
   },
   {
     id: "MMQ-08",
     category: "maxi",
     featured: false,
-    image: "catalogo/25/cueca8.jpeg",
-    pt: {
-      name: "Maxi Corações",
-      desc: "Textura delicada e cintura confortável para uma proposta doce e comercial.",
-      highlights: ["Textura com corações", "Tom claro", "Perfil macio"]
-    },
-    es: {
-      name: "Maxi Corazones",
-      desc: "Textura delicada y cintura cómoda para una propuesta dulce y comercial.",
-      highlights: ["Textura con corazones", "Tono claro", "Perfil suave"]
-    }
+    image: "catalogo/25/tratadas/mmq-08.jpg",
+    pt: { name: "Maxi Corações", desc: "Modelo maxi branco, com relevo de corações na malha." },
+    es: { name: "Maxi Corazones", desc: "Modelo maxi blanco, con relieve de corazones en el tejido." },
+    en: { name: "Maxi Hearts", desc: "White maxi style, with a raised heart pattern in the knit." }
   },
   {
     id: "MMQ-09",
     category: "lace",
     featured: true,
-    image: "catalogo/25/cueca9.jpeg",
-    pt: {
-      name: "Renda Romântica",
-      desc: "Mistura de tons e detalhe de renda para uma leitura elegante sem perder conforto.",
-      highlights: ["Detalhe contrastante", "Visual elegante", "Acabamento suave"]
-    },
-    es: {
-      name: "Encaje Romántico",
-      desc: "Mezcla de tonos y detalle de encaje para una lectura elegante sin perder comodidad.",
-      highlights: ["Detalle contrastado", "Imagen elegante", "Acabado suave"]
-    }
+    image: "catalogo/25/tratadas/mmq-09.jpg",
+    pt: { name: "Renda Romântica", desc: "Modelo branco, com renda lateral." },
+    es: { name: "Encaje Romántico", desc: "Modelo blanco, con encaje lateral." },
+    en: { name: "Romantic Lace", desc: "White style, with side lace." }
   },
   {
     id: "MMQ-10",
     category: "maxi",
     featured: false,
-    image: "catalogo/25/cueca10.jpeg",
-    pt: {
-      name: "Maxi Comfort",
-      desc: "Modelo pensado para cobertura equilibrada e sensação confortável ao longo do dia.",
-      highlights: ["Cobertura ampla", "Conforto constante", "Linha comercial segura"]
-    },
-    es: {
-      name: "Maxi Comfort",
-      desc: "Modelo pensado para cobertura equilibrada y sensación cómoda durante todo el día.",
-      highlights: ["Cobertura amplia", "Comodidad constante", "Línea comercial segura"]
-    }
+    image: "catalogo/25/tratadas/mmq-10.jpg",
+    pt: { name: "Maxi Comfort", desc: "Tom cru com pequeno estampado floral e cós elástico." },
+    es: { name: "Maxi Comfort", desc: "Tono crudo con pequeño estampado floral y cinturilla elástica." },
+    en: { name: "Maxi Comfort", desc: "Ecru with a small floral print and an elastic waistband." }
   }
 ];
 
@@ -478,20 +393,38 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeCatalogState();
   refreshPage();
   setupCatalogControls();
-  setupStaticReveal();
 });
 
 function getInitialLanguage() {
+  const fromUrl = new URL(window.location.href).searchParams.get("lang");
+  if (SITE_LANGUAGES.includes(fromUrl)) {
+    return fromUrl;
+  }
+
   try {
     const stored = window.localStorage.getItem("mbmq-lang");
-    if (stored === "pt" || stored === "es") {
+    if (SITE_LANGUAGES.includes(stored)) {
       return stored;
     }
   } catch (error) {
     // Ignore localStorage issues and keep the default language.
   }
 
-  return "pt";
+  return detectBrowserLanguage();
+}
+
+// Quem chega de Espanha vê espanhol; fora da Península, inglês.
+function detectBrowserLanguage() {
+  const preferred = navigator.languages || [navigator.language || ""];
+
+  for (const entry of preferred) {
+    const code = String(entry).slice(0, 2).toLowerCase();
+    if (code === "pt") return "pt";
+    if (["es", "ca", "gl", "eu"].includes(code)) return "es";
+    if (code === "en") return "en";
+  }
+
+  return "en";
 }
 
 function getCurrentPage() {
@@ -557,6 +490,7 @@ function setupLanguageButtons() {
       }
 
       state.lang = nextLanguage;
+      updateLanguageInUrl();
       try {
         window.localStorage.setItem("mbmq-lang", nextLanguage);
       } catch (error) {
@@ -566,6 +500,14 @@ function setupLanguageButtons() {
       refreshPage();
     });
   });
+}
+
+function updateLanguageInUrl() {
+  const url = new URL(window.location.href);
+  if (url.searchParams.has("lang")) {
+    url.searchParams.set("lang", state.lang);
+    window.history.replaceState({}, "", url);
+  }
 }
 
 function initializeCatalogState() {
@@ -647,8 +589,13 @@ function applyTextContent() {
   const content = SITE_TEXT[state.lang];
   const page = getCurrentPage();
 
-  document.documentElement.lang = state.lang === "pt" ? "pt-PT" : "es";
+  document.documentElement.lang = HTML_LANG[state.lang];
   document.title = page === "catalog" ? content.pageTitleCatalog : content.pageTitleHome;
+
+  const description = document.querySelector('meta[name="description"]');
+  if (description) {
+    description.setAttribute("content", page === "catalog" ? content.pageDescCatalog : content.pageDescHome);
+  }
 
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.dataset.i18n;
@@ -661,6 +608,13 @@ function applyTextContent() {
     const key = node.dataset.i18nPlaceholder;
     if (content[key]) {
       node.setAttribute("placeholder", content[key]);
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-alt]").forEach((node) => {
+    const key = node.dataset.i18nAlt;
+    if (content[key]) {
+      node.setAttribute("alt", content[key]);
     }
   });
 
@@ -703,14 +657,11 @@ function renderHomeCollections() {
       const total = PRODUCTS.filter((product) => product.category === key).length;
 
       return `
-        <a class="collection-card" href="catalogo.html?categoria=${encodeURIComponent(key)}">
-          <img src="${escapeHtml(category.image)}" alt="${escapeHtml(translated.title)}" loading="lazy" decoding="async">
-          <div class="collection-body">
-            <span class="badge">${escapeHtml(translated.name)}</span>
-            <h3>${escapeHtml(translated.title)}</h3>
-            <p>${escapeHtml(translated.description)}</p>
-            <p class="collection-meta">${escapeHtml(formatModelCount(total, state.lang))} · ${escapeHtml(SITE_TEXT[state.lang].collectionCta)}</p>
-          </div>
+        <a class="line-row" href="catalogo.html?categoria=${encodeURIComponent(key)}">
+          <img src="${escapeHtml(category.image)}" alt="" width="112" height="112" loading="lazy" decoding="async">
+          <h3>${escapeHtml(translated.name)}</h3>
+          <p>${escapeHtml(translated.description)}</p>
+          <span class="line-count">${escapeHtml(formatReferenceCount(total, state.lang))}</span>
         </a>
       `;
     })
@@ -726,9 +677,8 @@ function renderHomePreview() {
   const featuredProducts = PRODUCTS.filter((product) => product.featured);
 
   container.innerHTML = featuredProducts
-    .map((product, i) => buildProductCard(product, state.lang, "home", i))
+    .map((product) => buildProductCard(product, state.lang))
     .join("");
-  observeRevealElements(container);
 }
 
 function renderCatalogFilters() {
@@ -784,18 +734,13 @@ function renderCatalogProducts() {
 
   const filteredProducts = getFilteredProducts();
   const total = filteredProducts.length;
-  const label = total === 1
-    ? SITE_TEXT[state.lang].catalogResultsSingular
-    : SITE_TEXT[state.lang].catalogResultsPlural;
-
-  resultsNode.textContent = `${total} ${label}`;
+  resultsNode.textContent = formatReferenceCount(total, state.lang);
   grid.innerHTML = filteredProducts
-    .map((product, i) => buildProductCard(product, state.lang, "catalog", i))
+    .map((product) => buildProductCard(product, state.lang))
     .join("");
 
   grid.hidden = total === 0;
   emptyState.hidden = total !== 0;
-  observeRevealElements(grid);
 
   if (resetButton) {
     const hasFilters = state.category !== "all" || state.search.trim() !== "";
@@ -822,8 +767,7 @@ function getFilteredProducts() {
       product.id,
       translated.name,
       translated.desc,
-      categoryName,
-      ...translated.highlights
+      categoryName
     ]
       .join(" ")
       .toLowerCase();
@@ -832,55 +776,38 @@ function getFilteredProducts() {
   });
 }
 
-function buildProductCard(product, lang, context, index = 0) {
+function buildProductCard(product, lang) {
   const translated = product[lang];
   const category = CATEGORY_META[product.category][lang];
-  const buttonLabel = context === "catalog"
-    ? SITE_TEXT[lang].catalogRequestButton
-    : SITE_TEXT[lang].previewCta;
 
   return `
-    <article class="product-card reveal" style="transition-delay: ${(index * 0.07).toFixed(2)}s">
+    <article class="product-card">
+      <div class="product-meta">
+        <span class="product-code">${escapeHtml(product.id)}</span>
+        <span>${escapeHtml(category.name)}</span>
+      </div>
       <div class="product-media">
-        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(translated.name)}" loading="lazy" decoding="async">
+        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(`${translated.name}: ${translated.desc}`)}" width="800" height="800" loading="lazy" decoding="async">
       </div>
-      <div class="product-body">
-        <div class="product-meta">
-          <span class="badge">${escapeHtml(category.name)}</span>
-          <span class="product-code">${escapeHtml(product.id)}</span>
-        </div>
-        <h3 class="product-title">${escapeHtml(translated.name)}</h3>
-        <p class="product-desc">${escapeHtml(translated.desc)}</p>
-        <ul class="product-points">
-          ${translated.highlights.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-        </ul>
-        <div class="product-footer">
-          <span class="product-availability">${escapeHtml(SITE_TEXT[lang].catalogAvailability)}</span>
-          <a class="button small" href="${buildWhatsappUrl(buildProductMessage(product, lang))}" target="_blank" rel="noopener">
-            ${escapeHtml(buttonLabel)}
-          </a>
-        </div>
-      </div>
+      <h3 class="product-title">${escapeHtml(translated.name)}</h3>
+      <p class="product-desc">${escapeHtml(translated.desc)}</p>
+      <a class="product-request" href="${buildWhatsappUrl(buildProductMessage(product, lang))}" target="_blank" rel="noopener">${escapeHtml(SITE_TEXT[lang].catalogRequestButton)}</a>
     </article>
   `;
 }
 
 function buildProductMessage(product, lang) {
-  const translated = product[lang];
-
-  if (lang === "es") {
-    return `Hola! Tengo una tienda y me gustaría recibir condiciones de reventa para el modelo ${translated.name} (${product.id}).`;
-  }
-
-  return `Olá! Tenho uma loja e gostava de receber condições de revenda para o modelo ${translated.name} (${product.id}).`;
+  return SITE_TEXT[lang].productWhatsappMessage
+    .replace("{name}", product[lang].name)
+    .replace("{id}", product.id);
 }
 
 function buildWhatsappUrl(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-function formatModelCount(total, lang) {
-  const noun = total === 1 ? SITE_TEXT[lang].modelSingular : SITE_TEXT[lang].modelPlural;
+function formatReferenceCount(total, lang) {
+  const noun = total === 1 ? SITE_TEXT[lang].referenceSingular : SITE_TEXT[lang].referencePlural;
   return `${total} ${noun}`;
 }
 
@@ -921,41 +848,4 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
-}
-
-let _revealObserver = null;
-
-function getRevealObserver() {
-  if (_revealObserver) return _revealObserver;
-  if (!("IntersectionObserver" in window)) return null;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return null;
-
-  _revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          _revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  return _revealObserver;
-}
-
-function observeRevealElements(container) {
-  const observer = getRevealObserver();
-  const scope = container || document;
-  if (!observer) {
-    scope.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
-    return;
-  }
-  scope.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => observer.observe(el));
-}
-
-function setupStaticReveal() {
-  document.querySelectorAll(".process-card").forEach((el) => el.classList.add("reveal"));
-  observeRevealElements(document.querySelector(".process-grid"));
 }
