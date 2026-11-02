@@ -43,9 +43,9 @@ const SITE_TEXT = {
     previewAll: "Ver todas as referências",
     processTitle: "Como encomendar",
     process1Title: "Escolha as referências",
-    process1Desc: "Consulte o catálogo e anote os modelos que fazem sentido para a sua loja ou rede. Cada um tem um código próprio, que simplifica o pedido.",
+    process1Desc: "Consulte o catálogo e junte à sua lista os modelos que fazem sentido para a sua loja ou rede. Cada um tem um código próprio, que simplifica o pedido.",
     process2Title: "Peça as condições",
-    process2Desc: "Envie-nos as referências e o país de destino por WhatsApp. Respondemos com as condições de revenda, os tamanhos disponíveis e os prazos.",
+    process2Desc: "Envie-nos a lista e o país de destino por WhatsApp, numa só mensagem. Respondemos com as condições de revenda, os tamanhos disponíveis e os prazos.",
     process3Title: "Confirme e receba",
     process3Desc: "Acertamos consigo as quantidades e o envio, e acompanhamos a encomenda diretamente, sem passar por terceiros.",
     aboutTitle: "De Guimarães, com confeção própria.",
@@ -76,21 +76,33 @@ const SITE_TEXT = {
     footerNote: "Roupa interior feminina fabricada em Portugal · Guimarães",
     noScript: "Ative o JavaScript para ver o catálogo completo e os filtros desta página.",
     catalogTitle: "Catálogo",
-    catalogLead: "As nossas referências, organizadas por linha. Filtre ou pesquise pelo código, e peça as condições de qualquer modelo diretamente por WhatsApp.",
+    catalogLead: "As nossas referências, organizadas por linha. Junte à sua lista os modelos que lhe interessam e peça as condições de todos numa só mensagem por WhatsApp.",
     catalogSearchLabel: "Pesquisar",
     catalogSearchPlaceholder: "Nome ou referência (ex.: MMQ-04)",
     catalogFilterLabel: "Linha",
     catalogResetFilters: "Limpar filtros",
     catalogEmptyTitle: "Nenhum modelo encontrado",
     catalogEmptyDesc: "Tente outro termo ou limpe os filtros para voltar a ver o catálogo completo.",
-    catalogRequestButton: "Pedir condições",
     catalogAvailability: "Tamanhos, composição e condições sob consulta",
     catalogAllFilter: "Todas",
     referenceSingular: "referência",
     referencePlural: "referências",
+    listAdd: "Adicionar à lista",
+    listAdded: "Na lista",
+    listAddAria: "Adicionar à lista: {item}",
+    listRemoveAria: "Remover da lista: {item}",
+    listRegion: "Lista de pedido",
+    listTitle: "A sua lista de pedido",
+    listHint: "Enviamos-lhe as condições destas referências por WhatsApp. Pedir condições não é fazer uma encomenda.",
+    listOpen: "Ver a lista",
+    listClose: "Fechar a lista",
+    listSend: "Enviar por WhatsApp",
+    listRemove: "Remover",
+    listClear: "Limpar a lista",
+    listMessageIntro: "Olá! Tenho uma loja e gostava de receber as condições de revenda destas referências:",
+    listMessageCountry: "País da loja:",
     genericWhatsappMessage: "Olá! Tenho interesse em revender a Malmequer bem me quer. Podem enviar-me as condições de revenda?",
-    catalogWhatsappMessage: "Olá! Estou a ver o catálogo da Malmequer bem me quer e gostava de receber as condições de revenda para alguns modelos.",
-    productWhatsappMessage: "Olá! Tenho uma loja e gostava de receber as condições de revenda para o modelo {name} ({id})."
+    catalogWhatsappMessage: "Olá! Estou a ver o catálogo da Malmequer bem me quer e gostava de receber as condições de revenda para alguns modelos."
   },
   es: {
     pageTitleHome: "Malmequer bem me quer | Fabricante de ropa interior femenina | Guimarães, Portugal",
@@ -132,9 +144,9 @@ const SITE_TEXT = {
     previewAll: "Ver todas las referencias",
     processTitle: "Cómo hacer un pedido",
     process1Title: "Elija las referencias",
-    process1Desc: "Consulte el catálogo y anote los modelos que encajan con su tienda o su red. Cada uno tiene un código propio, que simplifica el pedido.",
+    process1Desc: "Consulte el catálogo y añada a su lista los modelos que encajan con su tienda o su red. Cada uno tiene un código propio, que simplifica el pedido.",
     process2Title: "Pida las condiciones",
-    process2Desc: "Envíenos las referencias y el país de destino por WhatsApp. Le respondemos con las condiciones de reventa, las tallas disponibles y los plazos.",
+    process2Desc: "Envíenos la lista y el país de destino por WhatsApp, en un solo mensaje. Le respondemos con las condiciones de reventa, las tallas disponibles y los plazos.",
     process3Title: "Confirme y reciba",
     process3Desc: "Acordamos con usted las cantidades y el envío, y hacemos el seguimiento del pedido directamente, sin pasar por terceros.",
     aboutTitle: "De Guimarães, con confección propia.",
@@ -165,21 +177,33 @@ const SITE_TEXT = {
     footerNote: "Ropa interior femenina fabricada en Portugal · Guimarães",
     noScript: "Active JavaScript para ver el catálogo completo y los filtros de esta página.",
     catalogTitle: "Catálogo",
-    catalogLead: "Nuestras referencias, organizadas por línea. Filtre o busque por código, y pida las condiciones de cualquier modelo directamente por WhatsApp.",
+    catalogLead: "Nuestras referencias, organizadas por línea. Añada a su lista los modelos que le interesan y pida las condiciones de todos en un solo mensaje de WhatsApp.",
     catalogSearchLabel: "Buscar",
     catalogSearchPlaceholder: "Nombre o referencia (ej.: MMQ-04)",
     catalogFilterLabel: "Línea",
     catalogResetFilters: "Borrar filtros",
     catalogEmptyTitle: "No se ha encontrado ningún modelo",
     catalogEmptyDesc: "Pruebe otro término o borre los filtros para volver a ver el catálogo completo.",
-    catalogRequestButton: "Pedir condiciones",
     catalogAvailability: "Tallas, composición y condiciones bajo consulta",
     catalogAllFilter: "Todas",
     referenceSingular: "referencia",
     referencePlural: "referencias",
+    listAdd: "Añadir a la lista",
+    listAdded: "En la lista",
+    listAddAria: "Añadir a la lista: {item}",
+    listRemoveAria: "Quitar de la lista: {item}",
+    listRegion: "Lista de pedido",
+    listTitle: "Su lista de pedido",
+    listHint: "Le enviamos las condiciones de estas referencias por WhatsApp. Pedir condiciones no es hacer un pedido en firme.",
+    listOpen: "Ver la lista",
+    listClose: "Cerrar la lista",
+    listSend: "Enviar por WhatsApp",
+    listRemove: "Quitar",
+    listClear: "Vaciar la lista",
+    listMessageIntro: "¡Hola! Tengo una tienda y me gustaría recibir las condiciones de reventa de estas referencias:",
+    listMessageCountry: "País de la tienda:",
     genericWhatsappMessage: "¡Hola! Me interesa revender Malmequer bem me quer. ¿Pueden enviarme las condiciones de reventa?",
-    catalogWhatsappMessage: "¡Hola! Estoy viendo el catálogo de Malmequer bem me quer y me gustaría recibir las condiciones de reventa de algunos modelos.",
-    productWhatsappMessage: "¡Hola! Tengo una tienda y me gustaría recibir las condiciones de reventa del modelo {name} ({id})."
+    catalogWhatsappMessage: "¡Hola! Estoy viendo el catálogo de Malmequer bem me quer y me gustaría recibir las condiciones de reventa de algunos modelos."
   },
   en: {
     pageTitleHome: "Malmequer bem me quer | Women's underwear manufacturer | Guimarães, Portugal",
@@ -221,9 +245,9 @@ const SITE_TEXT = {
     previewAll: "See all references",
     processTitle: "How to order",
     process1Title: "Choose your references",
-    process1Desc: "Browse the catalogue and note the styles that suit your shop or network. Each has its own code, which keeps ordering simple.",
+    process1Desc: "Browse the catalogue and add the styles that suit your shop or network to your list. Each has its own code, which keeps ordering simple.",
     process2Title: "Ask for terms",
-    process2Desc: "Send us the references and destination country over WhatsApp. We reply with resale terms, available sizes and lead times.",
+    process2Desc: "Send us the list and destination country over WhatsApp, in a single message. We reply with resale terms, available sizes and lead times.",
     process3Title: "Confirm and receive",
     process3Desc: "We agree quantities and shipping with you, and follow up on the order directly, with no third parties involved.",
     aboutTitle: "From Guimarães, with our own production.",
@@ -254,21 +278,33 @@ const SITE_TEXT = {
     footerNote: "Women's underwear made in Portugal · Guimarães",
     noScript: "Turn on JavaScript to see the full catalogue and the filters on this page.",
     catalogTitle: "Catalogue",
-    catalogLead: "Our references, organised by line. Filter or search by code, and ask for terms on any style directly over WhatsApp.",
+    catalogLead: "Our references, organised by line. Add the styles that interest you to your list and ask for terms on all of them in a single WhatsApp message.",
     catalogSearchLabel: "Search",
     catalogSearchPlaceholder: "Name or reference (e.g. MMQ-04)",
     catalogFilterLabel: "Line",
     catalogResetFilters: "Clear filters",
     catalogEmptyTitle: "No styles found",
     catalogEmptyDesc: "Try another term or clear the filters to see the full catalogue again.",
-    catalogRequestButton: "Ask for terms",
     catalogAvailability: "Sizes, composition and terms on request",
     catalogAllFilter: "All",
     referenceSingular: "reference",
     referencePlural: "references",
+    listAdd: "Add to list",
+    listAdded: "On your list",
+    listAddAria: "Add to list: {item}",
+    listRemoveAria: "Remove from list: {item}",
+    listRegion: "Request list",
+    listTitle: "Your request list",
+    listHint: "We will send you terms for these references over WhatsApp. Asking for terms is not placing an order.",
+    listOpen: "View list",
+    listClose: "Close list",
+    listSend: "Send on WhatsApp",
+    listRemove: "Remove",
+    listClear: "Clear list",
+    listMessageIntro: "Hello! I have a shop and would like to receive resale terms for these references:",
+    listMessageCountry: "Shop country:",
     genericWhatsappMessage: "Hello! I am interested in reselling Malmequer bem me quer. Could you send me your resale terms?",
-    catalogWhatsappMessage: "Hello! I am looking at the Malmequer bem me quer catalogue and would like to receive resale terms for some styles.",
-    productWhatsappMessage: "Hello! I have a shop and would like to receive resale terms for the style {name} ({id})."
+    catalogWhatsappMessage: "Hello! I am looking at the Malmequer bem me quer catalogue and would like to receive resale terms for some styles."
   }
 };
 
@@ -395,13 +431,16 @@ const PRODUCTS = [
 const state = {
   lang: getInitialLanguage(),
   category: "all",
-  search: ""
+  search: "",
+  list: loadRequestList(),
+  listOpen: false
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   setupYear();
   setupWaistbands();
   setupFloatingWhatsapp();
+  setupRequestList();
   setupMenu();
   setupLanguageButtons();
   initializeCatalogState();
@@ -439,6 +478,26 @@ function detectBrowserLanguage() {
   }
 
   return "en";
+}
+
+// A lista guarda só códigos: não é um carrinho, não tem preços nem encomenda.
+function loadRequestList() {
+  try {
+    const stored = JSON.parse(window.localStorage.getItem("mbmq-list") || "[]");
+    return Array.isArray(stored)
+      ? stored.filter((id) => PRODUCTS.some((product) => product.id === id))
+      : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveRequestList() {
+  try {
+    window.localStorage.setItem("mbmq-list", JSON.stringify(state.list));
+  } catch (error) {
+    // Ignore localStorage issues: the list still works until the page closes.
+  }
 }
 
 function getCurrentPage() {
@@ -624,6 +683,7 @@ function refreshPage() {
   applyTextContent();
   updateGenericWhatsappLinks();
   updateLanguageButtons();
+  renderRequestBar();
 
   if (getCurrentPage() === "home") {
     renderHomeCollections();
@@ -842,15 +902,169 @@ function buildProductCard(product, lang) {
       </div>
       <h3 class="product-title">${escapeHtml(translated.name)}</h3>
       <p class="product-desc">${escapeHtml(translated.desc)}</p>
-      <a class="product-request" href="${buildWhatsappUrl(buildProductMessage(product, lang))}" target="_blank" rel="noopener">${escapeHtml(SITE_TEXT[lang].catalogRequestButton)}</a>
+      ${buildListButton(product, lang)}
     </article>
   `;
 }
 
-function buildProductMessage(product, lang) {
-  return SITE_TEXT[lang].productWhatsappMessage
-    .replace("{name}", product[lang].name)
-    .replace("{id}", product.id);
+function buildListButton(product, lang) {
+  const isAdded = state.list.includes(product.id);
+  const text = SITE_TEXT[lang];
+  const item = `${product[lang].name} (${product.id})`;
+  const aria = (isAdded ? text.listRemoveAria : text.listAddAria).replace("{item}", item);
+
+  return `
+    <button class="product-add${isAdded ? " is-added" : ""}" type="button" data-list-toggle="${escapeHtml(product.id)}" aria-label="${escapeHtml(aria)}">
+      ${escapeHtml(isAdded ? text.listAdded : text.listAdd)}
+    </button>
+  `;
+}
+
+function buildListMessage(lang) {
+  const text = SITE_TEXT[lang];
+  const lines = state.list.map((id) => {
+    const product = PRODUCTS.find((entry) => entry.id === id);
+    return `- ${id}: ${product[lang].name}`;
+  });
+
+  return `${text.listMessageIntro}\n${lines.join("\n")}\n\n${text.listMessageCountry} `;
+}
+
+function setupRequestList() {
+  document.addEventListener("click", (event) => {
+    const toggle = event.target.closest("[data-list-toggle]");
+    if (toggle) {
+      toggleListItem(toggle.dataset.listToggle);
+      return;
+    }
+
+    const remove = event.target.closest("[data-list-remove]");
+    if (remove) {
+      toggleListItem(remove.dataset.listRemove);
+      focusListControl();
+      return;
+    }
+
+    if (event.target.closest("#request-clear")) {
+      state.list = [];
+      state.listOpen = false;
+      saveRequestList();
+      syncRequestList();
+      return;
+    }
+
+    if (event.target.closest("#request-toggle")) {
+      state.listOpen = !state.listOpen;
+      renderRequestBar();
+      focusListControl();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && state.listOpen) {
+      state.listOpen = false;
+      renderRequestBar();
+      focusListControl();
+    }
+  });
+}
+
+function focusListControl() {
+  const control = document.getElementById("request-toggle");
+  if (control) {
+    control.focus();
+  }
+}
+
+function toggleListItem(id) {
+  state.list = state.list.includes(id)
+    ? state.list.filter((entry) => entry !== id)
+    : [...state.list, id];
+
+  if (!state.list.length) {
+    state.listOpen = false;
+  }
+
+  saveRequestList();
+  syncRequestList();
+}
+
+// Atualiza os botões no sítio, para não perder o foco nem recarregar as fotos.
+function syncRequestList() {
+  document.querySelectorAll("[data-list-toggle]").forEach((button) => {
+    const product = PRODUCTS.find((entry) => entry.id === button.dataset.listToggle);
+    const holder = document.createElement("div");
+    holder.innerHTML = buildListButton(product, state.lang);
+    const fresh = holder.firstElementChild;
+    button.className = fresh.className;
+    button.setAttribute("aria-label", fresh.getAttribute("aria-label"));
+    button.textContent = fresh.textContent.trim();
+  });
+
+  renderRequestBar();
+}
+
+function renderRequestBar() {
+  let bar = document.getElementById("request-bar");
+  if (!bar) {
+    bar = document.createElement("aside");
+    bar.id = "request-bar";
+    bar.className = "request-bar";
+    document.body.appendChild(bar);
+
+    // Fica fora da barra, que é redesenhada: só assim os leitores de ecrã anunciam a contagem.
+    const status = document.createElement("div");
+    status.id = "request-status";
+    status.className = "visually-hidden";
+    status.setAttribute("aria-live", "polite");
+    document.body.appendChild(status);
+  }
+
+  const total = state.list.length;
+  const text = SITE_TEXT[state.lang];
+  document.body.classList.toggle("has-request-list", total > 0);
+  bar.hidden = total === 0;
+  bar.setAttribute("aria-label", text.listRegion);
+  document.getElementById("request-status").textContent = total
+    ? `${text.listRegion}: ${formatReferenceCount(total, state.lang)}`
+    : "";
+
+  if (!total) {
+    bar.innerHTML = "";
+    return;
+  }
+
+  const items = state.list
+    .map((id) => {
+      const product = PRODUCTS.find((entry) => entry.id === id);
+      const item = `${product[state.lang].name} (${id})`;
+      return `
+        <li class="request-item">
+          <span class="request-code">${escapeHtml(id)}</span>
+          <span class="request-name">${escapeHtml(product[state.lang].name)}</span>
+          <button class="request-remove" type="button" data-list-remove="${escapeHtml(id)}" aria-label="${escapeHtml(text.listRemoveAria.replace("{item}", item))}">${escapeHtml(text.listRemove)}</button>
+        </li>
+      `;
+    })
+    .join("");
+
+  bar.innerHTML = `
+    <div class="request-panel" id="request-panel"${state.listOpen ? "" : " hidden"}>
+      <div class="request-panel-inner">
+        <h2 class="request-title">${escapeHtml(text.listTitle)}</h2>
+        <p class="request-hint">${escapeHtml(text.listHint)}</p>
+        <ul class="request-items">${items}</ul>
+        <button class="request-clear" id="request-clear" type="button">${escapeHtml(text.listClear)}</button>
+      </div>
+    </div>
+    <div class="request-row">
+      <button class="request-toggle" id="request-toggle" type="button" aria-expanded="${state.listOpen}" aria-controls="request-panel">
+        <span class="request-count">${escapeHtml(formatReferenceCount(total, state.lang))}</span>
+        <span class="request-toggle-label">${escapeHtml(state.listOpen ? text.listClose : text.listOpen)}</span>
+      </button>
+      <a class="request-send" href="${buildWhatsappUrl(buildListMessage(state.lang))}" target="_blank" rel="noopener">${escapeHtml(text.listSend)}</a>
+    </div>
+  `;
 }
 
 function buildWhatsappUrl(message) {
