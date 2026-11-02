@@ -230,7 +230,12 @@ ol {
   padding-block: 6px;
   font-weight: 500;
   text-decoration: none;
+  white-space: nowrap;
   border-bottom: 2px solid transparent;
+}
+
+.nav-panel .button {
+  white-space: nowrap;
 }
 
 .nav-link:hover,
@@ -972,6 +977,25 @@ ol {
   .about-visual img {
     aspect-ratio: 1;
     height: auto;
+  }
+}
+
+/* Em ecrãs médios fica só o logótipo, para o menu caber numa linha. */
+@media (min-width: 861px) and (max-width: 1180px) {
+  .brand-name {
+    display: none;
+  }
+
+  .header-inner {
+    gap: 16px;
+  }
+
+  .nav-panel {
+    gap: 18px;
+  }
+
+  .nav-links {
+    gap: 16px;
   }
 }
 
