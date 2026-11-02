@@ -1,0 +1,19 @@
+# GitHub Pages: o que fica de fora do site publicado.
+# As pastas e ficheiros começados por "_" ou "." já ficam de fora por omissão.
+exclude:
+  - CLAUDE.md
+  - tools
+  - img/01.jpeg
+  - img/02.jpeg
+  - img/03.jpeg
+  - img/ref-150.jpg
+  - catalogo/25/cueca1.jpeg
+  - catalogo/25/cueca2.jpeg
+  - catalogo/25/cueca3.jpeg
+  - catalogo/25/cueca4.jpeg
+  - catalogo/25/cueca5.jpeg
+  - catalogo/25/cueca6.jpeg
+  - catalogo/25/cueca7.jpeg
+  - catalogo/25/cueca8.jpeg
+  - catalogo/25/cueca9.jpeg
+  - catalogo/25/cueca10.jpeg

@@ -1,15 +1,16 @@
 const WHATSAPP_NUMBER = "351935521564";
 const SITE_LANGUAGES = ["pt", "es", "en"];
-const HTML_LANG = { pt: "pt-PT", es: "es", en: "en" };
 
 const SITE_TEXT = {
   pt: {
-    pageTitleHome: "Malmequer bem me quer | Fabricante de roupa interior feminina | Guimarães, Portugal",
-    pageTitleCatalog: "Catálogo | Malmequer bem me quer",
-    pageDescHome: "Empresa de Guimarães com confeção própria. Roupa interior feminina fabricada em Portugal para lojas e revendedores, com condições de revenda tratadas diretamente.",
-    pageDescCatalog: "Catálogo da Malmequer bem me quer para lojas e revendedores: roupa interior feminina fabricada em Portugal, em quatro linhas. Peça as condições de revenda.",
+    pageTitleHome: "Fabricante de cuecas e roupa interior feminina em Portugal | Malmequer bem me quer",
+    pageTitleCatalog: "Catálogo de cuecas e roupa interior feminina para revenda | Malmequer bem me quer",
+    pageDescHome: "Empresa de Guimarães com confeção própria. Cuecas e roupa interior feminina fabricadas em Portugal, para venda por grosso a lojas e revendedores.",
+    pageDescCatalog: "Catálogo de cuecas e roupa interior feminina fabricadas em Portugal, para venda por grosso. Quatro linhas para lojas e revendedores. Peça as condições.",
     skipContent: "Saltar para o conteúdo",
     languageLabel: "Seletor de idioma",
+    langHintClose: "Fechar",
+    langHint: "Ver esta página em português",
     navLabel: "Principal",
     navCatalog: "Catálogo",
     navOrder: "Como encomendar",
@@ -18,7 +19,7 @@ const SITE_TEXT = {
     logoAlt: "Logótipo da Malmequer bem me quer",
     heroKicker: "Guimarães, Portugal",
     homeHeroTitle: "Roupa interior feminina, direta da confeção.",
-    homeHeroDesc: "Somos uma empresa de Guimarães com confeção própria. Fabricamos em Portugal para lojas e revendedores, e tratamos cada pedido de revenda diretamente, sem intermediários.",
+    homeHeroDesc: "Somos uma empresa de Guimarães com confeção própria. Fabricamos cuecas de senhora em Portugal para lojas e revendedores, e vendemos por grosso, sem intermediários.",
     ctaCatalog: "Ver catálogo",
     ctaWhatsApp: "Pedir condições",
     fact1Label: "Origem",
@@ -74,9 +75,9 @@ const SITE_TEXT = {
     contactShipping: "Envios: Portugal e Espanha. Outros países sob consulta",
     contactPrimary: "Falar no WhatsApp",
     footerNote: "Roupa interior feminina fabricada em Portugal · Guimarães",
-    noScript: "Ative o JavaScript para ver o catálogo completo e os filtros desta página.",
+    noScript: "Ative o JavaScript para usar os filtros e a lista de pedido.",
     catalogTitle: "Catálogo",
-    catalogLead: "As nossas referências, organizadas por linha. Junte à sua lista os modelos que lhe interessam e peça as condições de todos numa só mensagem por WhatsApp.",
+    catalogLead: "As nossas cuecas e peças de roupa interior, organizadas por linha. Junte à sua lista os modelos que lhe interessam e peça as condições de venda por grosso numa só mensagem de WhatsApp.",
     catalogSearchLabel: "Pesquisar",
     catalogSearchPlaceholder: "Nome ou referência (ex.: MMQ-04)",
     catalogFilterLabel: "Linha",
@@ -105,12 +106,14 @@ const SITE_TEXT = {
     catalogWhatsappMessage: "Olá! Estou a ver o catálogo da Malmequer bem me quer e gostava de receber as condições de revenda para alguns modelos."
   },
   es: {
-    pageTitleHome: "Malmequer bem me quer | Fabricante de ropa interior femenina | Guimarães, Portugal",
-    pageTitleCatalog: "Catálogo | Malmequer bem me quer",
-    pageDescHome: "Empresa de Guimarães con confección propia. Ropa interior femenina fabricada en Portugal para tiendas y distribuidores, con condiciones de reventa tratadas directamente.",
-    pageDescCatalog: "Catálogo de Malmequer bem me quer para tiendas y distribuidores: ropa interior femenina fabricada en Portugal, en cuatro líneas. Pida las condiciones de reventa.",
+    pageTitleHome: "Fabricante de bragas y ropa interior femenina en Portugal | Malmequer bem me quer",
+    pageTitleCatalog: "Catálogo de bragas y ropa interior femenina al por mayor | Malmequer bem me quer",
+    pageDescHome: "Empresa de Guimarães con confección propia. Bragas y ropa interior femenina fabricadas en Portugal, al por mayor para tiendas y distribuidores.",
+    pageDescCatalog: "Catálogo de bragas y ropa interior femenina fabricadas en Portugal, al por mayor. Cuatro líneas para tiendas y distribuidores. Pida las condiciones.",
     skipContent: "Saltar al contenido",
     languageLabel: "Selector de idioma",
+    langHintClose: "Cerrar",
+    langHint: "Ver esta página en español",
     navLabel: "Principal",
     navCatalog: "Catálogo",
     navOrder: "Cómo hacer un pedido",
@@ -119,7 +122,7 @@ const SITE_TEXT = {
     logoAlt: "Logotipo de Malmequer bem me quer",
     heroKicker: "Guimarães, Portugal",
     homeHeroTitle: "Ropa interior femenina, directa de fábrica.",
-    homeHeroDesc: "Somos una empresa de Guimarães con confección propia. Fabricamos en Portugal para tiendas y distribuidores, y tratamos cada solicitud de reventa directamente, sin intermediarios.",
+    homeHeroDesc: "Somos una empresa de Guimarães con confección propia. Fabricamos bragas de mujer en Portugal para tiendas y distribuidores, y vendemos al por mayor, sin intermediarios.",
     ctaCatalog: "Ver catálogo",
     ctaWhatsApp: "Pedir condiciones",
     fact1Label: "Origen",
@@ -175,9 +178,9 @@ const SITE_TEXT = {
     contactShipping: "Envíos: Portugal y España. Otros países bajo consulta",
     contactPrimary: "Hablar por WhatsApp",
     footerNote: "Ropa interior femenina fabricada en Portugal · Guimarães",
-    noScript: "Active JavaScript para ver el catálogo completo y los filtros de esta página.",
+    noScript: "Active JavaScript para usar los filtros y la lista de pedido.",
     catalogTitle: "Catálogo",
-    catalogLead: "Nuestras referencias, organizadas por línea. Añada a su lista los modelos que le interesan y pida las condiciones de todos en un solo mensaje de WhatsApp.",
+    catalogLead: "Nuestras bragas y prendas de ropa interior, organizadas por línea. Añada a su lista los modelos que le interesan y pida las condiciones al por mayor en un solo mensaje de WhatsApp.",
     catalogSearchLabel: "Buscar",
     catalogSearchPlaceholder: "Nombre o referencia (ej.: MMQ-04)",
     catalogFilterLabel: "Línea",
@@ -206,12 +209,14 @@ const SITE_TEXT = {
     catalogWhatsappMessage: "¡Hola! Estoy viendo el catálogo de Malmequer bem me quer y me gustaría recibir las condiciones de reventa de algunos modelos."
   },
   en: {
-    pageTitleHome: "Malmequer bem me quer | Women's underwear manufacturer | Guimarães, Portugal",
-    pageTitleCatalog: "Catalogue | Malmequer bem me quer",
-    pageDescHome: "A company from Guimarães with its own production. Women's underwear made in Portugal for shops and resellers, with resale terms handled directly.",
-    pageDescCatalog: "Malmequer bem me quer catalogue for shops and resellers: women's underwear made in Portugal, in four lines. Ask for our resale terms.",
+    pageTitleHome: "Women's briefs and underwear manufacturer in Portugal | Malmequer bem me quer",
+    pageTitleCatalog: "Wholesale catalogue of women's briefs and underwear | Malmequer bem me quer",
+    pageDescHome: "A company from Guimarães with its own production. Women's briefs and underwear made in Portugal, sold wholesale to shops and resellers.",
+    pageDescCatalog: "Wholesale catalogue of women's briefs and underwear made in Portugal. Four lines for shops and resellers. Ask for our terms.",
     skipContent: "Skip to content",
     languageLabel: "Language selector",
+    langHintClose: "Close",
+    langHint: "See this page in English",
     navLabel: "Main",
     navCatalog: "Catalogue",
     navOrder: "How to order",
@@ -220,7 +225,7 @@ const SITE_TEXT = {
     logoAlt: "Malmequer bem me quer logo",
     heroKicker: "Guimarães, Portugal",
     homeHeroTitle: "Women's underwear, direct from the maker.",
-    homeHeroDesc: "We are a company from Guimarães with our own production. We manufacture in Portugal for shops and resellers, and handle every resale enquiry directly, with no middlemen.",
+    homeHeroDesc: "We are a company from Guimarães with our own production. We manufacture women's briefs in Portugal for shops and resellers, and sell wholesale, with no middlemen.",
     ctaCatalog: "View catalogue",
     ctaWhatsApp: "Ask for terms",
     fact1Label: "Origin",
@@ -276,9 +281,9 @@ const SITE_TEXT = {
     contactShipping: "Shipping: Portugal and Spain. Other countries on request",
     contactPrimary: "Message us on WhatsApp",
     footerNote: "Women's underwear made in Portugal · Guimarães",
-    noScript: "Turn on JavaScript to see the full catalogue and the filters on this page.",
+    noScript: "Turn on JavaScript to use the filters and the request list.",
     catalogTitle: "Catalogue",
-    catalogLead: "Our references, organised by line. Add the styles that interest you to your list and ask for terms on all of them in a single WhatsApp message.",
+    catalogLead: "Our briefs and underwear, organised by line. Add the styles that interest you to your list and ask for wholesale terms in a single WhatsApp message.",
     catalogSearchLabel: "Search",
     catalogSearchPlaceholder: "Name or reference (e.g. MMQ-04)",
     catalogFilterLabel: "Line",
@@ -437,36 +442,88 @@ const state = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  if (redirectLegacyLanguageUrl()) {
+    return;
+  }
+
   setupYear();
   setupWaistbands();
   setupFloatingWhatsapp();
   setupRequestList();
   setupMenu();
-  setupLanguageButtons();
   initializeCatalogState();
   refreshPage();
   setupCatalogControls();
+  setupLanguageHint();
 });
 
 function getInitialLanguage() {
-  const fromUrl = new URL(window.location.href).searchParams.get("lang");
-  if (SITE_LANGUAGES.includes(fromUrl)) {
-    return fromUrl;
-  }
-
-  try {
-    const stored = window.localStorage.getItem("mbmq-lang");
-    if (SITE_LANGUAGES.includes(stored)) {
-      return stored;
-    }
-  } catch (error) {
-    // Ignore localStorage issues and keep the default language.
-  }
-
-  return detectBrowserLanguage();
+  return document.documentElement.dataset.lang || "pt";
 }
 
-// Quem chega de Espanha vê espanhol; fora da Península, inglês.
+// Links antigos com ?lang=es passam para a página própria do idioma.
+function redirectLegacyLanguageUrl() {
+  const url = new URL(window.location.href);
+  const requested = url.searchParams.get("lang");
+  const link = document.querySelector(`[data-lang-link="${requested}"]`);
+
+  if (!link || !SITE_LANGUAGES.includes(requested) || requested === state.lang) {
+    return false;
+  }
+
+  url.searchParams.delete("lang");
+  window.location.replace(`${link.href}${url.search}${url.hash}`);
+  return true;
+}
+
+function assetUrl(path) {
+  return `${document.body.dataset.base || ""}${path}`;
+}
+
+// Nunca muda o idioma sozinho: o Google tem de encontrar cada versão. Sugere, com um link.
+function setupLanguageHint() {
+  const suggested = detectBrowserLanguage();
+  const link = document.querySelector(`[data-lang-link="${suggested}"]`);
+  let dismissed = false;
+  const rememberChoice = () => {
+    try {
+      window.localStorage.setItem("mbmq-lang-hint", "1");
+    } catch (error) {
+      // Ignore localStorage issues: the suggestion returns on the next page.
+    }
+  };
+
+  // Quem escolhe um idioma já decidiu: a sugestão não volta a aparecer.
+  document.querySelectorAll("[data-lang-link]").forEach((entry) => {
+    entry.addEventListener("click", rememberChoice);
+  });
+
+  try {
+    dismissed = window.localStorage.getItem("mbmq-lang-hint") === "1";
+  } catch (error) {
+    // Ignore localStorage issues and keep showing the suggestion.
+  }
+
+  if (suggested === state.lang || dismissed || !link) {
+    return;
+  }
+
+  const text = SITE_TEXT[suggested];
+  const hint = document.createElement("div");
+  hint.className = "lang-hint";
+  hint.lang = suggested;
+  hint.innerHTML = `
+    <a href="${escapeHtml(link.getAttribute("href"))}" hreflang="${suggested}">${escapeHtml(text.langHint)}</a>
+    <button type="button" aria-label="${escapeHtml(text.langHintClose)}">&times;</button>
+  `;
+  hint.querySelector("a").addEventListener("click", rememberChoice);
+  hint.querySelector("button").addEventListener("click", () => {
+    hint.remove();
+    rememberChoice();
+  });
+  document.querySelector(".site-header").after(hint);
+}
+
 function detectBrowserLanguage() {
   const preferred = navigator.languages || [navigator.language || ""];
 
@@ -591,35 +648,6 @@ function setupMenu() {
   });
 }
 
-function setupLanguageButtons() {
-  document.querySelectorAll("[data-lang]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const nextLanguage = button.dataset.lang;
-      if (!nextLanguage || nextLanguage === state.lang) {
-        return;
-      }
-
-      state.lang = nextLanguage;
-      updateLanguageInUrl();
-      try {
-        window.localStorage.setItem("mbmq-lang", nextLanguage);
-      } catch (error) {
-        // Ignore localStorage issues and continue.
-      }
-
-      refreshPage();
-    });
-  });
-}
-
-function updateLanguageInUrl() {
-  const url = new URL(window.location.href);
-  if (url.searchParams.has("lang")) {
-    url.searchParams.set("lang", state.lang);
-    window.history.replaceState({}, "", url);
-  }
-}
-
 function initializeCatalogState() {
   if (getCurrentPage() !== "catalog") {
     return;
@@ -680,115 +708,36 @@ function clearCatalogFilters() {
 }
 
 function refreshPage() {
-  applyTextContent();
-  updateGenericWhatsappLinks();
-  updateLanguageButtons();
-  renderRequestBar();
-
-  if (getCurrentPage() === "home") {
-    renderHomeCollections();
-    renderHomePreview();
-  }
-
   if (getCurrentPage() === "catalog") {
     renderCatalogFilters();
     renderCatalogProducts();
   }
+
+  syncRequestList();
 }
 
-function applyTextContent() {
-  const content = SITE_TEXT[state.lang];
-  const page = getCurrentPage();
-
-  document.documentElement.lang = HTML_LANG[state.lang];
-  document.title = page === "catalog" ? content.pageTitleCatalog : content.pageTitleHome;
-
-  const description = document.querySelector('meta[name="description"]');
-  if (description) {
-    description.setAttribute("content", page === "catalog" ? content.pageDescCatalog : content.pageDescHome);
-  }
-
-  document.querySelectorAll("[data-i18n]").forEach((node) => {
-    const key = node.dataset.i18n;
-    if (content[key]) {
-      node.textContent = content[key];
-    }
-  });
-
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
-    const key = node.dataset.i18nPlaceholder;
-    if (content[key]) {
-      node.setAttribute("placeholder", content[key]);
-    }
-  });
-
-  document.querySelectorAll("[data-i18n-alt]").forEach((node) => {
-    const key = node.dataset.i18nAlt;
-    if (content[key]) {
-      node.setAttribute("alt", content[key]);
-    }
-  });
-
-  document.querySelectorAll("[data-i18n-aria]").forEach((node) => {
-    const key = node.dataset.i18nAria;
-    if (content[key]) {
-      node.setAttribute("aria-label", content[key]);
-    }
-  });
-}
-
-function updateLanguageButtons() {
-  document.querySelectorAll("[data-lang]").forEach((button) => {
-    const isActive = button.dataset.lang === state.lang;
-    button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  });
-}
-
-
-function updateGenericWhatsappLinks() {
-  document.querySelectorAll(".js-whatsapp-generic").forEach((link) => {
-    const messageKey = link.dataset.whatsappContext === "catalog"
-      ? "catalogWhatsappMessage"
-      : "genericWhatsappMessage";
-
-    link.setAttribute("href", buildWhatsappUrl(SITE_TEXT[state.lang][messageKey]));
-  });
-}
-
-function renderHomeCollections() {
-  const container = document.getElementById("home-collections");
-  if (!container) {
-    return;
-  }
-
-  container.innerHTML = Object.entries(CATEGORY_META)
+// As duas funções seguintes só são usadas por tools/build-pages.js, ao gerar as páginas.
+function buildHomeCollections(lang) {
+  return Object.entries(CATEGORY_META)
     .map(([key, category]) => {
-      const translated = category[state.lang];
+      const translated = category[lang];
       const total = PRODUCTS.filter((product) => product.category === key).length;
 
       return `
         <a class="line-row" href="catalogo.html?categoria=${encodeURIComponent(key)}">
-          <img src="${escapeHtml(category.image)}" alt="" width="112" height="112" loading="lazy" decoding="async">
+          <img src="${escapeHtml(assetUrl(category.image))}" alt="" width="112" height="112" loading="lazy" decoding="async">
           <h3>${escapeHtml(translated.name)}</h3>
           <p>${escapeHtml(translated.description)}</p>
-          <span class="line-count">${escapeHtml(formatReferenceCount(total, state.lang))}</span>
+          <span class="line-count">${escapeHtml(formatReferenceCount(total, lang))}</span>
         </a>
       `;
     })
     .join("");
 }
 
-function renderHomePreview() {
-  const container = document.getElementById("home-preview");
-  if (!container) {
-    return;
-  }
-
-  const featuredProducts = PRODUCTS.filter((product) => product.featured);
-
-  container.innerHTML = featuredProducts
-    .map((product) => buildProductCard(product, state.lang))
+function buildHomePreview(lang) {
+  return PRODUCTS.filter((product) => product.featured)
+    .map((product) => buildProductCard(product, lang))
     .join("");
 }
 
@@ -798,29 +747,7 @@ function renderCatalogFilters() {
     return;
   }
 
-  const entries = [
-    {
-      key: "all",
-      label: SITE_TEXT[state.lang].catalogAllFilter,
-      count: PRODUCTS.length
-    },
-    ...Object.entries(CATEGORY_META).map(([key, category]) => ({
-      key,
-      label: category[state.lang].name,
-      count: PRODUCTS.filter((product) => product.category === key).length
-    }))
-  ];
-
-  container.innerHTML = entries
-    .map((entry) => {
-      const isActive = entry.key === state.category;
-      return `
-        <button class="filter-chip${isActive ? " is-active" : ""}" type="button" data-filter="${escapeHtml(entry.key)}" aria-pressed="${isActive}">
-          ${escapeHtml(entry.label)} (${entry.count})
-        </button>
-      `;
-    })
-    .join("");
+  container.innerHTML = buildCatalogFilters(state.lang, state.category);
 
   container.querySelectorAll("[data-filter]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -831,6 +758,32 @@ function renderCatalogFilters() {
       renderCatalogProducts();
     });
   });
+}
+
+function buildCatalogFilters(lang, activeCategory) {
+  const entries = [
+    {
+      key: "all",
+      label: SITE_TEXT[lang].catalogAllFilter,
+      count: PRODUCTS.length
+    },
+    ...Object.entries(CATEGORY_META).map(([key, category]) => ({
+      key,
+      label: category[lang].name,
+      count: PRODUCTS.filter((product) => product.category === key).length
+    }))
+  ];
+
+  return entries
+    .map((entry) => {
+      const isActive = entry.key === activeCategory;
+      return `
+        <button class="filter-chip${isActive ? " is-active" : ""}" type="button" data-filter="${escapeHtml(entry.key)}" aria-pressed="${isActive}">
+          ${escapeHtml(entry.label)} (${entry.count})
+        </button>
+      `;
+    })
+    .join("");
 }
 
 function renderCatalogProducts() {
@@ -898,7 +851,7 @@ function buildProductCard(product, lang) {
         <span>${escapeHtml(category.name)}</span>
       </div>
       <div class="product-media">
-        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(`${translated.name}: ${translated.desc}`)}" width="800" height="800" loading="lazy" decoding="async">
+        <img src="${escapeHtml(assetUrl(product.image))}" alt="${escapeHtml(`${translated.name}: ${translated.desc}`)}" width="800" height="800" loading="lazy" decoding="async">
       </div>
       <h3 class="product-title">${escapeHtml(translated.name)}</h3>
       <p class="product-desc">${escapeHtml(translated.desc)}</p>

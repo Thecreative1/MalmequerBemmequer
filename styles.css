@@ -268,16 +268,17 @@ ol {
 }
 
 .lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 44px;
   min-height: 44px;
-  border: 0;
   border-radius: 999px;
   background: transparent;
   color: var(--ink);
-  font: inherit;
   font-size: 15px;
   font-weight: 500;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .lang-btn.is-active {
@@ -302,6 +303,36 @@ ol {
   width: 24px;
   height: 2px;
   background: var(--ink);
+}
+
+/* Sugestão de idioma: nunca muda a página sozinha. */
+
+.lang-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px var(--gutter) 2px;
+  background: var(--pink);
+}
+
+.lang-hint a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+.lang-hint button {
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 22px;
+  cursor: pointer;
 }
 
 /* Topo */
