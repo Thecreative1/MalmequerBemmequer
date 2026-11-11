@@ -81,6 +81,7 @@ function buildHead(language, page, text) {
       url: SITE_URL,
       logo: `${SITE_URL}mmqbmq.png`,
       description: text[page.descKey],
+      founder: { "@type": "Person", name: "Jorge Mendes" },
       telephone: "+351935521564",
       address: { "@type": "PostalAddress", addressLocality: "Guimarães", addressCountry: "PT" },
       areaServed: ["PT", "ES"],
