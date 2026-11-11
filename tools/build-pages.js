@@ -9,7 +9,7 @@ const vm = require("vm");
 const ROOT = path.resolve(__dirname, "..");
 
 // Se o site ganhar domínio próprio, basta mudar aqui e voltar a gerar.
-const SITE_URL = "https://thecreative1.github.io/MalmequerBemmequer/";
+const SITE_URL = "https://malmequerintimo.pt/";
 
 const LANGUAGES = [
   { code: "pt", dir: "", htmlLang: "pt-PT", locale: "pt_PT", base: "" },
@@ -130,6 +130,14 @@ function applyText(html, text, whatsappUrl) {
     });
 }
 
+// Os modelos têm blocos <!--ready--> (catálogo publicado) e <!--building--> (catálogo em construção).
+function pickBlocks(html, catalogReady) {
+  const [keep, drop] = catalogReady ? ["ready", "building"] : ["building", "ready"];
+  return html
+    .replace(new RegExp(`[ \\t]*<!--${drop}-->[\\s\\S]*?<!--/${drop}-->\\n?`, "g"), "")
+    .replace(new RegExp(`[ \\t]*<!--/?${keep}-->\\n?`, "g"), "");
+}
+
 function fill(html, id, content) {
   const pattern = new RegExp(`(id="${id}"[^>]*>)[^<]*`);
   if (!pattern.test(html)) {
@@ -142,10 +150,12 @@ function buildPage(site, language, page) {
   site.useLanguage(language);
   const code = JSON.stringify(language.code);
   const text = site.run(`SITE_TEXT[${code}]`);
-  const whatsappUrl = (context) => site.run(`buildWhatsappUrl(SITE_TEXT[${code}][${JSON.stringify(context === "catalog" ? "catalogWhatsappMessage" : "genericWhatsappMessage")}])`);
+  const catalogReady = site.run("CATALOG_READY");
+  const catalogMessage = catalogReady ? "catalogWhatsappMessage" : "catalogBuildingWhatsappMessage";
+  const whatsappUrl = (context) => site.run(`buildWhatsappUrl(SITE_TEXT[${code}][${JSON.stringify(context === "catalog" ? catalogMessage : "genericWhatsappMessage")}])`);
 
   let html = fs.readFileSync(path.join(ROOT, "_templates", page.template), "utf8").replace(/\r\n/g, "\n");
-  html = html
+  html = pickBlocks(html, catalogReady)
     .replaceAll("{{htmlLang}}", language.htmlLang)
     .replaceAll("{{lang}}", language.code)
     .replaceAll("{{base}}", language.base)
@@ -155,7 +165,11 @@ function buildPage(site, language, page) {
 
   if (page.template === "index.html") {
     html = fill(html, "home-collections", site.run(`buildHomeCollections(${code})`));
-    html = fill(html, "home-preview", site.run(`buildHomePreview(${code})`));
+    if (catalogReady) {
+      html = fill(html, "home-preview", site.run(`buildHomePreview(${code})`));
+    }
+  } else if (!catalogReady) {
+    html = fill(html, "catalog-lines", site.run(`buildHomeCollections(${code})`));
   } else {
     html = fill(html, "category-filters", site.run(`buildCatalogFilters(${code}, "all")`));
     html = fill(html, "catalog-grid", site.run(`PRODUCTS.map((product) => buildProductCard(product, ${code})).join("")`));

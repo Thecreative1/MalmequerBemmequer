@@ -550,6 +550,15 @@ ol {
   white-space: nowrap;
 }
 
+/* Aviso de catálogo em construção */
+
+.building-note p {
+  max-width: 54ch;
+  margin-block: 20px 28px;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
 /* Produtos */
 
 .product-grid {

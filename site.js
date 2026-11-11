@@ -1,6 +1,10 @@
 const WHATSAPP_NUMBER = "351935521564";
 const SITE_LANGUAGES = ["pt", "es", "en"];
 
+// Enquanto for false, o site diz "catálogo em construção": sem modelos, filtros nem lista de pedido.
+// Quando o catálogo estiver pronto, passar a true e voltar a gerar (node tools/build-pages.js).
+const CATALOG_READY = false;
+
 const SITE_TEXT = {
   pt: {
     pageTitleHome: "Fabricante de cuecas e roupa interior feminina em Portugal | Malmequer bem me quer",
@@ -103,7 +107,14 @@ const SITE_TEXT = {
     listMessageIntro: "Olá! Tenho uma loja e gostava de receber as condições de revenda destas referências:",
     listMessageCountry: "País da loja:",
     genericWhatsappMessage: "Olá! Tenho interesse em revender a Malmequer bem me quer. Podem enviar-me as condições de revenda?",
-    catalogWhatsappMessage: "Olá! Estou a ver o catálogo da Malmequer bem me quer e gostava de receber as condições de revenda para alguns modelos."
+    catalogWhatsappMessage: "Olá! Estou a ver o catálogo da Malmequer bem me quer e gostava de receber as condições de revenda para alguns modelos.",
+    buildingTitle: "Catálogo em construção",
+    buildingDesc: "Estamos a preparar o catálogo online. Entretanto, contacte-nos pelo WhatsApp para receber o catálogo ou falar de encomendas para a sua loja.",
+    buildingCta: "Pedir o catálogo",
+    process1BuildingTitle: "Peça o catálogo",
+    process1BuildingDesc: "O catálogo online está em construção. Fale connosco pelo WhatsApp e enviamos-lhe os modelos, cada um com o seu código, que simplifica o pedido.",
+    process2BuildingDesc: "Indique-nos as referências que lhe interessam e o país de destino por WhatsApp. Respondemos com as condições de revenda, os tamanhos disponíveis e os prazos.",
+    catalogBuildingWhatsappMessage: "Olá! Tenho uma loja e gostava de receber o catálogo da Malmequer bem me quer e as condições de revenda."
   },
   es: {
     pageTitleHome: "Fabricante de bragas y ropa interior femenina en Portugal | Malmequer bem me quer",
@@ -206,7 +217,14 @@ const SITE_TEXT = {
     listMessageIntro: "¡Hola! Tengo una tienda y me gustaría recibir las condiciones de reventa de estas referencias:",
     listMessageCountry: "País de la tienda:",
     genericWhatsappMessage: "¡Hola! Me interesa revender Malmequer bem me quer. ¿Pueden enviarme las condiciones de reventa?",
-    catalogWhatsappMessage: "¡Hola! Estoy viendo el catálogo de Malmequer bem me quer y me gustaría recibir las condiciones de reventa de algunos modelos."
+    catalogWhatsappMessage: "¡Hola! Estoy viendo el catálogo de Malmequer bem me quer y me gustaría recibir las condiciones de reventa de algunos modelos.",
+    buildingTitle: "Catálogo en construcción",
+    buildingDesc: "Estamos preparando el catálogo online. Mientras tanto, contáctenos por WhatsApp para recibir el catálogo o hablar de pedidos para su tienda.",
+    buildingCta: "Pedir el catálogo",
+    process1BuildingTitle: "Pida el catálogo",
+    process1BuildingDesc: "El catálogo online está en construcción. Escríbanos por WhatsApp y le enviamos los modelos, cada uno con su código, que simplifica el pedido.",
+    process2BuildingDesc: "Indíquenos las referencias que le interesan y el país de destino por WhatsApp. Le respondemos con las condiciones de reventa, las tallas disponibles y los plazos.",
+    catalogBuildingWhatsappMessage: "¡Hola! Tengo una tienda y me gustaría recibir el catálogo de Malmequer bem me quer y las condiciones de reventa."
   },
   en: {
     pageTitleHome: "Women's briefs and underwear manufacturer in Portugal | Malmequer bem me quer",
@@ -309,7 +327,14 @@ const SITE_TEXT = {
     listMessageIntro: "Hello! I have a shop and would like to receive resale terms for these references:",
     listMessageCountry: "Shop country:",
     genericWhatsappMessage: "Hello! I am interested in reselling Malmequer bem me quer. Could you send me your resale terms?",
-    catalogWhatsappMessage: "Hello! I am looking at the Malmequer bem me quer catalogue and would like to receive resale terms for some styles."
+    catalogWhatsappMessage: "Hello! I am looking at the Malmequer bem me quer catalogue and would like to receive resale terms for some styles.",
+    buildingTitle: "Catalogue in progress",
+    buildingDesc: "We are preparing the online catalogue. In the meantime, contact us on WhatsApp to receive the catalogue or discuss orders for your shop.",
+    buildingCta: "Ask for the catalogue",
+    process1BuildingTitle: "Ask for the catalogue",
+    process1BuildingDesc: "The online catalogue is in progress. Message us on WhatsApp and we will send you the styles, each with its own code, which keeps ordering simple.",
+    process2BuildingDesc: "Tell us which references interest you and the destination country over WhatsApp. We reply with resale terms, available sizes and lead times.",
+    catalogBuildingWhatsappMessage: "Hello! I have a shop and would like to receive the Malmequer bem me quer catalogue and your resale terms."
   }
 };
 
@@ -539,6 +564,10 @@ function detectBrowserLanguage() {
 
 // A lista guarda só códigos: não é um carrinho, não tem preços nem encomenda.
 function loadRequestList() {
+  if (!CATALOG_READY) {
+    return [];
+  }
+
   try {
     const stored = JSON.parse(window.localStorage.getItem("mbmq-list") || "[]");
     return Array.isArray(stored)
@@ -722,12 +751,21 @@ function buildHomeCollections(lang) {
     .map(([key, category]) => {
       const translated = category[lang];
       const total = PRODUCTS.filter((product) => product.category === key).length;
-
-      return `
-        <a class="line-row" href="catalogo.html?categoria=${encodeURIComponent(key)}">
+      const content = `
           <img src="${escapeHtml(assetUrl(category.image))}" alt="" width="112" height="112" loading="lazy" decoding="async">
           <h3>${escapeHtml(translated.name)}</h3>
-          <p>${escapeHtml(translated.description)}</p>
+          <p>${escapeHtml(translated.description)}</p>`;
+
+      // Com o catálogo em construção, a linha só se apresenta: não leva a lado nenhum.
+      if (!CATALOG_READY) {
+        return `
+        <div class="line-row">${content}
+        </div>
+      `;
+      }
+
+      return `
+        <a class="line-row" href="catalogo.html?categoria=${encodeURIComponent(key)}">${content}
           <span class="line-count">${escapeHtml(formatReferenceCount(total, lang))}</span>
         </a>
       `;

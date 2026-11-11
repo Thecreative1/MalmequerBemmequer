@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thecreative1.github.io/MalmequerBemmequer/sitemap.xml
+Sitemap: https://malmequerintimo.pt/sitemap.xml
