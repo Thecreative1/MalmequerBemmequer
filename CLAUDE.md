@@ -64,7 +64,7 @@ O visual é o de um fabricante: **o rosa vem do logotipo e funde-se com ele; o r
 ## Armadilhas conhecidas
 
 - **Catálogo em construção**: enquanto `CATALOG_READY` em `site.js` for `false`, o site não mostra modelos, filtros nem lista de pedido; mostra o aviso e encaminha para o WhatsApp. Os modelos têm blocos `<!--ready-->` e `<!--building-->`, e o gerador fica só com os do modo ativo. Para publicar o catálogo: passar a `true` e voltar a gerar.
-- `googlee5f53c7884dc1364.html` é a verificação do Google Search Console: não apagar nem editar.
+- `googlee5f53c7884dc1364.html` e `BingSiteAuth.xml` são as verificações do Google Search Console e do Bing Webmaster Tools: não apagar nem editar.
 
 - `catalogo/25/cueca*.jpeg` e `img/01.jpeg`, `02.jpeg`, `03.jpeg`, `ref-150.jpg` são os originais, já não usados pelas páginas. As imagens publicadas são `catalogo/25/tratadas/` e `img/modelo-*.jpg`, com menos de 160 KB cada; não adicionar imagens sem otimizar.
 - Os metadados (Open Graph, `canonical`, `hreflang`, JSON-LD, sitemap) usam URLs absolutos: se o site ganhar domínio próprio, mudar `SITE_URL` em `tools/build-pages.js` e voltar a gerar. O `robots.txt` só tem efeito na raiz de um domínio próprio.
