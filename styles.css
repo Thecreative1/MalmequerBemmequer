@@ -60,6 +60,14 @@ a {
   color: inherit;
 }
 
+/* Toque: sem atraso de duplo toque e com um realce da cor da tinta. */
+a,
+button,
+summary {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(63, 18, 41, 0.12);
+}
+
 h1,
 h2,
 h3,
@@ -67,6 +75,17 @@ p,
 ul,
 ol {
   margin: 0;
+}
+
+/* Títulos sem uma palavra sozinha na última linha; parágrafos sem viúvas. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 :focus-visible {
@@ -451,6 +470,11 @@ ol {
 .wall-item {
   overflow: hidden;
   background: var(--photo);
+}
+
+.wall-item picture,
+.about-visual picture {
+  display: contents;
 }
 
 .wall-item img {
@@ -1205,6 +1229,31 @@ body.has-request-list .floating-whatsapp {
   text-align: center;
 }
 
+/* Página não encontrada: os três idiomas, um por linha. */
+
+.not-found {
+  padding: 0;
+  list-style: none;
+  border-top: var(--stitch);
+}
+
+.not-found li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 32px;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.not-found h2 {
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.15;
+}
+
 /* Movimento: só ao passar o rato, nunca ao ler. */
 
 .wall-item img,
@@ -1238,7 +1287,7 @@ body.has-request-list .floating-whatsapp {
     border-bottom-color: var(--ink);
   }
 
-  .line-row:hover {
+  a.line-row:hover {
     background: var(--paper);
   }
 
@@ -1260,11 +1309,11 @@ body.has-request-list .floating-whatsapp {
     transform: scale(1.04);
   }
 
-  .line-row:hover img {
+  a.line-row:hover img {
     transform: scale(1.08);
   }
 
-  .line-row:hover h3 {
+  a.line-row:hover h3 {
     transform: translateX(6px);
   }
 
@@ -1640,8 +1689,8 @@ body.has-request-list .floating-whatsapp {
 
   .wall-item:hover img,
   .product-card:hover .product-media img,
-  .line-row:hover img,
-  .line-row:hover h3,
+  a.line-row:hover img,
+  a.line-row:hover h3,
   .floating-whatsapp:hover {
     transform: none;
   }

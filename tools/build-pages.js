@@ -182,6 +182,23 @@ function buildPage(site, language, page) {
   return html;
 }
 
+// Uma só página para os três idiomas: o GitHub Pages serve-a em qualquer endereço em falta,
+// por isso os caminhos são absolutos e a página fica fora do Google.
+function buildNotFound(site) {
+  const rows = LANGUAGES.map((language) => {
+    const text = site.run(`SITE_TEXT[${JSON.stringify(language.code)}]`);
+    return `<li lang="${language.htmlLang}">
+          <h2>${escapeHtml(text.notFoundTitle)}</h2>
+          <a class="text-link" href="/${language.dir}" hreflang="${language.code}">${escapeHtml(text.notFoundCta)}</a>
+        </li>`;
+  }).join("\n        ");
+  const html = fs.readFileSync(path.join(ROOT, "_templates", "404.html"), "utf8").replace(/\r\n/g, "\n").replace("{{rows}}", () => rows);
+  if (html.includes("{{")) {
+    throw new Error("Marcas por substituir em 404.html");
+  }
+  return html;
+}
+
 function buildSitemap() {
   const urls = PAGES.flatMap((page) =>
     LANGUAGES.map((language) => {
@@ -209,5 +226,6 @@ for (const language of LANGUAGES) {
     write(`${language.dir}${page.template}`, buildPage(site, language, page));
   }
 }
+write("404.html", buildNotFound(site));
 write("sitemap.xml", buildSitemap());
 write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}sitemap.xml\n`);

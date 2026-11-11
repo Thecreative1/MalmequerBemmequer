@@ -63,6 +63,8 @@ O visual é o de um fabricante: **o rosa vem do logotipo e funde-se com ele; o r
 
 ## Armadilhas conhecidas
 
+- As fotos vestidas (`img/modelo-*.jpg`) têm versões WebP (`.webp` com 1000 px e `-600.webp`), servidas por `<picture>` em `_templates/index.html`. Ao trocar uma foto, gerar também as duas WebP com o mesmo nome.
+- `_templates/404.html` gera uma só página 404 para os três idiomas (o GitHub Pages serve-a em qualquer endereço em falta): caminhos absolutos e `noindex`.
 - **Catálogo em construção**: enquanto `CATALOG_READY` em `site.js` for `false`, o site não mostra modelos, filtros nem lista de pedido; mostra o aviso e encaminha para o WhatsApp. Os modelos têm blocos `<!--ready-->` e `<!--building-->`, e o gerador fica só com os do modo ativo. Para publicar o catálogo: passar a `true` e voltar a gerar.
 - `googlee5f53c7884dc1364.html` e `BingSiteAuth.xml` são as verificações do Google Search Console e do Bing Webmaster Tools: não apagar nem editar.
 
