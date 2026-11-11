@@ -371,6 +371,7 @@ p {
 
 .hero-kicker {
   margin-bottom: 20px;
+  text-wrap: balance;
   font-size: 17px;
   font-weight: 600;
 }
