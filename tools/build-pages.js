@@ -80,10 +80,31 @@ function buildHead(language, page, text) {
       name: "Malmequer bem me quer",
       url: SITE_URL,
       logo: `${SITE_URL}mmqbmq.png`,
+      description: text[page.descKey],
       telephone: "+351935521564",
-      address: { "@type": "PostalAddress", addressLocality: "Guimarães", addressCountry: "PT" }
+      address: { "@type": "PostalAddress", addressLocality: "Guimarães", addressCountry: "PT" },
+      areaServed: ["PT", "ES"],
+      knowsLanguage: ["pt", "es", "en"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+351935521564",
+        contactType: "sales",
+        areaServed: ["PT", "ES"],
+        availableLanguage: ["pt", "es", "en"]
+      }
     };
     lines.push(`<script type="application/ld+json">${JSON.stringify(organization)}</script>`);
+
+    // As perguntas frequentes da página, para os motores de busca e assistentes as lerem como tal.
+    const questions = Object.keys(text)
+      .filter((key) => /^faq\d+Q$/.test(key))
+      .map((key) => ({
+        "@type": "Question",
+        name: text[key],
+        acceptedAnswer: { "@type": "Answer", text: text[key.replace(/Q$/, "A")] }
+      }));
+    const faq = { "@context": "https://schema.org", "@type": "FAQPage", inLanguage: language.htmlLang, mainEntity: questions };
+    lines.push(`<script type="application/ld+json">${JSON.stringify(faq)}</script>`);
   }
 
   return lines.join("\n  ");
@@ -200,13 +221,14 @@ function buildNotFound(site) {
 }
 
 function buildSitemap() {
+  const today = new Date().toISOString().slice(0, 10);
   const urls = PAGES.flatMap((page) =>
     LANGUAGES.map((language) => {
       const alternates = [
         ...LANGUAGES.map((entry) => `    <xhtml:link rel="alternate" hreflang="${entry.code}" href="${pageUrl(entry, page)}"/>`),
         `    <xhtml:link rel="alternate" hreflang="x-default" href="${pageUrl(LANGUAGES[2], page)}"/>`
       ].join("\n");
-      return `  <url>\n    <loc>${pageUrl(language, page)}</loc>\n${alternates}\n  </url>`;
+      return `  <url>\n    <loc>${pageUrl(language, page)}</loc>\n    <lastmod>${today}</lastmod>\n${alternates}\n  </url>`;
     })
   );
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join("\n")}\n</urlset>\n`;
