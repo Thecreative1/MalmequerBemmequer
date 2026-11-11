@@ -340,25 +340,25 @@ const SITE_TEXT = {
 
 const CATEGORY_META = {
   essentials: {
-    image: "catalogo/25/tratadas/mmq-01.jpg",
+    image: "img/linha-essenciais.jpg",
     pt: { name: "Essenciais", description: "Modelos lisos, de linhas simples e tons neutros. A base de qualquer oferta de roupa interior." },
     es: { name: "Esenciales", description: "Modelos lisos, de líneas sencillas y tonos neutros. La base de cualquier oferta de ropa interior." },
     en: { name: "Essentials", description: "Plain styles with simple lines and neutral tones. The foundation of any underwear range." }
   },
   lace: {
-    image: "catalogo/25/tratadas/mmq-09.jpg",
+    image: "img/linha-renda.jpg",
     pt: { name: "Renda", description: "Acabamentos mais trabalhados, para completar a oferta com peças de maior detalhe." },
     es: { name: "Encaje", description: "Acabados más elaborados, para completar la oferta con piezas de mayor detalle." },
     en: { name: "Lace", description: "More detailed finishes, to round out the range with finer pieces." }
   },
   maxi: {
-    image: "catalogo/25/tratadas/mmq-04.jpg",
+    image: "img/linha-maxi.jpg",
     pt: { name: "Maxi", description: "Cintura alta e maior cobertura, para a clientela que prefere um corte mais subido." },
     es: { name: "Maxi", description: "Talle alto y mayor cobertura, para la clientela que prefiere un corte más alto." },
     en: { name: "Maxi", description: "High waist and fuller coverage, for customers who prefer a higher cut." }
   },
   prints: {
-    image: "catalogo/25/tratadas/mmq-06.jpg",
+    image: "img/linha-estampadas.jpg",
     pt: { name: "Estampadas", description: "Pequenos estampados florais sobre fundos neutros, para dar variedade à oferta sem perder discrição." },
     es: { name: "Estampadas", description: "Pequeños estampados florales sobre fondos neutros, para dar variedad a la oferta sin perder discreción." },
     en: { name: "Prints", description: "Small floral prints on neutral grounds, to add variety to the range while staying understated." }
