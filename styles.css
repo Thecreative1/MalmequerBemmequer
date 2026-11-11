@@ -21,7 +21,7 @@
   --font: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
   --gutter: clamp(16px, 4vw, 48px);
   --content-max: 1360px;
-  --space-section: clamp(64px, 9vw, 128px);
+  --space-section: clamp(48px, 6vw, 88px);
   --stitch: 2px dashed var(--ink);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -531,6 +531,15 @@ p {
   color: var(--muted);
 }
 
+@media (min-width: 961px) {
+  .reasons-layout > .section-title,
+  .faq-layout > .section-title {
+    position: sticky;
+    top: 112px;
+    align-self: start;
+  }
+}
+
 /* Linhas de produto */
 
 .lines-section {
@@ -577,9 +586,17 @@ p {
 
 /* Aviso de catálogo em construção */
 
+.building-note {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: start;
+  gap: 20px clamp(32px, 6vw, 96px);
+  padding-bottom: 0;
+}
+
 .building-note p {
   max-width: 54ch;
-  margin-block: 20px 28px;
+  margin-bottom: 24px;
   font-size: 19px;
   line-height: 1.45;
 }
@@ -821,7 +838,7 @@ p {
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   align-items: end;
   gap: 32px clamp(32px, 6vw, 96px);
-  padding-block: clamp(56px, 8vw, 104px);
+  padding-block: clamp(48px, 6vw, 88px);
 }
 
 .contact h2 {
@@ -1359,6 +1376,7 @@ body.has-request-list .floating-whatsapp {
 
   .reasons-layout,
   .faq-layout,
+  .building-note,
   .contact-inner {
     grid-template-columns: minmax(0, 1fr);
   }
