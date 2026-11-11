@@ -58,7 +58,7 @@ O visual é o de um fabricante: **o rosa vem do logotipo e funde-se com ele; o r
 - Letra (Google Fonts): **Schibsted Grotesk** em tudo.
 - Assinatura ("o cós", aprovada em novembro de 2026): vem da própria peça. Recorte em picô do elástico nas orlas rosa, faixa `.waistband` com "malmequer / bem me quer" como no cós real (só o nome da marca, por isso não se traduz), referências `MMQ-NN` como etiqueta cosida e costura tracejada (`--stitch`) a abrir as secções.
 - Convenções: filetes em vez de cartões, sem rotações, margaridas decorativas, emojis ou animações de entrada. Movimento só ao passar o rato. Sem travessões (—) nos textos.
-- Fotos: uma foto de catálogo é a peça real, recortada e endireitada em fundo uniforme. As peças vestidas são fotos com mulher (`img/modelo-*.jpg`), sem etiquetas grandes nem marcas de água: o dono do projeto prefere-as a manequim. Não usar simulações de tecido sobre o corpo: testadas, notava-se que eram falsas.
+- Fotos: uma foto de catálogo é a peça real, recortada e endireitada em fundo uniforme. As peças vestidas são fotos com mulher (`img/modelo-*.jpg`), sem etiquetas grandes nem marcas de água: o dono do projeto prefere-as a manequim. Não usar simulações de tecido sobre o corpo: testadas, notava-se que eram falsas. Exceção aprovada pelo dono do projeto (novembro de 2026): `img/modelo-estampada.jpg`, na secção "A empresa", é uma imagem gerada de modelo com a foto real da MMQ-07 deformada por cima (tecido, cós e etiqueta verdadeiros). Novas composições deste tipo só com aprovação dele.
 - Acessibilidade já implementada e a preservar: skip-link, `aria-expanded`/`aria-pressed`, `prefers-reduced-motion` desativa as transições, fallbacks para JS desligado (`<noscript>`, FAQ em `<details>` nativo).
 
 ## Armadilhas conhecidas
