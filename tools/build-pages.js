@@ -77,6 +77,7 @@ function buildHead(language, page, text) {
     const organization = {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": `${SITE_URL}#organization`,
       name: "Malmequer bem me quer",
       url: SITE_URL,
       logo: `${SITE_URL}mmqbmq.png`,
@@ -95,6 +96,18 @@ function buildHead(language, page, text) {
       }
     };
     lines.push(`<script type="application/ld+json">${JSON.stringify(organization)}</script>`);
+
+    // O nome do site que o Google mostra nos resultados, em vez do domínio.
+    const website = {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${SITE_URL}#website`,
+      name: "Malmequer bem me quer",
+      url: SITE_URL,
+      inLanguage: LANGUAGES.map((entry) => entry.htmlLang),
+      publisher: { "@id": `${SITE_URL}#organization` }
+    };
+    lines.push(`<script type="application/ld+json">${JSON.stringify(website)}</script>`);
 
     // As perguntas frequentes da página, para os motores de busca e assistentes as lerem como tal.
     const questions = Object.keys(text)
@@ -221,15 +234,29 @@ function buildNotFound(site) {
   return html;
 }
 
-function buildSitemap() {
-  const today = new Date().toISOString().slice(0, 10);
+function readFile(relativePath) {
+  const target = path.join(ROOT, relativePath);
+  return fs.existsSync(target) ? fs.readFileSync(target, "utf8").replace(/\r\n/g, "\n") : null;
+}
+
+// Datas do sitemap anterior, para cada endereço guardar a data da última alteração real.
+function readLastmods() {
+  const dates = new Map();
+  for (const [, loc, date] of (readFile("sitemap.xml") || "").matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)) {
+    dates.set(loc, date);
+  }
+  return dates;
+}
+
+function buildSitemap(lastmods) {
   const urls = PAGES.flatMap((page) =>
     LANGUAGES.map((language) => {
+      const lastmod = lastmods.get(pageUrl(language, page));
       const alternates = [
         ...LANGUAGES.map((entry) => `    <xhtml:link rel="alternate" hreflang="${entry.code}" href="${pageUrl(entry, page)}"/>`),
         `    <xhtml:link rel="alternate" hreflang="x-default" href="${pageUrl(LANGUAGES[2], page)}"/>`
       ].join("\n");
-      return `  <url>\n    <loc>${pageUrl(language, page)}</loc>\n    <lastmod>${today}</lastmod>\n${alternates}\n  </url>`;
+      return `  <url>\n    <loc>${pageUrl(language, page)}</loc>\n    <lastmod>${lastmod}</lastmod>\n${alternates}\n  </url>`;
     })
   );
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join("\n")}\n</urlset>\n`;
@@ -243,12 +270,20 @@ function write(relativePath, content) {
 }
 
 const site = loadSite();
+const today = new Date().toISOString().slice(0, 10);
+const lastmods = readLastmods();
 console.log("Gerado:");
 for (const language of LANGUAGES) {
   for (const page of PAGES) {
-    write(`${language.dir}${page.template}`, buildPage(site, language, page));
+    const file = `${language.dir}${page.template}`;
+    const html = buildPage(site, language, page);
+    // Só uma página que mudou (ou nova) ganha a data de hoje no sitemap.
+    if (html !== readFile(file) || !lastmods.has(pageUrl(language, page))) {
+      lastmods.set(pageUrl(language, page), today);
+    }
+    write(file, html);
   }
 }
 write("404.html", buildNotFound(site));
-write("sitemap.xml", buildSitemap());
+write("sitemap.xml", buildSitemap(lastmods));
 write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}sitemap.xml\n`);
